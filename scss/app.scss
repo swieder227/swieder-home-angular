@@ -1,1 +1,37 @@
-@import "nav";
+html{
+	font-size: 10px;
+	font-family: 'Roboto', sans-serif;
+}
+
+@import "header";
+@import "main";
+
+
+
+.warning {
+	background-color: gold;
+	color: #555;
+	padding:0.5rem;
+	border-bottom: 1px solid goldenrod;
+	font-size: 1.25rem;
+	position: absolute;
+	width: 100%;
+	opacity: 0.75;
+
+	-moz-transition: -webkit-transform 1s 0s ease;
+	-webkit-transition: -webkit-transform 1s 0s ease;
+	transition: transform 1s 0s ease;
+
+	-webkit-transform:translateY(-110%);
+	-moz-transform:translateY(-110%);
+	transform:translateY(-110%);
+
+	&.show{
+		-webkit-transform:translateY(0%);
+		-moz-transform:translateY(0%);
+		transform:translateY(0%);
+	}
+}
+
+
+
