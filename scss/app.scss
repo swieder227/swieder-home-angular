@@ -4,7 +4,7 @@ html{
 }
 
 @import "header";
-@import "main";
+@import "homepage";
 
 
 
@@ -17,14 +17,14 @@ html{
 	position: absolute;
 	width: 100%;
 	opacity: 0.75;
-
+	bottom:0;
 	-moz-transition: -webkit-transform 1s 0s ease;
 	-webkit-transition: -webkit-transform 1s 0s ease;
 	transition: transform 1s 0s ease;
 
-	-webkit-transform:translateY(-110%);
-	-moz-transform:translateY(-110%);
-	transform:translateY(-110%);
+	-webkit-transform:translateY(110%);
+	-moz-transform:translateY(110%);
+	transform:translateY(110%);
 
 	&.show{
 		-webkit-transform:translateY(0%);
