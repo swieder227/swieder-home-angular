@@ -179,32 +179,19 @@ nav {
 /* line 5, ../scss/_homepage.scss */
 main {
   position: absolute;
-  top: 7rem;
+  top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+  margin-top: 7rem;
   -moz-transition: opacity 1s 0s ease;
   -webkit-transition: opacity 1s 0s ease;
   transition: opacity 1s 0s ease;
-  overflow: auto;
-}
-
-/* line 17, ../scss/_homepage.scss */
-.rgbR {
-  color: #e51c23;
-}
-
-/* line 18, ../scss/_homepage.scss */
-.rgbG {
-  color: #259b24;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 /* line 19, ../scss/_homepage.scss */
-.rgbB {
-  color: #3f51b5;
-}
-
-/* line 21, ../scss/_homepage.scss */
 .beauty {
   display: -webkit-box;
   display: flex;
@@ -214,39 +201,65 @@ main {
   justify-content: center;
   -webkit-box-orient: vertical;
   flex-direction: column;
-  padding: 2.5rem 0;
+  padding: 7.5rem 0;
   border-bottom: 1px solid black;
-  background-repeat: repeat;
+  background-color: #130f04;
+  position: relative;
+  margin-bottom: 4rem;
 }
 
-/* line 32, ../scss/_homepage.scss */
+/* line 31, ../scss/_homepage.scss */
 .beauty > p {
-  font-family: 'Roboto Slab';
-  font-size: 3.5rem;
-  -moz-transition: font-size 1s 0s ease;
-  -webkit-transition: font-size 1s 0s ease;
-  transition: font-size 1s 0s ease;
+  font-size: 3rem;
+  font-weight: 300;
+  line-height: 4rem;
+  -moz-transition: font-size 0.5s 0s ease;
+  -webkit-transition: font-size 0.5s 0s ease;
+  transition: font-size 0.5s 0s ease;
+  color: #b9b9b9;
 }
 @media screen and (max-width: 690px) {
-  /* line 32, ../scss/_homepage.scss */
+  /* line 31, ../scss/_homepage.scss */
   .beauty > p {
     font-size: 2.5rem;
   }
 }
 @media screen and (max-width: 600px) {
-  /* line 32, ../scss/_homepage.scss */
+  /* line 31, ../scss/_homepage.scss */
   .beauty > p {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 }
 
-/* line 48, ../scss/_homepage.scss */
-.beauty:first-child {
-  background-color: #333;
-  color: white;
+/* line 49, ../scss/_homepage.scss */
+.beauty > p > em {
+  font-weight: 700;
+  color: #fff;
 }
 
-/* line 56, ../scss/_homepage.scss */
+/* line 54, ../scss/_homepage.scss */
+.center {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+/* line 63, ../scss/_homepage.scss */
+.center .cta {
+  background: #fff;
+  display: inline-block;
+  padding: 1rem;
+  position: relative;
+  top: 1.5rem;
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 10px #222;
+}
+
+/* line 75, ../scss/_homepage.scss */
 .skillset {
   width: 33.3333%;
   box-sizing: border-box;
@@ -255,8 +268,8 @@ main {
   position: relative;
   margin-top: 2rem;
 }
-@media screen and (max-width: 600px) {
-  /* line 56, ../scss/_homepage.scss */
+@media screen and (max-width: 690px) {
+  /* line 75, ../scss/_homepage.scss */
   .skillset {
     float: none;
     width: 100%;
@@ -264,19 +277,57 @@ main {
   }
 }
 
-/* line 71, ../scss/_homepage.scss */
+/* line 90, ../scss/_homepage.scss */
+.skillset:nth-child(1) .fa-circle, .skillset:nth-child(1) h3 {
+  color: #e51c23;
+}
+
+/* line 91, ../scss/_homepage.scss */
+.skillset:nth-child(2) .fa-circle, .skillset:nth-child(2) h3 {
+  color: #259b24;
+}
+
+/* line 92, ../scss/_homepage.scss */
+.skillset:nth-child(3) .fa-circle, .skillset:nth-child(3) h3 {
+  color: #3f51b5;
+}
+
+/* line 94, ../scss/_homepage.scss */
 h3 {
   font-size: 2rem;
-  font-family: 'Roboto Slab';
-}
-
-/* line 76, ../scss/_homepage.scss */
-.skillset .fa {
-  font-size: 3rem;
+  font-family: 'Roboto';
   padding: 1rem;
+  font-weight: 300;
 }
 
-/* line 82, ../scss/_homepage.scss */
+/* line 101, ../scss/_homepage.scss */
+h4 {
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  line-height: 2rem;
+  max-width: 85%;
+  margin: 0 auto;
+  min-height: 6rem;
+  font-weight: 100;
+}
+
+/* line 112, ../scss/_homepage.scss */
+.skillset ul {
+  width: 50%;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  list-style-type: disc;
+  padding: 0.5rem 0;
+}
+
+/* line 123, ../scss/_homepage.scss */
+.skillset .fa-stack .fa:last-child {
+  color: white;
+}
+
+/* line 128, ../scss/_homepage.scss */
 .skillset:first-child:after,
 .skillset:nth-child(2):after {
   content: '';
@@ -284,17 +335,17 @@ h3 {
   width: 1px;
   background-color: #aaa;
 }
-@media screen and (min-width: 600px) {
-  /* line 82, ../scss/_homepage.scss */
+@media screen and (min-width: 690px) {
+  /* line 128, ../scss/_homepage.scss */
   .skillset:first-child:after,
   .skillset:nth-child(2):after {
-    height: 50%;
-    top: 25%;
+    height: 80%;
+    top: 15%;
     left: 100%;
   }
 }
-@media screen and (max-width: 600px) {
-  /* line 82, ../scss/_homepage.scss */
+@media screen and (max-width: 690px) {
+  /* line 128, ../scss/_homepage.scss */
   .skillset:first-child:after,
   .skillset:nth-child(2):after {
     width: 60%;
@@ -302,6 +353,12 @@ h3 {
     bottom: 0;
     height: 1px;
   }
+}
+
+/* line 147, ../scss/_homepage.scss */
+.fa-code-fork {
+  position: relative;
+  left: 2px;
 }
 
 /* line 11, ../scss/app.scss */
@@ -312,8 +369,9 @@ h3 {
   border-bottom: 1px solid goldenrod;
   font-size: 1.25rem;
   position: absolute;
-  width: 100%;
   opacity: 0.75;
+  left: 0;
+  right: 0;
   bottom: 0;
   -moz-transition: -webkit-transform 1s 0s ease;
   -webkit-transition: -webkit-transform 1s 0s ease;
@@ -322,7 +380,7 @@ h3 {
   -moz-transform: translateY(110%);
   transform: translateY(110%);
 }
-/* line 29, ../scss/app.scss */
+/* line 30, ../scss/app.scss */
 .warning.show {
   -webkit-transform: translateY(0%);
   -moz-transform: translateY(0%);
