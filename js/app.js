@@ -1,4 +1,5 @@
 $( document ).ready(function() {
+
   $(".menuBtn").on("click",function(){
   	$("#rwd-menu").toggleClass("expanded");
   });
@@ -6,4 +7,5 @@ $( document ).ready(function() {
   window.setTimeout(function(){
   	$(".warning").addClass("show");
   },1000);
+
 });
