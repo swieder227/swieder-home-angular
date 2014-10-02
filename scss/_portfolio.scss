@@ -1,33 +1,39 @@
 .portfolioCard {
 	height: auto;
-	width: 48.5%;
-	margin-top: 1rem;
+	width: 98%;
+	margin: 1rem 1% 0;
 	box-sizing:border-box;
 	border: 1px solid #b5b5b5;
 	box-shadow: 0 0 6px rgba(0,0,0,0.5);
 	border-radius: 5px;
 	overflow: hidden;
-	float:left;
-}
-
-.portfolioCard:nth-child(odd){
-	margin-left: 1%;
-	margin-right: 0.5%;
-}
-.portfolioCard:nth-child(even){
-	margin-left: 0.5%;
-	margin-right: 1%;
-}
-
-.pcBeauty {
-	height: 25rem;
-	border-bottom:1px solid #b5b5b5;
-	overflow: hidden;
+	// float:left;
 	position: relative;
-	cursor: pointer;
 }
 
-.pcBeautyImg{
+// .portfolioCard:nth-child(odd){
+// 	margin-left: 1%;
+// 	margin-right: 0.5%;
+// }
+// .portfolioCard:nth-child(even){
+// 	margin-left: 0.5%;
+// 	margin-right: 1%;
+// }
+
+.pcHero{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	@include transition(max-height 0.8s 0 ease-out);
+	max-height: 100%;
+	overflow: hidden;
+	border-radius: 4px 4px 0 0;
+	z-index: 100;
+}
+
+.pcHeroImg{
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -36,48 +42,134 @@
 	background-position: center center;
 	background-size: cover;
 	background-repeat: no-repeat;
-	position: relative;
-	@include transition(transform 0.5s ease 0);
-	@include transform(scale(1));
+	@include transition(transform 0.3s 0 ease-out);
 }
-.portfolioCard[data-pc-name="mi"] .pcBeautyImg {
-	background-image: url(../img/portfolio/mi_beauty.png);
-}
-.pcBeauty:hover .pcBeautyImg{
-	@include transform(scale(1.1));
-}
-.pcBeautyImgCurtain {
+
+
+
+
+.pcHeroCurtain{
 	position: absolute;
-	width: 100%;
-	height: 100%;
 	top: 0;
 	left: 0;
-	z-index: 5;
+	width: 100%;
+	height: 100%;
 	background-color: black;
-	opacity: 0.6;
-	@include transition(opacity 0.5s ease 0);
+	opacity: 0.5;
+	@include transition(opacity 0.3s ease 0);
+}
+.pcHero:hover .pcHeroCurtain{
+	opacity: 0.3;
+}
 
-	.pcBeauty:hover &{
-		opacity: 0.3;
+// 	.pcBeauty:hover &{
+// 		opacity: 0.3;
+// 	}
+.pcBlock {
+	height: 25rem;
+	border-bottom:1px solid #b5b5b5;
+	overflow: hidden;
+	position: relative;
+	cursor: pointer;
+}
+
+.pcShowMore{
+	position: absolute;
+	top: 1rem;
+	left: 1rem;
+	color: white;
+	text-shadow: 0 0 2px black;
+
+	div:first-child{
+		@include transition(transform 0.3s 0 ease);
+		float: left;
+		font-size: 3rem;
+		cursor:pointer;
+	}
+	div:last-child{
+		@include transition(opacity 0.3s 0 ease);
+		margin-left: 1rem;
+		float: left;
+		font-size: 1.5rem;
+		line-height: 3rem;
+	}
+
+}
+
+@for $i from 0 through 10 {
+	// Shrink active hero img
+	#body[data-pc-index="#{$i}"] .portfolioCard[data-pc-index="#{$i}"] .pcHero{
+		max-height: 25rem;
+	}
+	//Hover over non-active pcHero
+	#body:not([data-pc-index="#{$i}"]) .portfolioCard[data-pc-index="#{$i}"] .pcHero:hover .pcHeroImg{
+		@include transform(scale(1.05));
+	}
+	//Rotate active pcShowMore +
+	#body[data-pc-index="#{$i}"] .portfolioCard[data-pc-index="#{$i}"] .pcShowMore > div:first-child{
+		@include transform(rotate(45deg));
+	}
+	//Hide active pcShowMore text
+	#body[data-pc-index="#{$i}"] .portfolioCard[data-pc-index="#{$i}"] .pcShowMore > div:last-child{
+		opacity: 0;
+	}
+	//Animate-out active curtain
+	#body[data-pc-index="#{$i}"] .portfolioCard[data-pc-index="#{$i}"] .pcHeroCurtain{
+		opacity: 0;
 	}
 }
 
-.pcBeauty > p {
-	position: absolute;
-	bottom: 1rem;
-	left: 1rem;
-	color: white;
-	z-index: 10;
-	font-family: 'Roboto Slab';
-	font-size: 3.5rem;
-}
+
+// .pcBeautyImg{
+// 	position: absolute;
+// 	top: 0;
+// 	left: 0;
+// 	width: 100%;
+// 	height: 100%;
+// 	background-position: center center;
+// 	background-size: cover;
+// 	background-repeat: no-repeat;
+// 	position: relative;
+// 	@include transition(transform 0.5s ease 0);
+// 	@include transform(scale(1));
+// }
+// .portfolioCard[data-pc-name="mi"] .pcBeautyImg {
+// 	background-image: url(../img/portfolio/mi_beauty.png);
+// }
+// .pcBeauty:hover .pcBeautyImg{
+// 	@include transform(scale(1.1));
+// }
+// .pcBeautyImgCurtain {
+// 	position: absolute;
+// 	width: 100%;
+// 	height: 100%;
+// 	top: 0;
+// 	left: 0;
+// 	z-index: 5;
+// 	background-color: black;
+// 	opacity: 0.6;
+// 	@include transition(opacity 0.5s ease 0);
+
+// 	.pcBeauty:hover &{
+// 		opacity: 0.3;
+// 	}
+// }
+
+// .pcBeauty > p {
+// 	position: absolute;
+// 	bottom: 1rem;
+// 	left: 1rem;
+// 	color: white;
+// 	z-index: 10;
+// 	font-family: 'Roboto Slab';
+// 	font-size: 3.5rem;
+// }
 
 .pcBody {
 	font-size: 1.5rem;
 	line-height: 2.2rem;
 	color: #444444;
-	padding: 1.25rem 2rem 1.25rem 1.25rem;
-	height: 7rem;
+	padding: 1.25rem 2rem 1.55rem 1.25rem;
 }
 
 .pcTags {
@@ -92,7 +184,7 @@
 	));
 }
 
-.pctag{
+.pcTag{
 	height: 6rem;
 	width: 6rem;
 	border: 1px solid #b5b5b5;
@@ -103,13 +195,13 @@
 	background-repeat: no-repeat;
 }
 
-.pctag.ux {
+.pcTag.ux {
 	background-image: url(../img/tag_ux.png);
 }
-.pctag.psd {
+.pcTag.psd {
 	background-image: url(../img/tag_psd.png);
 }
-.pctag.ai {
+.pcTag.ai {
 	background-image: url(../img/tag_ai.png);
 }
 
@@ -130,4 +222,13 @@
 	font-weight: bold;
 	padding: 2rem;
 	color: #777;
+}
+
+
+.thanks{
+	text-align: center;
+	font-weight: bold;
+	margin: 5rem auto;
+	color: #585858;
+	font-family: "Roboto slab";
 }

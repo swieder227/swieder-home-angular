@@ -8,4 +8,18 @@ $( document ).ready(function() {
   	$(".warning").addClass("show");
   },1000);
 
+  $(".pcHero").on("mouseup",function(){
+  	var target = $(this).attr("data-pc-index");
+  	if($("#body").attr("data-pc-index") != target)
+  		$("#body").attr("data-pc-index",target);
+  	else
+  		$("#body").attr("data-pc-index","-1");
+  });
+
+});
+
+var app = angular.module('SW',[]);
+app.controller('SceneController', function(){
+	  this.portfolioCards=portfolioData.portfolioCards;
+
 });

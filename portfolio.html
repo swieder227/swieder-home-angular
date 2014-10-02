@@ -1,20 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="SW">
 <head>
 	<meta name="viewport" content="width=device-width, user-scalable=no">
 	<title>Seth&apos;s Dev, Design &amp; UX Portfolio</title>
 	<link href="img/favico.png" type="image/png" rel="icon">
-	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,700' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400' rel='stylesheet' type='text/css'>
 	<link href="css/reset.css" rel="stylesheet" type="text/css">
-	<link href="css/font-awesome.css" rel="stylesheet" type="text/css">
+<!-- 	<link href="css/font-awesome.css" rel="stylesheet" type="text/css"> -->
 	<link href="css/app.css" rel="stylesheet" type="text/css">
 	<script src="js/zepto.dev.js" type="text/javascript"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
 	<script src="js/app.js" type="text/javascript"></script>
+	<script src="js/data.js" type="text/javascript"></script>
 </head>
 <body>
 
-<div id="body">
+<div id="body" data-pc-index="-1">
 
 	<header>
 		<div id="logo"></div>
@@ -23,7 +25,7 @@
 			<p>Creative Technologist</p>
 		</div>
 		<nav>
-			<p class="navBtn">HOME</p>
+			<a href="index.html"><p class="navBtn">HOME</p></a>
 			<p class="navBtn">PORTFOLIO</p>
 			<p class="navBtn">ABOUT</p>
 			<div class="menuBtn">
@@ -32,73 +34,52 @@
 		</nav>
 	</header>
 	<div id="rwd-menu">
-		<p class="rwdMenuBtn">HOME</p>
+		<a href="index.html"><p class="rwdMenuBtn">HOME</p></a>
 		<p class="rwdMenuBtn">PORTFOLIO</p>
 		<p class="rwdMenuBtn">ABOUT</p>
 	</div>
 	<main>
-		<div class="portfolioCard" data-pc-name="mi">
-			<div class="pcBeauty">
-				<div class="pcBeautyImg"></div>
-				<div class="pcBeautyImgCurtain"></div>
-				<p>Mobile App Design</p></div>
+		<!-- <div class="portfolioCard" data-pc-name="mi" data-pc-index="1">
+			<div class="pcHero" data-pc-index="1">
+				<div class="pcHeroImg"></div>
+				<div class="pcHeroCurtain"></div>
+				<div class="pcShowMore">
+					<div>+</div><div>SHOW MORE</div>
+				</div>
+			</div>
+			<div class="pcBlock"></div>
 			<div class="pcBody">
 				<p>Worked closey with an entrepenuer to design a user interface and test its usability.</p>
 			</div>
 			<div class="pcTags">
-				<div class="pctag ux"></div>
-				<div class="pctag psd"></div>
-				<div class="pctag ai"></div>
+				<div class="pcTag ux"></div>
+				<div class="pcTag psd"></div>
+				<div class="pcTag ai"></div>
 			</div>
 			<div class="pcMore">
 				<p>SHOW MORE</p>
 			</div>
-		</div>
-		<div class="portfolioCard" data-pc-name="mi">
-			<div class="pcBeauty">
-				<div class="pcBeautyImg"></div>
-				<div class="pcBeautyImgCurtain"></div>
-				<p>Mobile App Design</p></div>
-			<div class="pcBody">
-				<p>Worked closey with an entrepenuer to design a user interface and test its usability.</p>
-			</div>
-			<div class="pcTags">
-				<div class="pctag ux"></div>
-				<div class="pctag psd"></div>
-				<div class="pctag ai"></div>
-			</div>
-			<div class="pcMore">
-				<p>SHOW MORE</p>
-			</div>
-		</div>
-		<div class="portfolioCard" data-pc-name="mi">
-			<div class="pcBeauty">
-				<div class="pcBeautyImg"></div>
-				<div class="pcBeautyImgCurtain"></div>
-				<p>Mobile App Design</p></div>
-			<div class="pcBody">
-				<p>Worked closey with an entrepenuer to design a user interface and test its usability.</p>
-			</div>
-			<div class="pcTags">
-				<div class="pctag ux"></div>
-				<div class="pctag psd"></div>
-				<div class="pctag ai"></div>
+		</div> -->
+
+		<div ng-controller="SceneController as pCtrl">
+			<div ng-repeat="pCard in pCtrl.portfolioCards" class="portfolioCard" data-pc-name="{{pCard.name}}" data-pc-index="{{$index}}">
+				<div class="pcHero" data-pc-index="{{$index}}">
+					<div class="pcHeroImg" ng-style="{'background-image':'url({{pCard.hero}})'}"></div>
+					<div class="pcHeroCurtain"></div>
+					<div class="pcShowMore">
+						<div>+</div><div>SHOW MORE</div>
+					</div>
+				</div>
+				<div class="pcBlock"></div>
+				<div class="pcBody">
+					<p>{{pCard.body}}</p>
+				</div>
+				<div class="pcTags">
+					<div ng-repeat="tag in pCard.tags" class="pcTag {{pCard.tags[$index]}}"></div>
+				</div>
 			</div>
 		</div>
-		<div class="portfolioCard" data-pc-name="mi">
-			<div class="pcBeauty">
-				<div class="pcBeautyImg"></div>
-				<div class="pcBeautyImgCurtain"></div>
-				<p>Mobile App Design</p></div>
-			<div class="pcBody">
-				<p>Worked closey with an entrepenuer to design a user interface and test its usability.</p>
-			</div>
-			<div class="pcTags">
-				<div class="pctag ux"></div>
-				<div class="pctag psd"></div>
-				<div class="pctag ai"></div>
-			</div>
-		</div>
+		<p class="thanks">Thanks for looking!<br>Let's get in touch.</p>
 	</main>
 	<div class="warning">This page is in <b>beta</b>. It is under heavy construction.</div>
 
