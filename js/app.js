@@ -17,9 +17,3 @@ $( document ).ready(function() {
   });
 
 });
-
-var app = angular.module('SW',[]);
-app.controller('SceneController', function(){
-	  this.portfolioCards=portfolioData.portfolioCards;
-
-});
