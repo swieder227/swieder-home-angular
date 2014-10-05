@@ -20,7 +20,7 @@
 <div id="body" data-pc-index="-1">
 
 	<header>
-		<div id="logo"></div>
+		<a href="index.html"><div id="logo"></div></a>
 		<div id="title">
 			<p>SETH WIEDER</p>
 			<p>Creative Technologist</p>
@@ -29,16 +29,11 @@
 			<a href="index.html"><p class="navBtn">HOME</p></a>
 			<p class="navBtn">PORTFOLIO</p>
 			<p class="navBtn">ABOUT</p>
-			<div class="menuBtn">
-				<div class="fa fa-bars"></div>
-			</div>
 		</nav>
+		<div class="menuBtn">
+			<div class="fa fa-bars"></div>
+		</div>
 	</header>
-	<div id="rwd-menu">
-		<a href="index.html"><p class="rwdMenuBtn">HOME</p></a>
-		<p class="rwdMenuBtn">PORTFOLIO</p>
-		<p class="rwdMenuBtn">ABOUT</p>
-	</div>
 	<main>
 		<div ng-controller="SceneController as pCtrl">
 			<div ng-repeat="pCard in pCtrl.portfolioCards" class="portfolioCard loading" data-pc-name="{{pCard.name}}" data-pc-index="{{$index}}">

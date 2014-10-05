@@ -89,6 +89,8 @@
 	text-shadow: 0 0 2px black;
 	@include transition(opacity 0.5s 0 ease);
 	opacity: 1;
+	-webkit-highlight-color: transparent;
+	highlight-color: transparent;
 
 	.portfolioCard.loading & {
 		opacity: 0;
@@ -197,9 +199,10 @@
 .thanks{
 	text-align: center;
 	font-weight: bold;
-	margin: 5rem auto;
+	margin: 6rem auto;
 	color: #585858;
 	font-family: "Roboto slab";
+	line-height: 1.4rem;
 }
 
 //Loading screen

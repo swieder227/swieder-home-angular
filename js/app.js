@@ -1,7 +1,7 @@
 $( document ).ready(function() {
 
   $(".menuBtn").on("click",function(){
-  	$("#rwd-menu").toggleClass("expanded");
+  	$("nav").toggleClass("expanded");
   });
 
   window.setTimeout(function(){

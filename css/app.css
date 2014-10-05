@@ -6,32 +6,38 @@ html {
 
 /* line 1, ../scss/_header.scss */
 header {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 7rem;
   background-color: rgba(0, 0, 0, 0.8);
   box-shadow: 0px 0px 15px 1px #222;
   z-index: 900;
 }
+@media screen and (min-width: 600px) {
+  /* line 1, ../scss/_header.scss */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+}
 
-/* line 12, ../scss/_header.scss */
+/* line 15, ../scss/_header.scss */
 #logo {
   height: 5rem;
   width: 5rem;
   position: absolute;
   top: 0.7rem;
   left: 1.5rem;
-  border-radius: 5rem;
+  border-radius: 50%;
   border: 1px solid white;
   background: transparent url(../img/la_style.jpg);
   background-position: center center;
   background-size: contain;
   background-repeat: no-repeat;
+  box-sizing: border-box;
 }
 
-/* line 26, ../scss/_header.scss */
+/* line 30, ../scss/_header.scss */
 #title {
   position: absolute;
   left: 6.5rem;
@@ -41,7 +47,7 @@ header {
   max-width: 20rem;
 }
 
-/* line 35, ../scss/_header.scss */
+/* line 39, ../scss/_header.scss */
 #title > p:first-child {
   font-size: 2.7rem;
   font-weight: lighter;
@@ -49,60 +55,117 @@ header {
   color: #fff;
 }
 
-/* line 42, ../scss/_header.scss */
+/* line 46, ../scss/_header.scss */
 #title > p:last-child {
   font-family: 'Roboto Slab';
   font-size: 1.4rem;
   letter-spacing: 1px;
 }
 
-/* line 48, ../scss/_header.scss */
+/* line 52, ../scss/_header.scss */
 nav {
   position: absolute;
   height: 100%;
   left: 28.5rem;
   right: 0;
-  display: -webkit-box;
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  -webkit-justify-content: flex-end;
+  -webkit-align-items: center;
   display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: end;
-  justify-content: flex-end;
-  -webkit-box-orient: horizontal;
   flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
   box-sizing: border-box;
   padding-right: 2%;
 }
+@media screen and (max-width: 600px) {
+  /* line 52, ../scss/_header.scss */
+  nav {
+    width: 100%;
+    height: initial;
+    top: 7rem;
+    left: 0;
+    bottom: 0;
+    background-color: #333;
+    z-index: 1000;
+    display: -webkit-flex;
+    -webkit-flex-direction: column;
+    -webkit-justify-content: space-around;
+    -webkit-align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    -moz-transform: scale(1, 0);
+    -ms-transform: scale(1, 0);
+    -webkit-transform: scale(1, 0);
+    transform: scale(1, 0);
+    -moz-transition: -moz-transform 0.6s ease-out 0s;
+    -o-transition: -o-transform 0.6s ease-out 0s;
+    -webkit-transition: -webkit-transform 0.6s ease-out;
+    -webkit-transition-delay: 0s;
+    transition: transform 0.6s ease-out 0s;
+  }
+  /* line 84, ../scss/_header.scss */
+  nav.expanded {
+    -moz-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+}
 
-/* line 61, ../scss/_header.scss */
+/* line 90, ../scss/_header.scss */
 .navBtn {
   color: white;
   font-weight: bold;
   font-size: 1.5rem;
-  padding: 0 3rem;
+  padding: 2rem 3rem;
   cursor: pointer;
 }
-/* line 68, ../scss/_header.scss */
+/* line 97, ../scss/_header.scss */
 .navBtn:hover {
   color: #cd2109;
-  -moz-transition: color 1s 0s ease;
-  -webkit-transition: color 1s 0s ease;
-  transition: color 1s 0s ease;
+  -moz-transition: color 1s ease 0s;
+  -o-transition: color 1s ease 0s;
+  -webkit-transition: color 1s ease;
+  -webkit-transition-delay: 0s;
+  transition: color 1s ease 0s;
 }
 @media screen and (max-width: 600px) {
-  /* line 61, ../scss/_header.scss */
+  /* line 90, ../scss/_header.scss */
   .navBtn {
-    display: none;
+    opacity: 0;
+    -moz-transition: opacity 0.5s ease 0s, color 0.5s ease 0s;
+    -o-transition: opacity 0.5s ease 0s, color 0.5s ease 0s;
+    -webkit-transition: opacity 0.5s ease, color 0.5s ease;
+    -webkit-transition-delay: 0s, 0s;
+    transition: opacity 0.5s ease 0s, color 0.5s ease 0s;
+  }
+  /* line 106, ../scss/_header.scss */
+  nav.expanded .navBtn {
+    opacity: 1;
+    -moz-transition: opacity 0.5s ease 0.6s, color 0.5s ease 0s;
+    -o-transition: opacity 0.5s ease 0.6s, color 0.5s ease 0s;
+    -webkit-transition: opacity 0.5s ease, color 0.5s ease;
+    -webkit-transition-delay: 0.6s, 0s;
+    transition: opacity 0.5s ease 0.6s, color 0.5s ease 0s;
   }
 }
 
-/* line 80, ../scss/_header.scss */
+/* line 113, ../scss/_header.scss */
 .menuBtn {
+  display: none;
   color: white;
   font-size: 2rem;
-  display: none;
+  width: 7rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 7rem;
 }
-/* line 85, ../scss/_header.scss */
+/* line 123, ../scss/_header.scss */
 .menuBtn:hover {
   color: #cd2109;
   -moz-transition: color 1s 0s ease;
@@ -111,64 +174,17 @@ nav {
   cursor: pointer;
 }
 @media screen and (max-width: 600px) {
-  /* line 80, ../scss/_header.scss */
+  /* line 113, ../scss/_header.scss */
   .menuBtn {
-    display: block;
+    display: -webkit-flex;
+    -webkit-flex-direction: row;
+    -webkit-justify-content: center;
+    -webkit-align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
-}
-
-/* line 98, ../scss/_header.scss */
-#rwd-menu {
-  width: 100%;
-  position: absolute;
-  top: 7rem;
-  bottom: 0;
-  background-color: #333;
-  -webkit-transform: scale(1, 0);
-  -moz-transform: scale(1, 0);
-  transform: scale(1, 0);
-  -webkit-transition: -webkit-transform 1s 0s ease;
-  -moz-transition: -moz-transform 1s 0s ease;
-  transition: transform 1s 0s ease;
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  justify-content: space-around;
-  -webkit-box-orient: vertical;
-  flex-direction: column;
-  z-index: 1000;
-}
-/* line 116, ../scss/_header.scss */
-#rwd-menu.expanded {
-  -webkit-transform: scale(1, 1);
-  -moz-transform: scale(1, 1);
-  transform: scale(1, 1);
-}
-
-/* line 124, ../scss/_header.scss */
-.rwdMenuBtn {
-  color: white;
-  font-size: 2rem;
-  font-weight: bold;
-  cursor: pointer;
-  opacity: 0;
-  -moz-transition: opacity 0.5s 0s ease, color 0.5s 0s ease;
-  -webkit-transition: opacity 0.5s 0s ease, color 0.5s 0s ease;
-  transition: opacity 0.5s 0s ease, color 0.5s 0s ease;
-}
-/* line 134, ../scss/_header.scss */
-.rwdMenuBtn:hover {
-  color: #cd2109;
-}
-
-/* line 139, ../scss/_header.scss */
-#rwd-menu.expanded .rwdMenuBtn {
-  opacity: 1;
-  -moz-transition: opacity 0.5s 1s ease, color 0.5s 0s ease;
-  -webkit-transition: opacity 0.5s 1s ease, color 0.5s 0s ease;
-  transition: opacity 0.5s 1s ease, color 0.5s 0s ease;
 }
 
 /* line 1, ../scss/_homepage.scss */
@@ -459,12 +475,14 @@ h4 {
   -webkit-transition: opacity 0.5s ease;
   transition: opacity 0.5s ease;
   opacity: 1;
+  -webkit-highlight-color: transparent;
+  highlight-color: transparent;
 }
-/* line 93, ../scss/_portfolio.scss */
+/* line 95, ../scss/_portfolio.scss */
 .portfolioCard.loading .pcShowMore {
   opacity: 0;
 }
-/* line 97, ../scss/_portfolio.scss */
+/* line 99, ../scss/_portfolio.scss */
 .pcShowMore div:first-child {
   -moz-transition: -moz-transform 0.3s ease;
   -o-transition: -o-transform 0.3s ease;
@@ -474,7 +492,7 @@ h4 {
   font-size: 3rem;
   cursor: pointer;
 }
-/* line 103, ../scss/_portfolio.scss */
+/* line 105, ../scss/_portfolio.scss */
 .pcShowMore div:last-child {
   -moz-transition: opacity 0.3s ease;
   -o-transition: opacity 0.3s ease;
@@ -486,12 +504,12 @@ h4 {
   line-height: 3rem;
 }
 
-/* line 115, ../scss/_portfolio.scss */
+/* line 117, ../scss/_portfolio.scss */
 #body[data-pc-index="0"] .portfolioCard[data-pc-index="0"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 119, ../scss/_portfolio.scss */
+/* line 121, ../scss/_portfolio.scss */
 #body:not([data-pc-index="0"]) .portfolioCard[data-pc-index="0"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -499,7 +517,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 123, ../scss/_portfolio.scss */
+/* line 125, ../scss/_portfolio.scss */
 #body[data-pc-index="0"] .portfolioCard[data-pc-index="0"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -507,22 +525,22 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 127, ../scss/_portfolio.scss */
+/* line 129, ../scss/_portfolio.scss */
 #body[data-pc-index="0"] .portfolioCard[data-pc-index="0"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 131, ../scss/_portfolio.scss */
+/* line 133, ../scss/_portfolio.scss */
 #body[data-pc-index="0"] .portfolioCard[data-pc-index="0"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 115, ../scss/_portfolio.scss */
+/* line 117, ../scss/_portfolio.scss */
 #body[data-pc-index="1"] .portfolioCard[data-pc-index="1"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 119, ../scss/_portfolio.scss */
+/* line 121, ../scss/_portfolio.scss */
 #body:not([data-pc-index="1"]) .portfolioCard[data-pc-index="1"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -530,7 +548,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 123, ../scss/_portfolio.scss */
+/* line 125, ../scss/_portfolio.scss */
 #body[data-pc-index="1"] .portfolioCard[data-pc-index="1"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -538,22 +556,22 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 127, ../scss/_portfolio.scss */
+/* line 129, ../scss/_portfolio.scss */
 #body[data-pc-index="1"] .portfolioCard[data-pc-index="1"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 131, ../scss/_portfolio.scss */
+/* line 133, ../scss/_portfolio.scss */
 #body[data-pc-index="1"] .portfolioCard[data-pc-index="1"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 115, ../scss/_portfolio.scss */
+/* line 117, ../scss/_portfolio.scss */
 #body[data-pc-index="2"] .portfolioCard[data-pc-index="2"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 119, ../scss/_portfolio.scss */
+/* line 121, ../scss/_portfolio.scss */
 #body:not([data-pc-index="2"]) .portfolioCard[data-pc-index="2"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -561,7 +579,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 123, ../scss/_portfolio.scss */
+/* line 125, ../scss/_portfolio.scss */
 #body[data-pc-index="2"] .portfolioCard[data-pc-index="2"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -569,22 +587,22 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 127, ../scss/_portfolio.scss */
+/* line 129, ../scss/_portfolio.scss */
 #body[data-pc-index="2"] .portfolioCard[data-pc-index="2"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 131, ../scss/_portfolio.scss */
+/* line 133, ../scss/_portfolio.scss */
 #body[data-pc-index="2"] .portfolioCard[data-pc-index="2"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 115, ../scss/_portfolio.scss */
+/* line 117, ../scss/_portfolio.scss */
 #body[data-pc-index="3"] .portfolioCard[data-pc-index="3"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 119, ../scss/_portfolio.scss */
+/* line 121, ../scss/_portfolio.scss */
 #body:not([data-pc-index="3"]) .portfolioCard[data-pc-index="3"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -592,7 +610,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 123, ../scss/_portfolio.scss */
+/* line 125, ../scss/_portfolio.scss */
 #body[data-pc-index="3"] .portfolioCard[data-pc-index="3"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -600,22 +618,22 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 127, ../scss/_portfolio.scss */
+/* line 129, ../scss/_portfolio.scss */
 #body[data-pc-index="3"] .portfolioCard[data-pc-index="3"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 131, ../scss/_portfolio.scss */
+/* line 133, ../scss/_portfolio.scss */
 #body[data-pc-index="3"] .portfolioCard[data-pc-index="3"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 115, ../scss/_portfolio.scss */
+/* line 117, ../scss/_portfolio.scss */
 #body[data-pc-index="4"] .portfolioCard[data-pc-index="4"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 119, ../scss/_portfolio.scss */
+/* line 121, ../scss/_portfolio.scss */
 #body:not([data-pc-index="4"]) .portfolioCard[data-pc-index="4"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -623,7 +641,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 123, ../scss/_portfolio.scss */
+/* line 125, ../scss/_portfolio.scss */
 #body[data-pc-index="4"] .portfolioCard[data-pc-index="4"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -631,22 +649,22 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 127, ../scss/_portfolio.scss */
+/* line 129, ../scss/_portfolio.scss */
 #body[data-pc-index="4"] .portfolioCard[data-pc-index="4"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 131, ../scss/_portfolio.scss */
+/* line 133, ../scss/_portfolio.scss */
 #body[data-pc-index="4"] .portfolioCard[data-pc-index="4"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 115, ../scss/_portfolio.scss */
+/* line 117, ../scss/_portfolio.scss */
 #body[data-pc-index="5"] .portfolioCard[data-pc-index="5"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 119, ../scss/_portfolio.scss */
+/* line 121, ../scss/_portfolio.scss */
 #body:not([data-pc-index="5"]) .portfolioCard[data-pc-index="5"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -654,7 +672,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 123, ../scss/_portfolio.scss */
+/* line 125, ../scss/_portfolio.scss */
 #body[data-pc-index="5"] .portfolioCard[data-pc-index="5"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -662,22 +680,22 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 127, ../scss/_portfolio.scss */
+/* line 129, ../scss/_portfolio.scss */
 #body[data-pc-index="5"] .portfolioCard[data-pc-index="5"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 131, ../scss/_portfolio.scss */
+/* line 133, ../scss/_portfolio.scss */
 #body[data-pc-index="5"] .portfolioCard[data-pc-index="5"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 115, ../scss/_portfolio.scss */
+/* line 117, ../scss/_portfolio.scss */
 #body[data-pc-index="6"] .portfolioCard[data-pc-index="6"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 119, ../scss/_portfolio.scss */
+/* line 121, ../scss/_portfolio.scss */
 #body:not([data-pc-index="6"]) .portfolioCard[data-pc-index="6"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -685,7 +703,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 123, ../scss/_portfolio.scss */
+/* line 125, ../scss/_portfolio.scss */
 #body[data-pc-index="6"] .portfolioCard[data-pc-index="6"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -693,22 +711,22 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 127, ../scss/_portfolio.scss */
+/* line 129, ../scss/_portfolio.scss */
 #body[data-pc-index="6"] .portfolioCard[data-pc-index="6"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 131, ../scss/_portfolio.scss */
+/* line 133, ../scss/_portfolio.scss */
 #body[data-pc-index="6"] .portfolioCard[data-pc-index="6"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 115, ../scss/_portfolio.scss */
+/* line 117, ../scss/_portfolio.scss */
 #body[data-pc-index="7"] .portfolioCard[data-pc-index="7"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 119, ../scss/_portfolio.scss */
+/* line 121, ../scss/_portfolio.scss */
 #body:not([data-pc-index="7"]) .portfolioCard[data-pc-index="7"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -716,7 +734,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 123, ../scss/_portfolio.scss */
+/* line 125, ../scss/_portfolio.scss */
 #body[data-pc-index="7"] .portfolioCard[data-pc-index="7"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -724,22 +742,22 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 127, ../scss/_portfolio.scss */
+/* line 129, ../scss/_portfolio.scss */
 #body[data-pc-index="7"] .portfolioCard[data-pc-index="7"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 131, ../scss/_portfolio.scss */
+/* line 133, ../scss/_portfolio.scss */
 #body[data-pc-index="7"] .portfolioCard[data-pc-index="7"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 115, ../scss/_portfolio.scss */
+/* line 117, ../scss/_portfolio.scss */
 #body[data-pc-index="8"] .portfolioCard[data-pc-index="8"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 119, ../scss/_portfolio.scss */
+/* line 121, ../scss/_portfolio.scss */
 #body:not([data-pc-index="8"]) .portfolioCard[data-pc-index="8"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -747,7 +765,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 123, ../scss/_portfolio.scss */
+/* line 125, ../scss/_portfolio.scss */
 #body[data-pc-index="8"] .portfolioCard[data-pc-index="8"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -755,22 +773,22 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 127, ../scss/_portfolio.scss */
+/* line 129, ../scss/_portfolio.scss */
 #body[data-pc-index="8"] .portfolioCard[data-pc-index="8"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 131, ../scss/_portfolio.scss */
+/* line 133, ../scss/_portfolio.scss */
 #body[data-pc-index="8"] .portfolioCard[data-pc-index="8"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 115, ../scss/_portfolio.scss */
+/* line 117, ../scss/_portfolio.scss */
 #body[data-pc-index="9"] .portfolioCard[data-pc-index="9"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 119, ../scss/_portfolio.scss */
+/* line 121, ../scss/_portfolio.scss */
 #body:not([data-pc-index="9"]) .portfolioCard[data-pc-index="9"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -778,7 +796,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 123, ../scss/_portfolio.scss */
+/* line 125, ../scss/_portfolio.scss */
 #body[data-pc-index="9"] .portfolioCard[data-pc-index="9"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -786,22 +804,22 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 127, ../scss/_portfolio.scss */
+/* line 129, ../scss/_portfolio.scss */
 #body[data-pc-index="9"] .portfolioCard[data-pc-index="9"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 131, ../scss/_portfolio.scss */
+/* line 133, ../scss/_portfolio.scss */
 #body[data-pc-index="9"] .portfolioCard[data-pc-index="9"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 115, ../scss/_portfolio.scss */
+/* line 117, ../scss/_portfolio.scss */
 #body[data-pc-index="10"] .portfolioCard[data-pc-index="10"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 119, ../scss/_portfolio.scss */
+/* line 121, ../scss/_portfolio.scss */
 #body:not([data-pc-index="10"]) .portfolioCard[data-pc-index="10"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -809,7 +827,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 123, ../scss/_portfolio.scss */
+/* line 125, ../scss/_portfolio.scss */
 #body[data-pc-index="10"] .portfolioCard[data-pc-index="10"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -817,17 +835,17 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 127, ../scss/_portfolio.scss */
+/* line 129, ../scss/_portfolio.scss */
 #body[data-pc-index="10"] .portfolioCard[data-pc-index="10"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 131, ../scss/_portfolio.scss */
+/* line 133, ../scss/_portfolio.scss */
 #body[data-pc-index="10"] .portfolioCard[data-pc-index="10"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 137, ../scss/_portfolio.scss */
+/* line 139, ../scss/_portfolio.scss */
 .pcBody {
   font-size: 1.5rem;
   line-height: 2.2rem;
@@ -835,7 +853,7 @@ h4 {
   padding: 1.25rem 2rem 1.55rem 1.25rem;
 }
 
-/* line 144, ../scss/_portfolio.scss */
+/* line 146, ../scss/_portfolio.scss */
 .pcTags {
   height: 10rem;
   width: 100%;
@@ -850,7 +868,7 @@ h4 {
   align-items: center;
 }
 
-/* line 156, ../scss/_portfolio.scss */
+/* line 158, ../scss/_portfolio.scss */
 .pcTag {
   height: 6rem;
   width: 6rem;
@@ -862,29 +880,29 @@ h4 {
   background-repeat: no-repeat;
 }
 
-/* line 167, ../scss/_portfolio.scss */
+/* line 169, ../scss/_portfolio.scss */
 .pcTag.ux {
   background-image: url(../img/tag_ux.png);
 }
 
-/* line 170, ../scss/_portfolio.scss */
+/* line 172, ../scss/_portfolio.scss */
 .pcTag.psd {
   background-image: url(../img/tag_psd.png);
 }
 
-/* line 173, ../scss/_portfolio.scss */
+/* line 175, ../scss/_portfolio.scss */
 .pcTag.ai {
   background-image: url(../img/tag_ai.png);
 }
 
-/* line 177, ../scss/_portfolio.scss */
+/* line 179, ../scss/_portfolio.scss */
 .pcImg {
   width: 50%;
   height: 50%;
   display: inline-block;
 }
 
-/* line 183, ../scss/_portfolio.scss */
+/* line 185, ../scss/_portfolio.scss */
 .pcMore {
   width: 100%;
   text-align: center;
@@ -892,7 +910,7 @@ h4 {
   cursor: pointer;
 }
 
-/* line 189, ../scss/_portfolio.scss */
+/* line 191, ../scss/_portfolio.scss */
 .pcMore > p {
   font-size: 1.25rem;
   font-weight: bold;
@@ -900,16 +918,17 @@ h4 {
   color: #777;
 }
 
-/* line 197, ../scss/_portfolio.scss */
+/* line 199, ../scss/_portfolio.scss */
 .thanks {
   text-align: center;
   font-weight: bold;
-  margin: 5rem auto;
+  margin: 6rem auto;
   color: #585858;
   font-family: "Roboto slab";
+  line-height: 1.4rem;
 }
 
-/* line 206, ../scss/_portfolio.scss */
+/* line 209, ../scss/_portfolio.scss */
 .pcHeroLoader {
   position: absolute;
   top: 0;
@@ -920,7 +939,7 @@ h4 {
   background-color: white;
   display: none;
 }
-/* line 215, ../scss/_portfolio.scss */
+/* line 218, ../scss/_portfolio.scss */
 .portfolioCard.loading .pcHeroLoader {
   display: -webkit-flex;
   -webkit-flex-direction: row;
@@ -932,7 +951,7 @@ h4 {
   align-items: center;
 }
 
-/* line 232, ../scss/_portfolio.scss */
+/* line 235, ../scss/_portfolio.scss */
 .spinner {
   -moz-animation: rotator 1.4s linear infinite;
   -webkit-animation: rotator 1.4s linear infinite;
@@ -973,7 +992,7 @@ h4 {
     transform: rotate(270deg);
   }
 }
-/* line 241, ../scss/_portfolio.scss */
+/* line 244, ../scss/_portfolio.scss */
 .path {
   stroke-dasharray: 187;
   stroke-dashoffset: 0;
