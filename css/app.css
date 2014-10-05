@@ -391,7 +391,12 @@ h4 {
   z-index: 100;
 }
 
-/* line 36, ../scss/_portfolio.scss */
+/* line 35, ../scss/_portfolio.scss */
+.portfolioCard.loading .pcHero {
+  pointer-events: none;
+}
+
+/* line 40, ../scss/_portfolio.scss */
 .pcHeroImg {
   position: absolute;
   top: 0;
@@ -405,9 +410,10 @@ h4 {
   -o-transition: -o-transform 0.3s ease-out;
   -webkit-transition: -webkit-transform 0.3s ease-out;
   transition: transform 0.3s ease-out;
+  background-color: white;
 }
 
-/* line 51, ../scss/_portfolio.scss */
+/* line 56, ../scss/_portfolio.scss */
 .pcHeroCurtain {
   position: absolute;
   top: 0;
@@ -422,12 +428,17 @@ h4 {
   transition: opacity 0.3s 0;
 }
 
-/* line 61, ../scss/_portfolio.scss */
+/* line 66, ../scss/_portfolio.scss */
 .pcHero:hover .pcHeroCurtain {
   opacity: 0.3;
 }
 
-/* line 68, ../scss/_portfolio.scss */
+/* line 69, ../scss/_portfolio.scss */
+.portfolioCard.loading .pcHeroCurtain {
+  opacity: 0;
+}
+
+/* line 76, ../scss/_portfolio.scss */
 .pcBlock {
   height: 25rem;
   border-bottom: 1px solid #b5b5b5;
@@ -436,15 +447,24 @@ h4 {
   cursor: pointer;
 }
 
-/* line 76, ../scss/_portfolio.scss */
+/* line 84, ../scss/_portfolio.scss */
 .pcShowMore {
   position: absolute;
   top: 1rem;
   left: 1rem;
   color: white;
   text-shadow: 0 0 2px black;
+  -moz-transition: opacity 0.5s ease;
+  -o-transition: opacity 0.5s ease;
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+  opacity: 1;
 }
-/* line 83, ../scss/_portfolio.scss */
+/* line 93, ../scss/_portfolio.scss */
+.portfolioCard.loading .pcShowMore {
+  opacity: 0;
+}
+/* line 97, ../scss/_portfolio.scss */
 .pcShowMore div:first-child {
   -moz-transition: -moz-transform 0.3s ease;
   -o-transition: -o-transform 0.3s ease;
@@ -454,7 +474,7 @@ h4 {
   font-size: 3rem;
   cursor: pointer;
 }
-/* line 89, ../scss/_portfolio.scss */
+/* line 103, ../scss/_portfolio.scss */
 .pcShowMore div:last-child {
   -moz-transition: opacity 0.3s ease;
   -o-transition: opacity 0.3s ease;
@@ -466,12 +486,12 @@ h4 {
   line-height: 3rem;
 }
 
-/* line 101, ../scss/_portfolio.scss */
+/* line 115, ../scss/_portfolio.scss */
 #body[data-pc-index="0"] .portfolioCard[data-pc-index="0"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 105, ../scss/_portfolio.scss */
+/* line 119, ../scss/_portfolio.scss */
 #body:not([data-pc-index="0"]) .portfolioCard[data-pc-index="0"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -479,7 +499,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 109, ../scss/_portfolio.scss */
+/* line 123, ../scss/_portfolio.scss */
 #body[data-pc-index="0"] .portfolioCard[data-pc-index="0"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -487,22 +507,22 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 113, ../scss/_portfolio.scss */
+/* line 127, ../scss/_portfolio.scss */
 #body[data-pc-index="0"] .portfolioCard[data-pc-index="0"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 117, ../scss/_portfolio.scss */
+/* line 131, ../scss/_portfolio.scss */
 #body[data-pc-index="0"] .portfolioCard[data-pc-index="0"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 101, ../scss/_portfolio.scss */
+/* line 115, ../scss/_portfolio.scss */
 #body[data-pc-index="1"] .portfolioCard[data-pc-index="1"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 105, ../scss/_portfolio.scss */
+/* line 119, ../scss/_portfolio.scss */
 #body:not([data-pc-index="1"]) .portfolioCard[data-pc-index="1"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -510,7 +530,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 109, ../scss/_portfolio.scss */
+/* line 123, ../scss/_portfolio.scss */
 #body[data-pc-index="1"] .portfolioCard[data-pc-index="1"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -518,22 +538,22 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 113, ../scss/_portfolio.scss */
+/* line 127, ../scss/_portfolio.scss */
 #body[data-pc-index="1"] .portfolioCard[data-pc-index="1"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 117, ../scss/_portfolio.scss */
+/* line 131, ../scss/_portfolio.scss */
 #body[data-pc-index="1"] .portfolioCard[data-pc-index="1"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 101, ../scss/_portfolio.scss */
+/* line 115, ../scss/_portfolio.scss */
 #body[data-pc-index="2"] .portfolioCard[data-pc-index="2"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 105, ../scss/_portfolio.scss */
+/* line 119, ../scss/_portfolio.scss */
 #body:not([data-pc-index="2"]) .portfolioCard[data-pc-index="2"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -541,7 +561,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 109, ../scss/_portfolio.scss */
+/* line 123, ../scss/_portfolio.scss */
 #body[data-pc-index="2"] .portfolioCard[data-pc-index="2"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -549,22 +569,22 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 113, ../scss/_portfolio.scss */
+/* line 127, ../scss/_portfolio.scss */
 #body[data-pc-index="2"] .portfolioCard[data-pc-index="2"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 117, ../scss/_portfolio.scss */
+/* line 131, ../scss/_portfolio.scss */
 #body[data-pc-index="2"] .portfolioCard[data-pc-index="2"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 101, ../scss/_portfolio.scss */
+/* line 115, ../scss/_portfolio.scss */
 #body[data-pc-index="3"] .portfolioCard[data-pc-index="3"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 105, ../scss/_portfolio.scss */
+/* line 119, ../scss/_portfolio.scss */
 #body:not([data-pc-index="3"]) .portfolioCard[data-pc-index="3"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -572,7 +592,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 109, ../scss/_portfolio.scss */
+/* line 123, ../scss/_portfolio.scss */
 #body[data-pc-index="3"] .portfolioCard[data-pc-index="3"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -580,22 +600,22 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 113, ../scss/_portfolio.scss */
+/* line 127, ../scss/_portfolio.scss */
 #body[data-pc-index="3"] .portfolioCard[data-pc-index="3"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 117, ../scss/_portfolio.scss */
+/* line 131, ../scss/_portfolio.scss */
 #body[data-pc-index="3"] .portfolioCard[data-pc-index="3"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 101, ../scss/_portfolio.scss */
+/* line 115, ../scss/_portfolio.scss */
 #body[data-pc-index="4"] .portfolioCard[data-pc-index="4"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 105, ../scss/_portfolio.scss */
+/* line 119, ../scss/_portfolio.scss */
 #body:not([data-pc-index="4"]) .portfolioCard[data-pc-index="4"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -603,7 +623,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 109, ../scss/_portfolio.scss */
+/* line 123, ../scss/_portfolio.scss */
 #body[data-pc-index="4"] .portfolioCard[data-pc-index="4"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -611,22 +631,22 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 113, ../scss/_portfolio.scss */
+/* line 127, ../scss/_portfolio.scss */
 #body[data-pc-index="4"] .portfolioCard[data-pc-index="4"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 117, ../scss/_portfolio.scss */
+/* line 131, ../scss/_portfolio.scss */
 #body[data-pc-index="4"] .portfolioCard[data-pc-index="4"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 101, ../scss/_portfolio.scss */
+/* line 115, ../scss/_portfolio.scss */
 #body[data-pc-index="5"] .portfolioCard[data-pc-index="5"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 105, ../scss/_portfolio.scss */
+/* line 119, ../scss/_portfolio.scss */
 #body:not([data-pc-index="5"]) .portfolioCard[data-pc-index="5"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -634,7 +654,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 109, ../scss/_portfolio.scss */
+/* line 123, ../scss/_portfolio.scss */
 #body[data-pc-index="5"] .portfolioCard[data-pc-index="5"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -642,22 +662,22 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 113, ../scss/_portfolio.scss */
+/* line 127, ../scss/_portfolio.scss */
 #body[data-pc-index="5"] .portfolioCard[data-pc-index="5"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 117, ../scss/_portfolio.scss */
+/* line 131, ../scss/_portfolio.scss */
 #body[data-pc-index="5"] .portfolioCard[data-pc-index="5"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 101, ../scss/_portfolio.scss */
+/* line 115, ../scss/_portfolio.scss */
 #body[data-pc-index="6"] .portfolioCard[data-pc-index="6"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 105, ../scss/_portfolio.scss */
+/* line 119, ../scss/_portfolio.scss */
 #body:not([data-pc-index="6"]) .portfolioCard[data-pc-index="6"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -665,7 +685,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 109, ../scss/_portfolio.scss */
+/* line 123, ../scss/_portfolio.scss */
 #body[data-pc-index="6"] .portfolioCard[data-pc-index="6"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -673,22 +693,22 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 113, ../scss/_portfolio.scss */
+/* line 127, ../scss/_portfolio.scss */
 #body[data-pc-index="6"] .portfolioCard[data-pc-index="6"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 117, ../scss/_portfolio.scss */
+/* line 131, ../scss/_portfolio.scss */
 #body[data-pc-index="6"] .portfolioCard[data-pc-index="6"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 101, ../scss/_portfolio.scss */
+/* line 115, ../scss/_portfolio.scss */
 #body[data-pc-index="7"] .portfolioCard[data-pc-index="7"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 105, ../scss/_portfolio.scss */
+/* line 119, ../scss/_portfolio.scss */
 #body:not([data-pc-index="7"]) .portfolioCard[data-pc-index="7"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -696,7 +716,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 109, ../scss/_portfolio.scss */
+/* line 123, ../scss/_portfolio.scss */
 #body[data-pc-index="7"] .portfolioCard[data-pc-index="7"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -704,22 +724,22 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 113, ../scss/_portfolio.scss */
+/* line 127, ../scss/_portfolio.scss */
 #body[data-pc-index="7"] .portfolioCard[data-pc-index="7"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 117, ../scss/_portfolio.scss */
+/* line 131, ../scss/_portfolio.scss */
 #body[data-pc-index="7"] .portfolioCard[data-pc-index="7"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 101, ../scss/_portfolio.scss */
+/* line 115, ../scss/_portfolio.scss */
 #body[data-pc-index="8"] .portfolioCard[data-pc-index="8"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 105, ../scss/_portfolio.scss */
+/* line 119, ../scss/_portfolio.scss */
 #body:not([data-pc-index="8"]) .portfolioCard[data-pc-index="8"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -727,7 +747,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 109, ../scss/_portfolio.scss */
+/* line 123, ../scss/_portfolio.scss */
 #body[data-pc-index="8"] .portfolioCard[data-pc-index="8"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -735,22 +755,22 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 113, ../scss/_portfolio.scss */
+/* line 127, ../scss/_portfolio.scss */
 #body[data-pc-index="8"] .portfolioCard[data-pc-index="8"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 117, ../scss/_portfolio.scss */
+/* line 131, ../scss/_portfolio.scss */
 #body[data-pc-index="8"] .portfolioCard[data-pc-index="8"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 101, ../scss/_portfolio.scss */
+/* line 115, ../scss/_portfolio.scss */
 #body[data-pc-index="9"] .portfolioCard[data-pc-index="9"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 105, ../scss/_portfolio.scss */
+/* line 119, ../scss/_portfolio.scss */
 #body:not([data-pc-index="9"]) .portfolioCard[data-pc-index="9"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -758,7 +778,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 109, ../scss/_portfolio.scss */
+/* line 123, ../scss/_portfolio.scss */
 #body[data-pc-index="9"] .portfolioCard[data-pc-index="9"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -766,22 +786,22 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 113, ../scss/_portfolio.scss */
+/* line 127, ../scss/_portfolio.scss */
 #body[data-pc-index="9"] .portfolioCard[data-pc-index="9"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 117, ../scss/_portfolio.scss */
+/* line 131, ../scss/_portfolio.scss */
 #body[data-pc-index="9"] .portfolioCard[data-pc-index="9"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 101, ../scss/_portfolio.scss */
+/* line 115, ../scss/_portfolio.scss */
 #body[data-pc-index="10"] .portfolioCard[data-pc-index="10"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 105, ../scss/_portfolio.scss */
+/* line 119, ../scss/_portfolio.scss */
 #body:not([data-pc-index="10"]) .portfolioCard[data-pc-index="10"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -789,7 +809,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 109, ../scss/_portfolio.scss */
+/* line 123, ../scss/_portfolio.scss */
 #body[data-pc-index="10"] .portfolioCard[data-pc-index="10"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -797,17 +817,17 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 113, ../scss/_portfolio.scss */
+/* line 127, ../scss/_portfolio.scss */
 #body[data-pc-index="10"] .portfolioCard[data-pc-index="10"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 117, ../scss/_portfolio.scss */
+/* line 131, ../scss/_portfolio.scss */
 #body[data-pc-index="10"] .portfolioCard[data-pc-index="10"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 168, ../scss/_portfolio.scss */
+/* line 137, ../scss/_portfolio.scss */
 .pcBody {
   font-size: 1.5rem;
   line-height: 2.2rem;
@@ -815,7 +835,7 @@ h4 {
   padding: 1.25rem 2rem 1.55rem 1.25rem;
 }
 
-/* line 175, ../scss/_portfolio.scss */
+/* line 144, ../scss/_portfolio.scss */
 .pcTags {
   height: 10rem;
   width: 100%;
@@ -830,7 +850,7 @@ h4 {
   align-items: center;
 }
 
-/* line 187, ../scss/_portfolio.scss */
+/* line 156, ../scss/_portfolio.scss */
 .pcTag {
   height: 6rem;
   width: 6rem;
@@ -842,29 +862,29 @@ h4 {
   background-repeat: no-repeat;
 }
 
-/* line 198, ../scss/_portfolio.scss */
+/* line 167, ../scss/_portfolio.scss */
 .pcTag.ux {
   background-image: url(../img/tag_ux.png);
 }
 
-/* line 201, ../scss/_portfolio.scss */
+/* line 170, ../scss/_portfolio.scss */
 .pcTag.psd {
   background-image: url(../img/tag_psd.png);
 }
 
-/* line 204, ../scss/_portfolio.scss */
+/* line 173, ../scss/_portfolio.scss */
 .pcTag.ai {
   background-image: url(../img/tag_ai.png);
 }
 
-/* line 208, ../scss/_portfolio.scss */
+/* line 177, ../scss/_portfolio.scss */
 .pcImg {
   width: 50%;
   height: 50%;
   display: inline-block;
 }
 
-/* line 214, ../scss/_portfolio.scss */
+/* line 183, ../scss/_portfolio.scss */
 .pcMore {
   width: 100%;
   text-align: center;
@@ -872,7 +892,7 @@ h4 {
   cursor: pointer;
 }
 
-/* line 220, ../scss/_portfolio.scss */
+/* line 189, ../scss/_portfolio.scss */
 .pcMore > p {
   font-size: 1.25rem;
   font-weight: bold;
@@ -880,7 +900,7 @@ h4 {
   color: #777;
 }
 
-/* line 228, ../scss/_portfolio.scss */
+/* line 197, ../scss/_portfolio.scss */
 .thanks {
   text-align: center;
   font-weight: bold;
@@ -889,6 +909,170 @@ h4 {
   font-family: "Roboto slab";
 }
 
+/* line 206, ../scss/_portfolio.scss */
+.pcHeroLoader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: white;
+  display: none;
+}
+/* line 215, ../scss/_portfolio.scss */
+.portfolioCard.loading .pcHeroLoader {
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 232, ../scss/_portfolio.scss */
+.spinner {
+  -moz-animation: rotator 1.4s linear infinite;
+  -webkit-animation: rotator 1.4s linear infinite;
+  animation: rotator 1.4s linear infinite;
+}
+
+@-moz-keyframes rotator {
+  0% {
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(270deg);
+    transform: rotate(270deg);
+  }
+}
+@-webkit-keyframes rotator {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg);
+  }
+}
+@keyframes rotator {
+  0% {
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg);
+  }
+}
+/* line 241, ../scss/_portfolio.scss */
+.path {
+  stroke-dasharray: 187;
+  stroke-dashoffset: 0;
+  transform-origin: center;
+  -moz-animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+  -webkit-animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+  animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+}
+
+@-moz-keyframes colors {
+  0% {
+    stroke: #4285F4;
+  }
+  25% {
+    stroke: #DE3E35;
+  }
+  50% {
+    stroke: #F7C223;
+  }
+  75% {
+    stroke: #1B9A59;
+  }
+  100% {
+    stroke: #4285F4;
+  }
+}
+@-webkit-keyframes colors {
+  0% {
+    stroke: #4285F4;
+  }
+  25% {
+    stroke: #DE3E35;
+  }
+  50% {
+    stroke: #F7C223;
+  }
+  75% {
+    stroke: #1B9A59;
+  }
+  100% {
+    stroke: #4285F4;
+  }
+}
+@keyframes colors {
+  0% {
+    stroke: #4285F4;
+  }
+  25% {
+    stroke: #DE3E35;
+  }
+  50% {
+    stroke: #F7C223;
+  }
+  75% {
+    stroke: #1B9A59;
+  }
+  100% {
+    stroke: #4285F4;
+  }
+}
+@-moz-keyframes dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+  50% {
+    stroke-dashoffset: 46.75;
+    transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 187;
+    transform: rotate(450deg);
+  }
+}
+@-webkit-keyframes dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+  50% {
+    stroke-dashoffset: 46.75;
+    transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 187;
+    transform: rotate(450deg);
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+  50% {
+    stroke-dashoffset: 46.75;
+    transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 187;
+    transform: rotate(450deg);
+  }
+}
 /* line 13, ../scss/app.scss */
 .warning {
   background-color: gold;

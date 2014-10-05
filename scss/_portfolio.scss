@@ -32,6 +32,10 @@
 	border-radius: 4px 4px 0 0;
 	z-index: 100;
 }
+.portfolioCard.loading .pcHero{
+	pointer-events:none;
+}
+
 
 .pcHeroImg{
 	position: absolute;
@@ -43,6 +47,7 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 	@include transition(transform 0.3s 0 ease-out);
+	background-color: white;
 }
 
 
@@ -60,6 +65,9 @@
 }
 .pcHero:hover .pcHeroCurtain{
 	opacity: 0.3;
+}
+.portfolioCard.loading .pcHeroCurtain {
+	opacity: 0;
 }
 
 // 	.pcBeauty:hover &{
@@ -79,6 +87,12 @@
 	left: 1rem;
 	color: white;
 	text-shadow: 0 0 2px black;
+	@include transition(opacity 0.5s 0 ease);
+	opacity: 1;
+
+	.portfolioCard.loading & {
+		opacity: 0;
+	}
 
 	div:first-child{
 		@include transition(transform 0.3s 0 ease);
@@ -119,51 +133,6 @@
 	}
 }
 
-
-// .pcBeautyImg{
-// 	position: absolute;
-// 	top: 0;
-// 	left: 0;
-// 	width: 100%;
-// 	height: 100%;
-// 	background-position: center center;
-// 	background-size: cover;
-// 	background-repeat: no-repeat;
-// 	position: relative;
-// 	@include transition(transform 0.5s ease 0);
-// 	@include transform(scale(1));
-// }
-// .portfolioCard[data-pc-name="mi"] .pcBeautyImg {
-// 	background-image: url(../img/portfolio/mi_beauty.png);
-// }
-// .pcBeauty:hover .pcBeautyImg{
-// 	@include transform(scale(1.1));
-// }
-// .pcBeautyImgCurtain {
-// 	position: absolute;
-// 	width: 100%;
-// 	height: 100%;
-// 	top: 0;
-// 	left: 0;
-// 	z-index: 5;
-// 	background-color: black;
-// 	opacity: 0.6;
-// 	@include transition(opacity 0.5s ease 0);
-
-// 	.pcBeauty:hover &{
-// 		opacity: 0.3;
-// 	}
-// }
-
-// .pcBeauty > p {
-// 	position: absolute;
-// 	bottom: 1rem;
-// 	left: 1rem;
-// 	color: white;
-// 	z-index: 10;
-// 	font-family: 'Roboto Slab';
-// 	font-size: 3.5rem;
-// }
 
 .pcBody {
 	font-size: 1.5rem;
@@ -231,4 +200,73 @@
 	margin: 5rem auto;
 	color: #585858;
 	font-family: "Roboto slab";
+}
+
+//Loading screen
+.pcHeroLoader{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	background-color: white;
+
+	.portfolioCard.loading &{
+		@include flexbox((
+			display:flex,
+			flex-direction:row,
+			justify-content:center,
+			align-items:center,
+		));
+	}
+
+	display: none;
+}
+
+// Spinner
+
+$offset: 187;
+$duration: 1.4s;
+
+.spinner {
+  @include animation(rotator $duration linear infinite);
+}
+
+@include keyframes(rotator) {
+  0% { @include transform(rotate(0deg)); }
+  100% { @include transform(rotate(270deg)); }
+}
+
+.path {
+  stroke-dasharray: $offset;
+  stroke-dashoffset: 0;
+  transform-origin: center;
+  @include animation(
+  	dash $duration ease-in-out infinite,
+  	colors ($duration*4) ease-in-out infinite
+  	);
+  // animation:
+  //   dash $duration ease-in-out infinite,
+  //   colors ($duration*4) ease-in-out infinite;
+}
+
+@include keyframes(colors) {
+	0% { stroke: #4285F4; }
+	25% { stroke: #DE3E35; }
+	50% { stroke: #F7C223; }
+	75% { stroke: #1B9A59; }
+  100% { stroke: #4285F4; }
+}
+
+@include keyframes(dash) {
+ 0% { stroke-dashoffset: $offset; }
+ 50% {
+   stroke-dashoffset: $offset/4;
+   transform:rotate(135deg);
+ }
+ 100% {
+   stroke-dashoffset: $offset;
+   transform:rotate(450deg);
+ }
 }

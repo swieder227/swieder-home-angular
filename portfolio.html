@@ -9,15 +9,10 @@
 	<link href="css/reset.css" rel="stylesheet" type="text/css">
 	<link href="css/font-awesome.css" rel="stylesheet" type="text/css">
 	<link href="css/app.css" rel="stylesheet" type="text/css">
-	<script src="js/zepto.dev.js" type="text/javascript"></script>
+	<!--script src="js/zepto.dev.js" type="text/javascript"></script-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
-	<script src="js/app.js" type="text/javascript"></script>
-	<script type="text/javascript">
-		var app = angular.module('SW',[]);
-		app.controller('SceneController', function(){
-			  this.portfolioCards=portfolioData.portfolioCards;
-		});
-	</script>
+	<script src="js/portfolio.js" type="text/javascript"></script>
 	<script src="js/data.js" type="text/javascript"></script>
 </head>
 <body>
@@ -45,32 +40,15 @@
 		<p class="rwdMenuBtn">ABOUT</p>
 	</div>
 	<main>
-		<!-- <div class="portfolioCard" data-pc-name="mi" data-pc-index="1">
-			<div class="pcHero" data-pc-index="1">
-				<div class="pcHeroImg"></div>
-				<div class="pcHeroCurtain"></div>
-				<div class="pcShowMore">
-					<div>+</div><div>SHOW MORE</div>
-				</div>
-			</div>
-			<div class="pcBlock"></div>
-			<div class="pcBody">
-				<p>Worked closey with an entrepenuer to design a user interface and test its usability.</p>
-			</div>
-			<div class="pcTags">
-				<div class="pcTag ux"></div>
-				<div class="pcTag psd"></div>
-				<div class="pcTag ai"></div>
-			</div>
-			<div class="pcMore">
-				<p>SHOW MORE</p>
-			</div>
-		</div> -->
-
 		<div ng-controller="SceneController as pCtrl">
-			<div ng-repeat="pCard in pCtrl.portfolioCards" class="portfolioCard" data-pc-name="{{pCard.name}}" data-pc-index="{{$index}}">
+			<div ng-repeat="pCard in pCtrl.portfolioCards" class="portfolioCard loading" data-pc-name="{{pCard.name}}" data-pc-index="{{$index}}">
 				<div class="pcHero" data-pc-index="{{$index}}">
-					<div class="pcHeroImg" ng-style="{'background-image':'url({{pCard.hero}})'}"></div>
+					<div class="pcHeroImg" imageonloaded="{{pCard.hero}}"></div>
+					<div class="pcHeroLoader">
+						<svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+						   <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+						</svg>
+					</div>
 					<div class="pcHeroCurtain"></div>
 					<div class="pcShowMore">
 						<div>+</div><div>SHOW MORE</div>
