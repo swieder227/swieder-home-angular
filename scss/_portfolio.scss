@@ -166,14 +166,12 @@
 	background-repeat: no-repeat;
 }
 
-.pcTag.ux {
-	background-image: url(../img/tag_ux.png);
-}
-.pcTag.psd {
-	background-image: url(../img/tag_psd.png);
-}
-.pcTag.ai {
-	background-image: url(../img/tag_ai.png);
+$tags: ux,psd,ai,wp,php,html,css,js,webcode;
+
+@each $tag in $tags {
+	.pcTag.#{$tag} {
+		background-image: url(../img/tag_#{$tag}.png);
+	}
 }
 
 .pcImg {
@@ -193,6 +191,20 @@
 	font-weight: bold;
 	padding: 2rem;
 	color: #777;
+}
+
+.pcTitle {
+	// position: absolute;
+	// bottom: 2rem;
+	// left: 2rem;
+
+	padding: 1.25rem 2rem 0rem 1.25rem;
+
+	p{
+		font-size: 3rem;
+		line-height: 3rem;
+		font-family: "Roboto Slab";
+	}
 }
 
 

@@ -13,12 +13,18 @@ var portfolioData = {
 			// ],
 		},
 		{
+			name:"nimble",
+			title:"Interactive Web Apps",
+			body:"Front-End Programming using semantic HTML5, CSS3 animations, and a custom Javascript isometric framework.",
+			tags:["html","css","js"],
+			hero:"../img/portfolio/hero_nimble.jpg",
+		},
+		{
 			name:"blues",
 			title:"Redesign & Custom Wordpress",
 			body:"Rebranded an existing site for a small business. Implemented a Wordpress CMS and custom theme using underscore.me.",
-			tags:["ux","psd","ai"],
+			tags:["psd","wp","webcode"],
 			hero:"../img/portfolio/hero_blues.jpg",
 		},
-
 	]
 }

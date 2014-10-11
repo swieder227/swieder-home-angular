@@ -178,10 +178,15 @@ nav {
     -ms-transform: scale(1, 1);
     -webkit-transform: scale(1, 1);
     transform: scale(1, 1);
+    -moz-transition: -moz-transform 0.6s ease-out 0s;
+    -o-transition: -o-transform 0.6s ease-out 0s;
+    -webkit-transition: -webkit-transform 0.6s ease-out;
+    -webkit-transition-delay: 0s;
+    transition: transform 0.6s ease-out 0s;
   }
 }
 
-/* line 90, ../scss/_header.scss */
+/* line 91, ../scss/_header.scss */
 .navBtn {
   color: white;
   font-weight: bold;
@@ -189,7 +194,7 @@ nav {
   padding: 2rem 3rem;
   cursor: pointer;
 }
-/* line 97, ../scss/_header.scss */
+/* line 98, ../scss/_header.scss */
 .navBtn:hover {
   color: #cd2109;
   -moz-transition: color 1s ease 0s;
@@ -199,8 +204,9 @@ nav {
   transition: color 1s ease 0s;
 }
 @media screen and (max-width: 600px) {
-  /* line 90, ../scss/_header.scss */
+  /* line 91, ../scss/_header.scss */
   .navBtn {
+    font-size: 2rem;
     opacity: 0;
     -moz-transition: opacity 0.5s ease 0s, color 0.5s ease 0s;
     -o-transition: opacity 0.5s ease 0s, color 0.5s ease 0s;
@@ -208,7 +214,7 @@ nav {
     -webkit-transition-delay: 0s, 0s;
     transition: opacity 0.5s ease 0s, color 0.5s ease 0s;
   }
-  /* line 106, ../scss/_header.scss */
+  /* line 108, ../scss/_header.scss */
   nav.expanded .navBtn {
     opacity: 1;
     -moz-transition: opacity 0.5s ease 0.6s, color 0.5s ease 0s;
@@ -219,7 +225,7 @@ nav {
   }
 }
 
-/* line 113, ../scss/_header.scss */
+/* line 115, ../scss/_header.scss */
 .menuBtn {
   display: none;
   color: white;
@@ -230,7 +236,7 @@ nav {
   right: 0;
   height: 7rem;
 }
-/* line 123, ../scss/_header.scss */
+/* line 125, ../scss/_header.scss */
 .menuBtn:hover {
   color: #cd2109;
   -moz-transition: color 1s 0s ease;
@@ -239,7 +245,7 @@ nav {
   cursor: pointer;
 }
 @media screen and (max-width: 600px) {
-  /* line 113, ../scss/_header.scss */
+  /* line 115, ../scss/_header.scss */
   .menuBtn {
     display: -webkit-flex;
     -webkit-flex-direction: row;
@@ -331,16 +337,19 @@ main {
 /* line 63, ../scss/_homepage.scss */
 .center .cta {
   background: #fff;
+  color: black;
   display: inline-block;
   padding: 1rem;
   position: relative;
-  top: 1.5rem;
-  font-size: 1.5rem;
-  border-radius: 0.5rem;
-  box-shadow: 0px 0px 10px #222;
+  top: 1.8rem;
+  font-size: 2rem;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px #222;
+  width: 2rem;
+  height: 2rem;
 }
 
-/* line 75, ../scss/_homepage.scss */
+/* line 78, ../scss/_homepage.scss */
 .skillset {
   width: 33.3333%;
   box-sizing: border-box;
@@ -350,7 +359,7 @@ main {
   margin-top: 2rem;
 }
 @media screen and (max-width: 690px) {
-  /* line 75, ../scss/_homepage.scss */
+  /* line 78, ../scss/_homepage.scss */
   .skillset {
     float: none;
     width: 100%;
@@ -358,22 +367,22 @@ main {
   }
 }
 
-/* line 90, ../scss/_homepage.scss */
+/* line 93, ../scss/_homepage.scss */
 .skillset:nth-child(1) .fa-circle, .skillset:nth-child(1) h3 {
   color: #e51c23;
 }
 
-/* line 91, ../scss/_homepage.scss */
+/* line 94, ../scss/_homepage.scss */
 .skillset:nth-child(2) .fa-circle, .skillset:nth-child(2) h3 {
   color: #259b24;
 }
 
-/* line 92, ../scss/_homepage.scss */
+/* line 95, ../scss/_homepage.scss */
 .skillset:nth-child(3) .fa-circle, .skillset:nth-child(3) h3 {
   color: #3f51b5;
 }
 
-/* line 94, ../scss/_homepage.scss */
+/* line 97, ../scss/_homepage.scss */
 h3 {
   font-size: 2rem;
   font-family: 'Roboto';
@@ -381,7 +390,7 @@ h3 {
   font-weight: 300;
 }
 
-/* line 101, ../scss/_homepage.scss */
+/* line 104, ../scss/_homepage.scss */
 h4 {
   font-size: 1.5rem;
   padding: 0.5rem 1rem;
@@ -392,7 +401,7 @@ h4 {
   font-weight: 100;
 }
 
-/* line 112, ../scss/_homepage.scss */
+/* line 115, ../scss/_homepage.scss */
 .skillset ul {
   width: 50%;
   margin: 0 auto;
@@ -403,12 +412,12 @@ h4 {
   padding: 0.5rem 0;
 }
 
-/* line 123, ../scss/_homepage.scss */
+/* line 126, ../scss/_homepage.scss */
 .skillset .fa-stack .fa:last-child {
   color: white;
 }
 
-/* line 127, ../scss/_homepage.scss */
+/* line 130, ../scss/_homepage.scss */
 .skillset:first-child:after,
 .skillset:nth-child(2):after {
   content: '';
@@ -417,7 +426,7 @@ h4 {
   background-color: #aaa;
 }
 @media screen and (min-width: 690px) {
-  /* line 127, ../scss/_homepage.scss */
+  /* line 130, ../scss/_homepage.scss */
   .skillset:first-child:after,
   .skillset:nth-child(2):after {
     height: 80%;
@@ -426,7 +435,7 @@ h4 {
   }
 }
 @media screen and (max-width: 690px) {
-  /* line 127, ../scss/_homepage.scss */
+  /* line 130, ../scss/_homepage.scss */
   .skillset:first-child:after,
   .skillset:nth-child(2):after {
     width: 60%;
@@ -436,7 +445,7 @@ h4 {
   }
 }
 
-/* line 147, ../scss/_homepage.scss */
+/* line 150, ../scss/_homepage.scss */
 .fa-code-fork {
   position: relative;
   left: 2px;
@@ -945,7 +954,7 @@ h4 {
   background-repeat: no-repeat;
 }
 
-/* line 169, ../scss/_portfolio.scss */
+/* line 172, ../scss/_portfolio.scss */
 .pcTag.ux {
   background-image: url(../img/tag_ux.png);
 }
@@ -955,19 +964,49 @@ h4 {
   background-image: url(../img/tag_psd.png);
 }
 
-/* line 175, ../scss/_portfolio.scss */
+/* line 172, ../scss/_portfolio.scss */
 .pcTag.ai {
   background-image: url(../img/tag_ai.png);
 }
 
-/* line 179, ../scss/_portfolio.scss */
+/* line 172, ../scss/_portfolio.scss */
+.pcTag.wp {
+  background-image: url(../img/tag_wp.png);
+}
+
+/* line 172, ../scss/_portfolio.scss */
+.pcTag.php {
+  background-image: url(../img/tag_php.png);
+}
+
+/* line 172, ../scss/_portfolio.scss */
+.pcTag.html {
+  background-image: url(../img/tag_html.png);
+}
+
+/* line 172, ../scss/_portfolio.scss */
+.pcTag.css {
+  background-image: url(../img/tag_css.png);
+}
+
+/* line 172, ../scss/_portfolio.scss */
+.pcTag.js {
+  background-image: url(../img/tag_js.png);
+}
+
+/* line 172, ../scss/_portfolio.scss */
+.pcTag.webcode {
+  background-image: url(../img/tag_webcode.png);
+}
+
+/* line 177, ../scss/_portfolio.scss */
 .pcImg {
   width: 50%;
   height: 50%;
   display: inline-block;
 }
 
-/* line 185, ../scss/_portfolio.scss */
+/* line 183, ../scss/_portfolio.scss */
 .pcMore {
   width: 100%;
   text-align: center;
@@ -975,7 +1014,7 @@ h4 {
   cursor: pointer;
 }
 
-/* line 191, ../scss/_portfolio.scss */
+/* line 189, ../scss/_portfolio.scss */
 .pcMore > p {
   font-size: 1.25rem;
   font-weight: bold;
@@ -983,7 +1022,18 @@ h4 {
   color: #777;
 }
 
-/* line 199, ../scss/_portfolio.scss */
+/* line 196, ../scss/_portfolio.scss */
+.pcTitle {
+  padding: 1.25rem 2rem 0rem 1.25rem;
+}
+/* line 203, ../scss/_portfolio.scss */
+.pcTitle p {
+  font-size: 3rem;
+  line-height: 3rem;
+  font-family: "Roboto Slab";
+}
+
+/* line 211, ../scss/_portfolio.scss */
 .thanks {
   text-align: center;
   font-weight: bold;
@@ -993,7 +1043,7 @@ h4 {
   line-height: 1.4rem;
 }
 
-/* line 209, ../scss/_portfolio.scss */
+/* line 221, ../scss/_portfolio.scss */
 .pcHeroLoader {
   position: absolute;
   top: 0;
@@ -1004,7 +1054,7 @@ h4 {
   background-color: white;
   display: none;
 }
-/* line 218, ../scss/_portfolio.scss */
+/* line 230, ../scss/_portfolio.scss */
 .portfolioCard.loading .pcHeroLoader {
   display: -webkit-flex;
   -webkit-flex-direction: row;
@@ -1016,7 +1066,7 @@ h4 {
   align-items: center;
 }
 
-/* line 235, ../scss/_portfolio.scss */
+/* line 247, ../scss/_portfolio.scss */
 .spinner {
   -moz-animation: rotator 1.4s linear infinite;
   -webkit-animation: rotator 1.4s linear infinite;
@@ -1057,7 +1107,7 @@ h4 {
     transform: rotate(270deg);
   }
 }
-/* line 244, ../scss/_portfolio.scss */
+/* line 256, ../scss/_portfolio.scss */
 .path {
   stroke-dasharray: 187;
   stroke-dashoffset: 0;

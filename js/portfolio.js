@@ -3,17 +3,6 @@ app.controller('SceneController', function(){
 	  this.portfolioCards=portfolioData.portfolioCards;
 });
 
-app.directive('imageonload', function() {
-    return {
-        restrict: 'A',
-        link: function(scope, element, attrs) {
-            element.bind('load', function() {
-                console.log($(element).parent());
-            });
-        }
-    };
-});
-var i;
 app.directive('imageonloaded', function() {
     return {
         link: function(scope,element,attrs){
@@ -21,9 +10,9 @@ app.directive('imageonloaded', function() {
         	image.src=attrs.imageonloaded;
         	image.onload = function() {
 	            //Image loaded- set the background image to it
-	            element.removeClass("loading").css("background-image","url("+attrs.imageonloaded+")");
+	            element.css("background-image","url("+attrs.imageonloaded+")");
+	            $(element).parents(".portfolioCard").removeClass("loading");
 	            console.log(attrs.imageonloaded+" loaded");
-	            console.log($(element).parents(".portfolioCard").removeClass("loading"));
 	        };
 
         }
