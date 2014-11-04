@@ -1207,7 +1207,82 @@ h4 {
     transform: rotate(450deg);
   }
 }
-/* line 14, ../scss/app.scss */
+/* line 1, ../scss/_contact.scss */
+.contactPage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
+  -webkit-justify-content: space-around;
+  -webkit-align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+/* line 14, ../scss/_contact.scss */
+.contactPage a {
+  position: relative;
+  min-width: 50%;
+  max-width: 90%;
+}
+
+/* line 21, ../scss/_contact.scss */
+.contactImg {
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+  background-color: gray;
+  background-image: url(../img/headshot.png);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 1px solid #b5b5b5;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+/* line 34, ../scss/_contact.scss */
+.contactCard {
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: 300;
+  padding: 2rem;
+  border: 1px solid #b5b5b5;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  min-width: 50%;
+  max-width: 90%;
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  -webkit-justify-content: flex-start;
+  -webkit-align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+/* line 53, ../scss/_contact.scss */
+.contactCard span {
+  margin-right: 1rem;
+}
+/* line 57, ../scss/_contact.scss */
+.contactCard .fa-inbox {
+  color: #FC5347;
+}
+/* line 58, ../scss/_contact.scss */
+.contactCard .fa-linkedin-square {
+  color: #0677B4;
+}
+/* line 59, ../scss/_contact.scss */
+.contactCard .fa-twitter-square {
+  color: #55AACE;
+}
+
+/* line 15, ../scss/app.scss */
 .warning {
   background-color: gold;
   color: #555;
@@ -1227,14 +1302,15 @@ h4 {
   transform: translateY(110%);
   z-index: 99999;
 }
-/* line 33, ../scss/app.scss */
+/* line 34, ../scss/app.scss */
 .warning.show {
   -webkit-transform: translateY(0%);
   -moz-transform: translateY(0%);
   transform: translateY(0%);
 }
 
-/* line 42, ../scss/app.scss */
+/* line 43, ../scss/app.scss */
 a {
   text-decoration: none;
+  color: initial;
 }
