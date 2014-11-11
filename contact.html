@@ -16,7 +16,7 @@
 
 <div id="body">
 	<header>
-		<div id="logo"></div>
+		<a href="index.html"><div id="logo"></div></a>
 		<div id="title">
 			<p>SETH WIEDER</p>
 			<p>Creative Technologist</p>
@@ -33,14 +33,28 @@
 	<main>
 		<div class="contactPage">
 			<div class="contactImg"></div>
-			<a href="mailto:swieder227@gmail.com" target="_blank"><div class="contactCard"><span class="fa fa-2x fa-inbox"></span>swieder227@gmail.com</div></a>
-			<a href="http://www.linkedin.com/pub/seth-wieder/2b/978/411/" target="_blank"><div class="contactCard"><span class="fa fa-2x fa-linkedin-square"></span>Resume</div></a>
-			<a href="https://twitter.com/swieder227" target="_blank"><div class="contactCard"><span class="fa fa-2x fa-twitter-square"></span>@swieder227</div></a>
+			<a class="contactCard gaEvent" data-ga-category="contactCards" data-ga-action="click" data-ga-label="contact@sethwieder.com" href="mailto:contact@sethwieder.com" target="_blank"><span class="fa fa-2x fa-inbox"></span><span>contact@sethwieder.com</span></a>
+			<a class="contactCard gaEvent" data-ga-category="contactCards" data-ga-action="click" data-ga-label="linkedin" href="http://www.linkedin.com/pub/seth-wieder/2b/978/411/" target="_blank"><span class="fa fa-2x fa-linkedin-square"></span><span>Resume</span></a>
+			<a class="contactCard gaEvent" data-ga-category="contactCards" data-ga-action="click" data-ga-label="twitter@swieder227" href="https://twitter.com/swieder227" target="_blank"><span class="fa fa-2x fa-twitter-square"></span><span>@swieder227</span></a>
 		</div>
 	</main>
 	<div class="warning">This page is in <b>beta</b>. It is under heavy construction.</div>
 
 </div>
+<script type="text/javascript">
+  // Google Analytics
+  var _gaq = _gaq || [];
+  var pluginUrl =
+   '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-27941087-1']);
+  _gaq.push(['_trackPageview']);
 
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
 </body>
 </html>

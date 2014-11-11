@@ -3,26 +3,21 @@ var portfolioData = {
 		{
 			name:"mi",
 			title:"Mobile App Design",
-			body:"Worked closely with an entrepeneur to design a user interface and test its usability.",
+			body:"I was hired by an entrepeneur take a prototype and design the user interface. To ensure a positive UX, I created wireframes and performed usability tests, before creating finalized UI assets.",
 			tags:["ux","psd","ai"],
 			hero:"../img/portfolio/hero_mi.jpg",
-			// imgs:[
-			// 	{
-			// 		hero: "../img/portfolio/mi_hero.png"
-			// 	},
-			// ],
 		},
 		{
 			name:"nimble",
 			title:"Interactive Web Apps",
-			body:"Front-End Programming using semantic HTML5, CSS3 animations, and a custom Javascript isometric framework.",
+			body:"I am a front-end programmer. I use semantic HTML5, CSS3 animations, SASS, SVGs, Video/Audio, Gestures and Javascript/jQuery to make it all come to life.",
 			tags:["html","css","js"],
 			hero:"../img/portfolio/hero_nimble.jpg",
 		},
 		{
 			name:"blues",
 			title:"Redesign & Custom Wordpress",
-			body:"Rebranded an existing site for a small business. Implemented a Wordpress CMS and custom theme using underscore.me.",
+			body:"I consulted for a small business by rebranding their website and social media presence. I implemented a Wordpress CMS and custom theme using underscores.me.",
 			tags:["psd","wp","webcode"],
 			hero:"../img/portfolio/hero_blues.jpg",
 		},

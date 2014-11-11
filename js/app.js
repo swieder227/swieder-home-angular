@@ -8,12 +8,12 @@ $( document ).ready(function() {
   	$(".warning").addClass("show");
   },1000);
 
-  $(".pcHero").on("mouseup",function(){
-  	var target = $(this).attr("data-pc-index");
-  	if($("#body").attr("data-pc-index") != target)
-  		$("#body").attr("data-pc-index",target);
-  	else
-  		$("#body").attr("data-pc-index","-1");
+  $(".gaEvent").on("mousedown",function(){
+    var that = $(this);
+    var category = that.attr("data-ga-category");
+    var action = that.attr("data-ga-action");
+    var label = that.attr("data-ga-label");
+    _gaq.push(['_trackEvent',category,action,label]);
   });
 
 });
