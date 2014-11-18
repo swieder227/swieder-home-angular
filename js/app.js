@@ -1,12 +1,8 @@
 $( document ).ready(function() {
 
-  $(".menuBtn").on("click",function(){
+  $(".menuBtn").on("mousedown",function(){
   	$("nav").toggleClass("expanded");
   });
-
-  window.setTimeout(function(){
-  	$(".warning").addClass("show");
-  },1000);
 
   $(".gaEvent").on("mousedown",function(){
     var that = $(this);

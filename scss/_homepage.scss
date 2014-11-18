@@ -9,46 +9,38 @@ main {
 	left: 0;
 	right: 0;
 	margin-top:7rem;
-	-moz-transition: opacity 1s 0s ease;
-	-webkit-transition: opacity 1s 0s ease;
-	transition: opacity 1s 0s ease;
+	@include transition(opacity 1s 0s ease);
 	overflow-y: auto;
 	overflow-x: hidden;
 }
 
 .beauty{
-	display: -webkit-box; display: flex;
-	-webkit-box-align: center; align-items: center;
-	-webkit-box-pack: center; justify-content: center;
-	-webkit-box-orient: vertical; flex-direction: column;
+	text-align: center;
 	padding:7.5rem 0;
-	border-bottom: 1px solid black;
-	background-color: #130f04;
+	border-bottom: 1px solid rgba(34, 34, 34, 0.3);
+	background-color: white;
 	position: relative;
 	margin-bottom:4rem;
-}
 
-.beauty > p {
-	font-size: 3rem;
-	font-weight: 300;
-	line-height: 4rem;
-	-moz-transition: font-size 0.5s 0s ease;
-	-webkit-transition: font-size 0.5s 0s ease;
-	transition: font-size 0.5s 0s ease;
-	color:#b9b9b9;
+	> p {
+		font-size: 3rem;
+		font-weight: 300;
+		line-height: 4rem;
+		@include transition(font-size 0.5s 0s ease);
+		color:#050505;
 
-	@media screen and (max-width: 690px){
-		font-size: 2.5rem;
+		@media screen and (max-width: 690px){
+			font-size: 2.5rem;
+		}
+		@media screen and (max-width: 600px){
+			font-size: 2.2rem;
+		}
+
+		> em {
+			font-weight: 700;
+			color:#fff;
+		}
 	}
-	@media screen and (max-width: 600px){
-		font-size: 1.8rem;
-	}
-
-}
-
-.beauty > p > em {
-	font-weight: 700;
-	color:#fff;
 }
 
 .center{
@@ -58,22 +50,31 @@ main {
 	left: 0;
 	width: 100%;
 	text-align: center;
+
+	.cta{
+		top: 1.8rem;
+	}
 }
 
-.center .cta{
+ .cta{
 	background: #fff;
 	color: black;
 	display: inline-block;
 	padding: 1rem;
 	position: relative;
-	top: 1.8rem;
 	font-size: 2rem;
 	border-radius: 50%;
-	box-shadow: 0px 0px 5px #222;
+	box-shadow: 0px 0px 1px #222;
 	width: 2rem;
 	height: 2rem;
+	line-height: 1rem;
 }
 
+.skills:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
 .skillset{
 	width:33.3333%;
@@ -150,5 +151,43 @@ h4 {
 .fa-code-fork {
 	position: relative;
 	left:2px;
+}
+
+.portfolioBanner{
+	width: 100%;
+	margin-top:4rem;
+	background-color: rgba(0,0,0,0.8);
+	text-align: center;
+	padding: 6rem 0;
+
+	.portfolioBannerText {
+		display: inline-block;
+		font-size: 2.5rem;
+		font-weight: 300;
+		line-height: 3.5rem;
+		@include transition(font-size 0.5s 0s ease);
+		color:white !important;
+		text-decoration: none !important;
+		cursor:pointer;
+
+		@media screen and (max-width: 600px){
+			font-size: 2rem;
+		}
+
+		> em {
+			font-weight: 700;
+		}
+
+		.cta {
+			margin-top:1rem;
+			margin-left:1rem;
+
+			@media screen and (max-width: 600px){
+				width: 1.5rem;
+				height: 1.5rem;
+				font-size: 1.5rem;
+			}
+		}
+	}
 }
 

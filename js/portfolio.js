@@ -21,15 +21,11 @@ app.directive('imageonloaded', function() {
 
 $( document ).ready(function() {
 
-	$(".menuBtn").on("click",function(){
+	$(".menuBtn").on("mousedown",function(){
 		$("nav").toggleClass("expanded");
 	});
 
-	window.setTimeout(function(){
-		$(".warning").addClass("show");
-	},1000);
-
-	$(".pcHero").on("mouseup",function(){
+	$(".pcHero").on("mousedown",function(){
 		var target = $(this).attr("data-pc-index");
 		if($("#body").attr("data-pc-index") != target)
 			$("#body").attr("data-pc-index",target);
