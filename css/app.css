@@ -1269,11 +1269,11 @@ h4 {
   height: 100%;
   display: -webkit-flex;
   -webkit-flex-direction: column;
-  -webkit-justify-content: space-around;
+  -webkit-justify-content: center;
   -webkit-align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 }
 
@@ -1292,18 +1292,54 @@ h4 {
 }
 
 /* line 28, ../scss/_contact.scss */
+.contactImg + p {
+  margin: 1rem 0 0;
+  font-style: italic;
+  color: #aeaeae;
+  font-size: 1.5rem;
+}
+
+/* line 35, ../scss/_contact.scss */
+.contactImgContain {
+  -webkit-flex: 2;
+  flex: 2;
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 45, ../scss/_contact.scss */
+.contactCardContain {
+  -webkit-flex: 3;
+  flex: 3;
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
+  -webkit-justify-content: space-around;
+  -webkit-align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: stretch;
+}
+
+/* line 55, ../scss/_contact.scss */
 .contactCard {
   position: relative;
   cursor: pointer;
   font-size: 2rem;
   font-weight: 300;
-  padding: 2rem;
+  padding: 3rem;
   border: 1px solid #b5b5b5;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
+  box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.3rem;
   overflow: hidden;
-  min-width: 50%;
-  max-width: 90%;
+  width: 100%;
+  box-sizing: border-box;
   display: -webkit-flex;
   -webkit-flex-direction: row;
   -webkit-justify-content: flex-start;
@@ -1313,39 +1349,31 @@ h4 {
   justify-content: flex-start;
   align-items: center;
 }
-/* line 48, ../scss/_contact.scss */
+/* line 75, ../scss/_contact.scss */
 .contactCard span {
   margin-right: 1rem;
+  line-height: 2rem;
 }
-/* line 52, ../scss/_contact.scss */
+/* line 80, ../scss/_contact.scss */
 .contactCard .fa-inbox {
   color: #FC5347;
 }
-/* line 53, ../scss/_contact.scss */
+/* line 81, ../scss/_contact.scss */
 .contactCard .fa-linkedin-square {
   color: #0677B4;
 }
-/* line 54, ../scss/_contact.scss */
+/* line 82, ../scss/_contact.scss */
 .contactCard .fa-twitter-square {
   color: #55AACE;
 }
 @media screen and (max-width: 600px) {
-  /* line 28, ../scss/_contact.scss */
+  /* line 55, ../scss/_contact.scss */
   .contactCard {
-    width: 80%;
-    padding: 1.5rem;
-    font-size: 1.5rem;
-  }
-}
-@media screen and (max-height: 500px) {
-  /* line 28, ../scss/_contact.scss */
-  .contactCard {
-    padding: 1rem 1.5rem;
-    font-size: 1.35rem;
+    padding: 2.5rem;
   }
 }
 
-/* line 68, ../scss/_contact.scss */
+/* line 89, ../scss/_contact.scss */
 .ccContain {
   position: absolute;
   top: 0;
@@ -1354,34 +1382,26 @@ h4 {
   height: 100%;
 }
 
-/* line 15, ../scss/app.scss */
-.warning {
-  background-color: gold;
-  color: #555;
-  padding: 0.5rem;
-  border-bottom: 1px solid goldenrod;
-  font-size: 1.25rem;
-  position: absolute;
-  opacity: 0.75;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  -moz-transition: -webkit-transform 1s 0s ease;
-  -webkit-transition: -webkit-transform 1s 0s ease;
-  transition: transform 1s 0s ease;
-  -webkit-transform: translateY(110%);
-  -moz-transform: translateY(110%);
-  transform: translateY(110%);
-  z-index: 99999;
-}
-/* line 34, ../scss/app.scss */
-.warning.show {
-  -webkit-transform: translateY(0%);
-  -moz-transform: translateY(0%);
-  transform: translateY(0%);
-}
+@media screen and (max-height: 450px) {
+  /* line 100, ../scss/_contact.scss */
+  .contactPage {
+    -webkit-flex-direction: row;
+    flex-direction: row;
+  }
 
-/* line 43, ../scss/app.scss */
+  /* line 104, ../scss/_contact.scss */
+  .contactCardContain {
+    height: 70%;
+    padding-right: 2rem;
+  }
+
+  /* line 109, ../scss/_contact.scss */
+  .contactCard {
+    padding: 2rem 1.5rem;
+    font-size: 1.35rem;
+  }
+}
+/* line 14, ../scss/app.scss */
 a {
   text-decoration: none;
   color: initial;

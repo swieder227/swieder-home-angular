@@ -11,35 +11,6 @@ html{
 @import "portfolio";
 @import "contact";
 
-
-.warning {
-	background-color: gold;
-	color: #555;
-	padding:0.5rem;
-	border-bottom: 1px solid goldenrod;
-	font-size: 1.25rem;
-	position: absolute;
-	opacity: 0.75;
-	left:0;
-	right:0;
-	bottom:0;
-	-moz-transition: -webkit-transform 1s 0s ease;
-	-webkit-transition: -webkit-transform 1s 0s ease;
-	transition: transform 1s 0s ease;
-
-	-webkit-transform:translateY(110%);
-	-moz-transform:translateY(110%);
-	transform:translateY(110%);
-
-	&.show{
-		-webkit-transform:translateY(0%);
-		-moz-transform:translateY(0%);
-		transform:translateY(0%);
-	}
-
-	z-index: 99999;
-}
-
 a{
 	text-decoration: none;
 	color: initial;
