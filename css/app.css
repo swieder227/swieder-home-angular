@@ -76,8 +76,16 @@ header {
   background-color: rgba(0, 0, 0, 0.8);
   box-shadow: 0px 0px 15px 1px #222;
   z-index: 900;
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
 }
-@media screen and (min-width: 600px) {
+@media screen and (max-width: 600px) {
+  /* line 1, ../scss/_header.scss */
+  header {
+    position: static !important;
+  }
+}
+@media screen and (min-width: 601px) {
   /* line 1, ../scss/_header.scss */
   header {
     position: fixed;
@@ -86,7 +94,7 @@ header {
   }
 }
 
-/* line 15, ../scss/_header.scss */
+/* line 20, ../scss/_header.scss */
 #logo {
   height: 5rem;
   width: 5rem;
@@ -100,9 +108,10 @@ header {
   background-size: contain;
   background-repeat: no-repeat;
   box-sizing: border-box;
+  z-index: 10;
 }
 
-/* line 30, ../scss/_header.scss */
+/* line 36, ../scss/_header.scss */
 #title {
   position: absolute;
   left: 6.5rem;
@@ -110,9 +119,10 @@ header {
   color: #fff;
   padding-left: 2rem;
   max-width: 20rem;
+  z-index: 10;
 }
 
-/* line 39, ../scss/_header.scss */
+/* line 46, ../scss/_header.scss */
 #title > p:first-child {
   font-size: 2.7rem;
   font-weight: lighter;
@@ -120,14 +130,14 @@ header {
   color: #fff;
 }
 
-/* line 46, ../scss/_header.scss */
+/* line 53, ../scss/_header.scss */
 #title > p:last-child {
   font-family: 'Roboto Slab';
   font-size: 1.4rem;
   letter-spacing: 1px;
 }
 
-/* line 52, ../scss/_header.scss */
+/* line 59, ../scss/_header.scss */
 nav {
   position: absolute;
   height: 100%;
@@ -145,15 +155,15 @@ nav {
   padding-right: 2%;
 }
 @media screen and (max-width: 600px) {
-  /* line 52, ../scss/_header.scss */
+  /* line 59, ../scss/_header.scss */
   nav {
     width: 100%;
-    height: initial;
-    top: 7rem;
+    padding-top: 7rem;
+    box-sizing: border-box;
+    top: 0;
     left: 0;
-    bottom: 0;
     background-color: #333;
-    z-index: 1000;
+    z-index: 5;
     display: -webkit-flex;
     -webkit-flex-direction: column;
     -webkit-justify-content: space-around;
@@ -172,7 +182,7 @@ nav {
     -webkit-transition-delay: 0s;
     transition: transform 0.6s ease-out 0s;
   }
-  /* line 84, ../scss/_header.scss */
+  /* line 91, ../scss/_header.scss */
   nav.expanded {
     -moz-transform: scale(1, 1);
     -ms-transform: scale(1, 1);
@@ -186,7 +196,7 @@ nav {
   }
 }
 
-/* line 91, ../scss/_header.scss */
+/* line 100, ../scss/_header.scss */
 .navBtn {
   color: white;
   font-weight: bold;
@@ -194,7 +204,7 @@ nav {
   padding: 2rem 3rem;
   cursor: pointer;
 }
-/* line 98, ../scss/_header.scss */
+/* line 107, ../scss/_header.scss */
 .navBtn:hover {
   color: #cd2109;
   -moz-transition: color 1s ease 0s;
@@ -204,7 +214,7 @@ nav {
   transition: color 1s ease 0s;
 }
 @media screen and (max-width: 600px) {
-  /* line 91, ../scss/_header.scss */
+  /* line 100, ../scss/_header.scss */
   .navBtn {
     font-size: 2rem;
     opacity: 0;
@@ -214,7 +224,7 @@ nav {
     -webkit-transition-delay: 0s, 0s;
     transition: opacity 0.5s ease 0s, color 0.5s ease 0s;
   }
-  /* line 108, ../scss/_header.scss */
+  /* line 117, ../scss/_header.scss */
   nav.expanded .navBtn {
     opacity: 1;
     -moz-transition: opacity 0.5s ease 0.6s, color 0.5s ease 0s;
@@ -225,7 +235,7 @@ nav {
   }
 }
 
-/* line 115, ../scss/_header.scss */
+/* line 124, ../scss/_header.scss */
 .menuBtn {
   display: none;
   color: white;
@@ -235,8 +245,9 @@ nav {
   top: 0;
   right: 0;
   height: 7rem;
+  z-index: 10;
 }
-/* line 125, ../scss/_header.scss */
+/* line 135, ../scss/_header.scss */
 .menuBtn:hover {
   color: #cd2109;
   -moz-transition: color 1s 0s ease;
@@ -245,7 +256,7 @@ nav {
   cursor: pointer;
 }
 @media screen and (max-width: 600px) {
-  /* line 115, ../scss/_header.scss */
+  /* line 124, ../scss/_header.scss */
   .menuBtn {
     display: -webkit-flex;
     -webkit-flex-direction: row;
@@ -278,9 +289,10 @@ main {
   transition: opacity 1s ease 0s;
   overflow-y: auto;
   overflow-x: hidden;
+  z-index: 1;
 }
 
-/* line 17, ../scss/_homepage.scss */
+/* line 18, ../scss/_homepage.scss */
 .beauty {
   text-align: center;
   padding: 7.5rem 0;
@@ -289,10 +301,10 @@ main {
   position: relative;
   margin-bottom: 4rem;
 }
-/* line 25, ../scss/_homepage.scss */
+/* line 26, ../scss/_homepage.scss */
 .beauty > p {
   font-size: 3rem;
-  font-weight: 300;
+  font-weight: 100;
   line-height: 4rem;
   -moz-transition: font-size 0.5s ease 0s;
   -o-transition: font-size 0.5s ease 0s;
@@ -302,24 +314,24 @@ main {
   color: #050505;
 }
 @media screen and (max-width: 690px) {
-  /* line 25, ../scss/_homepage.scss */
+  /* line 26, ../scss/_homepage.scss */
   .beauty > p {
     font-size: 2.5rem;
   }
 }
 @media screen and (max-width: 600px) {
-  /* line 25, ../scss/_homepage.scss */
+  /* line 26, ../scss/_homepage.scss */
   .beauty > p {
     font-size: 2.2rem;
   }
 }
-/* line 39, ../scss/_homepage.scss */
+/* line 40, ../scss/_homepage.scss */
 .beauty > p > em {
   font-weight: 700;
   color: #fff;
 }
 
-/* line 46, ../scss/_homepage.scss */
+/* line 47, ../scss/_homepage.scss */
 .center {
   position: absolute;
   bottom: 0;
@@ -328,12 +340,12 @@ main {
   width: 100%;
   text-align: center;
 }
-/* line 54, ../scss/_homepage.scss */
+/* line 55, ../scss/_homepage.scss */
 .center .cta {
   top: 1.8rem;
 }
 
-/* line 59, ../scss/_homepage.scss */
+/* line 60, ../scss/_homepage.scss */
 .cta {
   background: #fff;
   color: black;
@@ -348,14 +360,14 @@ main {
   line-height: 1rem;
 }
 
-/* line 73, ../scss/_homepage.scss */
+/* line 74, ../scss/_homepage.scss */
 .skills:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* line 79, ../scss/_homepage.scss */
+/* line 80, ../scss/_homepage.scss */
 .skillset {
   width: 33.3333%;
   box-sizing: border-box;
@@ -365,7 +377,7 @@ main {
   margin-top: 2rem;
 }
 @media screen and (max-width: 690px) {
-  /* line 79, ../scss/_homepage.scss */
+  /* line 80, ../scss/_homepage.scss */
   .skillset {
     float: none;
     width: 100%;
@@ -373,32 +385,32 @@ main {
   }
 }
 
-/* line 94, ../scss/_homepage.scss */
+/* line 95, ../scss/_homepage.scss */
 .skillset:nth-child(1) .fa-circle, .skillset:nth-child(1) h3 {
   color: #e51c23;
 }
 
-/* line 95, ../scss/_homepage.scss */
+/* line 96, ../scss/_homepage.scss */
 .skillset:nth-child(2) .fa-circle, .skillset:nth-child(2) h3 {
   color: #259b24;
 }
 
-/* line 96, ../scss/_homepage.scss */
+/* line 97, ../scss/_homepage.scss */
 .skillset:nth-child(3) .fa-circle, .skillset:nth-child(3) h3 {
   color: #3f51b5;
 }
 
-/* line 98, ../scss/_homepage.scss */
+/* line 99, ../scss/_homepage.scss */
 h3 {
   font-size: 2rem;
-  font-family: 'Roboto';
+  font-family: 'Roboto Slab';
   padding: 1rem;
-  font-weight: 300;
 }
 
 /* line 105, ../scss/_homepage.scss */
 h4 {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+  letter-spacing: 0.5px;
   padding: 0.5rem 1rem;
   line-height: 2rem;
   max-width: 85%;
@@ -407,7 +419,7 @@ h4 {
   font-weight: 100;
 }
 
-/* line 116, ../scss/_homepage.scss */
+/* line 117, ../scss/_homepage.scss */
 .skillset ul {
   width: 50%;
   margin: 0 auto;
@@ -418,12 +430,12 @@ h4 {
   padding: 0.5rem 0;
 }
 
-/* line 127, ../scss/_homepage.scss */
+/* line 128, ../scss/_homepage.scss */
 .skillset .fa-stack .fa:last-child {
   color: white;
 }
 
-/* line 131, ../scss/_homepage.scss */
+/* line 132, ../scss/_homepage.scss */
 .skillset:first-child:after,
 .skillset:nth-child(2):after {
   content: '';
@@ -432,7 +444,7 @@ h4 {
   background-color: #aaa;
 }
 @media screen and (min-width: 690px) {
-  /* line 131, ../scss/_homepage.scss */
+  /* line 132, ../scss/_homepage.scss */
   .skillset:first-child:after,
   .skillset:nth-child(2):after {
     height: 80%;
@@ -441,7 +453,7 @@ h4 {
   }
 }
 @media screen and (max-width: 690px) {
-  /* line 131, ../scss/_homepage.scss */
+  /* line 132, ../scss/_homepage.scss */
   .skillset:first-child:after,
   .skillset:nth-child(2):after {
     width: 60%;
@@ -451,21 +463,21 @@ h4 {
   }
 }
 
-/* line 151, ../scss/_homepage.scss */
+/* line 152, ../scss/_homepage.scss */
 .fa-code-fork {
   position: relative;
   left: 2px;
 }
 
-/* line 156, ../scss/_homepage.scss */
+/* line 157, ../scss/_homepage.scss */
 .portfolioBanner {
   width: 100%;
-  margin-top: 4rem;
+  margin-top: 2rem;
   background-color: rgba(0, 0, 0, 0.8);
   text-align: center;
   padding: 6rem 0;
 }
-/* line 163, ../scss/_homepage.scss */
+/* line 164, ../scss/_homepage.scss */
 .portfolioBanner .portfolioBannerText {
   display: inline-block;
   font-size: 2.5rem;
@@ -481,22 +493,22 @@ h4 {
   cursor: pointer;
 }
 @media screen and (max-width: 600px) {
-  /* line 163, ../scss/_homepage.scss */
+  /* line 164, ../scss/_homepage.scss */
   .portfolioBanner .portfolioBannerText {
     font-size: 2rem;
   }
 }
-/* line 177, ../scss/_homepage.scss */
+/* line 178, ../scss/_homepage.scss */
 .portfolioBanner .portfolioBannerText > em {
   font-weight: 700;
 }
-/* line 181, ../scss/_homepage.scss */
+/* line 182, ../scss/_homepage.scss */
 .portfolioBanner .portfolioBannerText .cta {
   margin-top: 1rem;
   margin-left: 1rem;
 }
 @media screen and (max-width: 600px) {
-  /* line 181, ../scss/_homepage.scss */
+  /* line 182, ../scss/_homepage.scss */
   .portfolioBanner .portfolioBannerText .cta {
     width: 1.5rem;
     height: 1.5rem;
@@ -517,7 +529,7 @@ h4 {
   position: relative;
 }
 
-/* line 23, ../scss/_portfolio.scss */
+/* line 14, ../scss/_portfolio.scss */
 .pcHero {
   position: absolute;
   top: 0;
@@ -534,12 +546,12 @@ h4 {
   z-index: 100;
 }
 
-/* line 35, ../scss/_portfolio.scss */
+/* line 26, ../scss/_portfolio.scss */
 .portfolioCard.loading .pcHero {
   pointer-events: none;
 }
 
-/* line 40, ../scss/_portfolio.scss */
+/* line 31, ../scss/_portfolio.scss */
 .pcHeroImg {
   position: absolute;
   top: 0;
@@ -556,7 +568,7 @@ h4 {
   background-color: white;
 }
 
-/* line 56, ../scss/_portfolio.scss */
+/* line 47, ../scss/_portfolio.scss */
 .pcHeroCurtain {
   position: absolute;
   top: 0;
@@ -564,24 +576,24 @@ h4 {
   width: 100%;
   height: 100%;
   background-color: black;
-  opacity: 0.5;
+  opacity: 0.3;
   -moz-transition: opacity 0.3s 0;
   -o-transition: opacity 0.3s 0;
   -webkit-transition: opacity 0.3s 0;
   transition: opacity 0.3s 0;
 }
 
-/* line 66, ../scss/_portfolio.scss */
+/* line 57, ../scss/_portfolio.scss */
 .pcHero:hover .pcHeroCurtain {
-  opacity: 0.3;
+  opacity: 0;
 }
 
-/* line 69, ../scss/_portfolio.scss */
+/* line 60, ../scss/_portfolio.scss */
 .portfolioCard.loading .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 76, ../scss/_portfolio.scss */
+/* line 67, ../scss/_portfolio.scss */
 .pcBlock {
   height: 25rem;
   border-bottom: 1px solid #b5b5b5;
@@ -590,7 +602,7 @@ h4 {
   cursor: pointer;
 }
 
-/* line 84, ../scss/_portfolio.scss */
+/* line 75, ../scss/_portfolio.scss */
 .pcShowMore {
   position: absolute;
   top: 1rem;
@@ -605,11 +617,11 @@ h4 {
   -webkit-highlight-color: transparent;
   highlight-color: transparent;
 }
-/* line 95, ../scss/_portfolio.scss */
+/* line 86, ../scss/_portfolio.scss */
 .portfolioCard.loading .pcShowMore {
   opacity: 0;
 }
-/* line 99, ../scss/_portfolio.scss */
+/* line 90, ../scss/_portfolio.scss */
 .pcShowMore div:first-child {
   -moz-transition: -moz-transform 0.3s ease;
   -o-transition: -o-transform 0.3s ease;
@@ -619,7 +631,7 @@ h4 {
   font-size: 3rem;
   cursor: pointer;
 }
-/* line 105, ../scss/_portfolio.scss */
+/* line 96, ../scss/_portfolio.scss */
 .pcShowMore div:last-child {
   -moz-transition: opacity 0.3s ease;
   -o-transition: opacity 0.3s ease;
@@ -631,12 +643,12 @@ h4 {
   line-height: 3rem;
 }
 
-/* line 117, ../scss/_portfolio.scss */
+/* line 108, ../scss/_portfolio.scss */
 #body[data-pc-index="0"] .portfolioCard[data-pc-index="0"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 121, ../scss/_portfolio.scss */
+/* line 112, ../scss/_portfolio.scss */
 #body:not([data-pc-index="0"]) .portfolioCard[data-pc-index="0"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -644,7 +656,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 125, ../scss/_portfolio.scss */
+/* line 116, ../scss/_portfolio.scss */
 #body[data-pc-index="0"] .portfolioCard[data-pc-index="0"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -652,22 +664,22 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 129, ../scss/_portfolio.scss */
+/* line 120, ../scss/_portfolio.scss */
 #body[data-pc-index="0"] .portfolioCard[data-pc-index="0"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 133, ../scss/_portfolio.scss */
+/* line 124, ../scss/_portfolio.scss */
 #body[data-pc-index="0"] .portfolioCard[data-pc-index="0"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 117, ../scss/_portfolio.scss */
+/* line 108, ../scss/_portfolio.scss */
 #body[data-pc-index="1"] .portfolioCard[data-pc-index="1"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 121, ../scss/_portfolio.scss */
+/* line 112, ../scss/_portfolio.scss */
 #body:not([data-pc-index="1"]) .portfolioCard[data-pc-index="1"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -675,7 +687,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 125, ../scss/_portfolio.scss */
+/* line 116, ../scss/_portfolio.scss */
 #body[data-pc-index="1"] .portfolioCard[data-pc-index="1"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -683,22 +695,22 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 129, ../scss/_portfolio.scss */
+/* line 120, ../scss/_portfolio.scss */
 #body[data-pc-index="1"] .portfolioCard[data-pc-index="1"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 133, ../scss/_portfolio.scss */
+/* line 124, ../scss/_portfolio.scss */
 #body[data-pc-index="1"] .portfolioCard[data-pc-index="1"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 117, ../scss/_portfolio.scss */
+/* line 108, ../scss/_portfolio.scss */
 #body[data-pc-index="2"] .portfolioCard[data-pc-index="2"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 121, ../scss/_portfolio.scss */
+/* line 112, ../scss/_portfolio.scss */
 #body:not([data-pc-index="2"]) .portfolioCard[data-pc-index="2"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -706,7 +718,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 125, ../scss/_portfolio.scss */
+/* line 116, ../scss/_portfolio.scss */
 #body[data-pc-index="2"] .portfolioCard[data-pc-index="2"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -714,22 +726,22 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 129, ../scss/_portfolio.scss */
+/* line 120, ../scss/_portfolio.scss */
 #body[data-pc-index="2"] .portfolioCard[data-pc-index="2"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 133, ../scss/_portfolio.scss */
+/* line 124, ../scss/_portfolio.scss */
 #body[data-pc-index="2"] .portfolioCard[data-pc-index="2"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 117, ../scss/_portfolio.scss */
+/* line 108, ../scss/_portfolio.scss */
 #body[data-pc-index="3"] .portfolioCard[data-pc-index="3"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 121, ../scss/_portfolio.scss */
+/* line 112, ../scss/_portfolio.scss */
 #body:not([data-pc-index="3"]) .portfolioCard[data-pc-index="3"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -737,7 +749,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 125, ../scss/_portfolio.scss */
+/* line 116, ../scss/_portfolio.scss */
 #body[data-pc-index="3"] .portfolioCard[data-pc-index="3"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -745,22 +757,22 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 129, ../scss/_portfolio.scss */
+/* line 120, ../scss/_portfolio.scss */
 #body[data-pc-index="3"] .portfolioCard[data-pc-index="3"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 133, ../scss/_portfolio.scss */
+/* line 124, ../scss/_portfolio.scss */
 #body[data-pc-index="3"] .portfolioCard[data-pc-index="3"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 117, ../scss/_portfolio.scss */
+/* line 108, ../scss/_portfolio.scss */
 #body[data-pc-index="4"] .portfolioCard[data-pc-index="4"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 121, ../scss/_portfolio.scss */
+/* line 112, ../scss/_portfolio.scss */
 #body:not([data-pc-index="4"]) .portfolioCard[data-pc-index="4"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -768,7 +780,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 125, ../scss/_portfolio.scss */
+/* line 116, ../scss/_portfolio.scss */
 #body[data-pc-index="4"] .portfolioCard[data-pc-index="4"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -776,22 +788,22 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 129, ../scss/_portfolio.scss */
+/* line 120, ../scss/_portfolio.scss */
 #body[data-pc-index="4"] .portfolioCard[data-pc-index="4"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 133, ../scss/_portfolio.scss */
+/* line 124, ../scss/_portfolio.scss */
 #body[data-pc-index="4"] .portfolioCard[data-pc-index="4"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 117, ../scss/_portfolio.scss */
+/* line 108, ../scss/_portfolio.scss */
 #body[data-pc-index="5"] .portfolioCard[data-pc-index="5"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 121, ../scss/_portfolio.scss */
+/* line 112, ../scss/_portfolio.scss */
 #body:not([data-pc-index="5"]) .portfolioCard[data-pc-index="5"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -799,7 +811,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 125, ../scss/_portfolio.scss */
+/* line 116, ../scss/_portfolio.scss */
 #body[data-pc-index="5"] .portfolioCard[data-pc-index="5"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -807,22 +819,22 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 129, ../scss/_portfolio.scss */
+/* line 120, ../scss/_portfolio.scss */
 #body[data-pc-index="5"] .portfolioCard[data-pc-index="5"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 133, ../scss/_portfolio.scss */
+/* line 124, ../scss/_portfolio.scss */
 #body[data-pc-index="5"] .portfolioCard[data-pc-index="5"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 117, ../scss/_portfolio.scss */
+/* line 108, ../scss/_portfolio.scss */
 #body[data-pc-index="6"] .portfolioCard[data-pc-index="6"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 121, ../scss/_portfolio.scss */
+/* line 112, ../scss/_portfolio.scss */
 #body:not([data-pc-index="6"]) .portfolioCard[data-pc-index="6"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -830,7 +842,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 125, ../scss/_portfolio.scss */
+/* line 116, ../scss/_portfolio.scss */
 #body[data-pc-index="6"] .portfolioCard[data-pc-index="6"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -838,22 +850,22 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 129, ../scss/_portfolio.scss */
+/* line 120, ../scss/_portfolio.scss */
 #body[data-pc-index="6"] .portfolioCard[data-pc-index="6"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 133, ../scss/_portfolio.scss */
+/* line 124, ../scss/_portfolio.scss */
 #body[data-pc-index="6"] .portfolioCard[data-pc-index="6"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 117, ../scss/_portfolio.scss */
+/* line 108, ../scss/_portfolio.scss */
 #body[data-pc-index="7"] .portfolioCard[data-pc-index="7"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 121, ../scss/_portfolio.scss */
+/* line 112, ../scss/_portfolio.scss */
 #body:not([data-pc-index="7"]) .portfolioCard[data-pc-index="7"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -861,7 +873,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 125, ../scss/_portfolio.scss */
+/* line 116, ../scss/_portfolio.scss */
 #body[data-pc-index="7"] .portfolioCard[data-pc-index="7"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -869,22 +881,22 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 129, ../scss/_portfolio.scss */
+/* line 120, ../scss/_portfolio.scss */
 #body[data-pc-index="7"] .portfolioCard[data-pc-index="7"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 133, ../scss/_portfolio.scss */
+/* line 124, ../scss/_portfolio.scss */
 #body[data-pc-index="7"] .portfolioCard[data-pc-index="7"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 117, ../scss/_portfolio.scss */
+/* line 108, ../scss/_portfolio.scss */
 #body[data-pc-index="8"] .portfolioCard[data-pc-index="8"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 121, ../scss/_portfolio.scss */
+/* line 112, ../scss/_portfolio.scss */
 #body:not([data-pc-index="8"]) .portfolioCard[data-pc-index="8"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -892,7 +904,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 125, ../scss/_portfolio.scss */
+/* line 116, ../scss/_portfolio.scss */
 #body[data-pc-index="8"] .portfolioCard[data-pc-index="8"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -900,22 +912,22 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 129, ../scss/_portfolio.scss */
+/* line 120, ../scss/_portfolio.scss */
 #body[data-pc-index="8"] .portfolioCard[data-pc-index="8"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 133, ../scss/_portfolio.scss */
+/* line 124, ../scss/_portfolio.scss */
 #body[data-pc-index="8"] .portfolioCard[data-pc-index="8"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 117, ../scss/_portfolio.scss */
+/* line 108, ../scss/_portfolio.scss */
 #body[data-pc-index="9"] .portfolioCard[data-pc-index="9"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 121, ../scss/_portfolio.scss */
+/* line 112, ../scss/_portfolio.scss */
 #body:not([data-pc-index="9"]) .portfolioCard[data-pc-index="9"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -923,7 +935,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 125, ../scss/_portfolio.scss */
+/* line 116, ../scss/_portfolio.scss */
 #body[data-pc-index="9"] .portfolioCard[data-pc-index="9"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -931,22 +943,22 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 129, ../scss/_portfolio.scss */
+/* line 120, ../scss/_portfolio.scss */
 #body[data-pc-index="9"] .portfolioCard[data-pc-index="9"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 133, ../scss/_portfolio.scss */
+/* line 124, ../scss/_portfolio.scss */
 #body[data-pc-index="9"] .portfolioCard[data-pc-index="9"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 117, ../scss/_portfolio.scss */
+/* line 108, ../scss/_portfolio.scss */
 #body[data-pc-index="10"] .portfolioCard[data-pc-index="10"] .pcHero {
   max-height: 25rem;
 }
 
-/* line 121, ../scss/_portfolio.scss */
+/* line 112, ../scss/_portfolio.scss */
 #body:not([data-pc-index="10"]) .portfolioCard[data-pc-index="10"] .pcHero:hover .pcHeroImg {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -954,7 +966,7 @@ h4 {
   transform: scale(1.05);
 }
 
-/* line 125, ../scss/_portfolio.scss */
+/* line 116, ../scss/_portfolio.scss */
 #body[data-pc-index="10"] .portfolioCard[data-pc-index="10"] .pcShowMore > div:first-child {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -962,17 +974,17 @@ h4 {
   transform: rotate(45deg);
 }
 
-/* line 129, ../scss/_portfolio.scss */
+/* line 120, ../scss/_portfolio.scss */
 #body[data-pc-index="10"] .portfolioCard[data-pc-index="10"] .pcShowMore > div:last-child {
   opacity: 0;
 }
 
-/* line 133, ../scss/_portfolio.scss */
+/* line 124, ../scss/_portfolio.scss */
 #body[data-pc-index="10"] .portfolioCard[data-pc-index="10"] .pcHeroCurtain {
   opacity: 0;
 }
 
-/* line 139, ../scss/_portfolio.scss */
+/* line 130, ../scss/_portfolio.scss */
 .pcBody {
   font-size: 1.5rem;
   line-height: 2.2rem;
@@ -980,7 +992,7 @@ h4 {
   padding: 1.25rem 2rem 1.55rem 1.25rem;
 }
 
-/* line 146, ../scss/_portfolio.scss */
+/* line 137, ../scss/_portfolio.scss */
 .pcTags {
   height: 10rem;
   width: 100%;
@@ -995,7 +1007,7 @@ h4 {
   align-items: center;
 }
 
-/* line 158, ../scss/_portfolio.scss */
+/* line 149, ../scss/_portfolio.scss */
 .pcTag {
   height: 6rem;
   width: 6rem;
@@ -1007,59 +1019,59 @@ h4 {
   background-repeat: no-repeat;
 }
 
-/* line 172, ../scss/_portfolio.scss */
+/* line 163, ../scss/_portfolio.scss */
 .pcTag.ux {
   background-image: url(../img/tag_ux.png);
 }
 
-/* line 172, ../scss/_portfolio.scss */
+/* line 163, ../scss/_portfolio.scss */
 .pcTag.psd {
   background-image: url(../img/tag_psd.png);
 }
 
-/* line 172, ../scss/_portfolio.scss */
+/* line 163, ../scss/_portfolio.scss */
 .pcTag.ai {
   background-image: url(../img/tag_ai.png);
 }
 
-/* line 172, ../scss/_portfolio.scss */
+/* line 163, ../scss/_portfolio.scss */
 .pcTag.wp {
   background-image: url(../img/tag_wp.png);
 }
 
-/* line 172, ../scss/_portfolio.scss */
+/* line 163, ../scss/_portfolio.scss */
 .pcTag.php {
   background-image: url(../img/tag_php.png);
 }
 
-/* line 172, ../scss/_portfolio.scss */
+/* line 163, ../scss/_portfolio.scss */
 .pcTag.html {
   background-image: url(../img/tag_html.png);
 }
 
-/* line 172, ../scss/_portfolio.scss */
+/* line 163, ../scss/_portfolio.scss */
 .pcTag.css {
   background-image: url(../img/tag_css.png);
 }
 
-/* line 172, ../scss/_portfolio.scss */
+/* line 163, ../scss/_portfolio.scss */
 .pcTag.js {
   background-image: url(../img/tag_js.png);
 }
 
-/* line 172, ../scss/_portfolio.scss */
+/* line 163, ../scss/_portfolio.scss */
 .pcTag.webcode {
   background-image: url(../img/tag_webcode.png);
 }
 
-/* line 177, ../scss/_portfolio.scss */
+/* line 168, ../scss/_portfolio.scss */
 .pcImg {
   width: 50%;
   height: 50%;
   display: inline-block;
 }
 
-/* line 183, ../scss/_portfolio.scss */
+/* line 174, ../scss/_portfolio.scss */
 .pcMore {
   width: 100%;
   text-align: center;
@@ -1067,7 +1079,7 @@ h4 {
   cursor: pointer;
 }
 
-/* line 189, ../scss/_portfolio.scss */
+/* line 180, ../scss/_portfolio.scss */
 .pcMore > p {
   font-size: 1.25rem;
   font-weight: bold;
@@ -1075,18 +1087,18 @@ h4 {
   color: #777;
 }
 
-/* line 196, ../scss/_portfolio.scss */
+/* line 187, ../scss/_portfolio.scss */
 .pcTitle {
   padding: 1.25rem 2rem 0rem 1.25rem;
 }
-/* line 203, ../scss/_portfolio.scss */
+/* line 194, ../scss/_portfolio.scss */
 .pcTitle p {
   font-size: 3rem;
   line-height: 3rem;
   font-family: "Roboto Slab";
 }
 
-/* line 211, ../scss/_portfolio.scss */
+/* line 202, ../scss/_portfolio.scss */
 .thanks {
   text-align: center;
   font-weight: bold;
@@ -1096,7 +1108,7 @@ h4 {
   line-height: 1.4rem;
 }
 
-/* line 221, ../scss/_portfolio.scss */
+/* line 212, ../scss/_portfolio.scss */
 .pcHeroLoader {
   position: absolute;
   top: 0;
@@ -1107,7 +1119,7 @@ h4 {
   background-color: white;
   display: none;
 }
-/* line 230, ../scss/_portfolio.scss */
+/* line 221, ../scss/_portfolio.scss */
 .portfolioCard.loading .pcHeroLoader {
   display: -webkit-flex;
   -webkit-flex-direction: row;
@@ -1119,7 +1131,7 @@ h4 {
   align-items: center;
 }
 
-/* line 247, ../scss/_portfolio.scss */
+/* line 238, ../scss/_portfolio.scss */
 .spinner {
   -moz-animation: rotator 1.4s linear infinite;
   -webkit-animation: rotator 1.4s linear infinite;
@@ -1160,7 +1172,7 @@ h4 {
     transform: rotate(270deg);
   }
 }
-/* line 256, ../scss/_portfolio.scss */
+/* line 247, ../scss/_portfolio.scss */
 .path {
   stroke-dasharray: 187;
   stroke-dashoffset: 0;
@@ -1366,14 +1378,15 @@ h4 {
 .contactCard .fa-twitter-square {
   color: #55AACE;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px), screen and (max-height: 600px) {
   /* line 55, ../scss/_contact.scss */
   .contactCard {
-    padding: 2.5rem;
+    padding: 2rem 2.5rem;
+    font-size: 1.75rem;
   }
 }
 
-/* line 89, ../scss/_contact.scss */
+/* line 90, ../scss/_contact.scss */
 .ccContain {
   position: absolute;
   top: 0;
@@ -1383,19 +1396,19 @@ h4 {
 }
 
 @media screen and (max-height: 450px) {
-  /* line 100, ../scss/_contact.scss */
+  /* line 101, ../scss/_contact.scss */
   .contactPage {
     -webkit-flex-direction: row;
     flex-direction: row;
   }
 
-  /* line 104, ../scss/_contact.scss */
+  /* line 105, ../scss/_contact.scss */
   .contactCardContain {
     height: 70%;
     padding-right: 2rem;
   }
 
-  /* line 109, ../scss/_contact.scss */
+  /* line 110, ../scss/_contact.scss */
   .contactCard {
     padding: 2rem 1.5rem;
     font-size: 1.35rem;

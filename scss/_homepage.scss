@@ -12,6 +12,7 @@ main {
 	@include transition(opacity 1s 0s ease);
 	overflow-y: auto;
 	overflow-x: hidden;
+	z-index: 1;
 }
 
 .beauty{
@@ -24,7 +25,7 @@ main {
 
 	> p {
 		font-size: 3rem;
-		font-weight: 300;
+		font-weight: 100;
 		line-height: 4rem;
 		@include transition(font-size 0.5s 0s ease);
 		color:#050505;
@@ -97,13 +98,13 @@ main {
 
 h3 {
 	font-size:2rem;
-	font-family: 'Roboto';
+	font-family: 'Roboto Slab';
 	padding:1rem;
-	font-weight: 300;
 }
 
 h4 {
-	font-size: 1.5rem;
+	font-size: 1.6rem;
+	letter-spacing: 0.5px;
 	padding: 0.5rem 1rem;
 	line-height: 2rem;
 	max-width: 85%;
@@ -155,7 +156,7 @@ h4 {
 
 .portfolioBanner{
 	width: 100%;
-	margin-top:4rem;
+	margin-top:2rem;
 	background-color: rgba(0,0,0,0.8);
 	text-align: center;
 	padding: 6rem 0;

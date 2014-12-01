@@ -81,8 +81,9 @@
 	.fa-linkedin-square { color: #0677B4; }
 	.fa-twitter-square { color: #55AACE; }
 
-	@media screen and (max-width: 600px){
-		padding: 2.5rem;
+	@media screen and (max-width: 600px), screen and (max-height: 600px){
+		padding: 2rem 2.5rem;
+		font-size: 1.75rem;
 	}
 }
 

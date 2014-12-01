@@ -4,8 +4,13 @@ header {
 	background-color: rgba(0,0,0,0.8);
 	box-shadow: 0px 0px 15px 1px #222;
 	z-index: 900;
+	-webkit-tap-highlight-color: transparent;
+	tap-highlight-color: transparent;
 
-	@media screen and (min-width: 600px){
+	@media screen and (max-width: 600px){
+		position: static !important;
+	}
+	@media screen and (min-width: 601px){
 		position: fixed;
 		top: 0;
 		left: 0;
@@ -25,6 +30,7 @@ header {
 	background-size: contain;
 	background-repeat: no-repeat;
 	box-sizing:border-box;
+	z-index: 10;
 }
 
 #title {
@@ -34,6 +40,7 @@ header {
 	color: #fff;
 	padding-left: 2rem;
 	max-width: 20rem;
+	z-index: 10;
 }
 
 #title > p:first-child{
@@ -65,12 +72,12 @@ nav {
 
 	@media screen and (max-width: 600px){
 		width: 100%;
-		height: initial;
-		top: 7rem;
+		padding-top: 7rem;
+		box-sizing:border-box;
+		top:0;
 		left:0;
-		bottom:0;
 		background-color: #333;//rgba(0,0,0,0.8);
-		z-index: 1000;
+		z-index: 5;
 		@include flexbox((
 			display:flex,
 			flex-direction:column,
@@ -87,6 +94,8 @@ nav {
 		}
 	}
 }
+
+
 
 .navBtn {
 	color: white;
@@ -121,6 +130,7 @@ nav {
 	top: 0;
 	right: 0;
 	height: 7rem;
+	z-index: 10;
 
 	&:hover{
 		color: #cd2109;
