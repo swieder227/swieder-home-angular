@@ -302,7 +302,7 @@ main {
   margin-bottom: 4rem;
 }
 /* line 26, ../scss/_homepage.scss */
-.beauty > p {
+.beauty > h1 {
   font-size: 3rem;
   font-weight: 100;
   line-height: 4rem;
@@ -315,23 +315,35 @@ main {
 }
 @media screen and (max-width: 690px) {
   /* line 26, ../scss/_homepage.scss */
-  .beauty > p {
+  .beauty > h1 {
     font-size: 2.5rem;
   }
 }
 @media screen and (max-width: 600px) {
   /* line 26, ../scss/_homepage.scss */
-  .beauty > p {
+  .beauty > h1 {
     font-size: 2.2rem;
   }
 }
-/* line 40, ../scss/_homepage.scss */
-.beauty > p > em {
+@media screen and (max-width: 310px) {
+  /* line 26, ../scss/_homepage.scss */
+  .beauty > h1 {
+    font-size: 1.8rem;
+  }
+}
+/* line 44, ../scss/_homepage.scss */
+.beauty > h1 > em {
   font-weight: 700;
   color: #fff;
 }
 
-/* line 47, ../scss/_homepage.scss */
+/* line 51, ../scss/_homepage.scss */
+h1, h3, h4 {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* line 56, ../scss/_homepage.scss */
 .center {
   position: absolute;
   bottom: 0;
@@ -340,12 +352,12 @@ main {
   width: 100%;
   text-align: center;
 }
-/* line 55, ../scss/_homepage.scss */
+/* line 64, ../scss/_homepage.scss */
 .center .cta {
   top: 1.8rem;
 }
 
-/* line 60, ../scss/_homepage.scss */
+/* line 69, ../scss/_homepage.scss */
 .cta {
   background: #fff;
   color: black;
@@ -360,14 +372,14 @@ main {
   line-height: 1rem;
 }
 
-/* line 74, ../scss/_homepage.scss */
+/* line 83, ../scss/_homepage.scss */
 .skills:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* line 80, ../scss/_homepage.scss */
+/* line 89, ../scss/_homepage.scss */
 .skillset {
   width: 33.3333%;
   box-sizing: border-box;
@@ -377,7 +389,7 @@ main {
   margin-top: 2rem;
 }
 @media screen and (max-width: 690px) {
-  /* line 80, ../scss/_homepage.scss */
+  /* line 89, ../scss/_homepage.scss */
   .skillset {
     float: none;
     width: 100%;
@@ -385,41 +397,41 @@ main {
   }
 }
 
-/* line 95, ../scss/_homepage.scss */
+/* line 104, ../scss/_homepage.scss */
 .skillset:nth-child(1) .fa-circle, .skillset:nth-child(1) h3 {
   color: #e51c23;
 }
 
-/* line 96, ../scss/_homepage.scss */
+/* line 105, ../scss/_homepage.scss */
 .skillset:nth-child(2) .fa-circle, .skillset:nth-child(2) h3 {
   color: #259b24;
 }
 
-/* line 97, ../scss/_homepage.scss */
+/* line 106, ../scss/_homepage.scss */
 .skillset:nth-child(3) .fa-circle, .skillset:nth-child(3) h3 {
   color: #3f51b5;
 }
 
-/* line 99, ../scss/_homepage.scss */
+/* line 108, ../scss/_homepage.scss */
 h3 {
   font-size: 2rem;
   font-family: 'Roboto Slab';
   padding: 1rem;
 }
 
-/* line 105, ../scss/_homepage.scss */
+/* line 114, ../scss/_homepage.scss */
 h4 {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   letter-spacing: 0.5px;
   padding: 0.5rem 1rem;
   line-height: 2rem;
   max-width: 85%;
   margin: 0 auto;
   min-height: 6rem;
-  font-weight: 100;
+  color: #474747;
 }
 
-/* line 117, ../scss/_homepage.scss */
+/* line 126, ../scss/_homepage.scss */
 .skillset ul {
   width: 50%;
   margin: 0 auto;
@@ -430,12 +442,12 @@ h4 {
   padding: 0.5rem 0;
 }
 
-/* line 128, ../scss/_homepage.scss */
+/* line 137, ../scss/_homepage.scss */
 .skillset .fa-stack .fa:last-child {
   color: white;
 }
 
-/* line 132, ../scss/_homepage.scss */
+/* line 141, ../scss/_homepage.scss */
 .skillset:first-child:after,
 .skillset:nth-child(2):after {
   content: '';
@@ -444,7 +456,7 @@ h4 {
   background-color: #aaa;
 }
 @media screen and (min-width: 690px) {
-  /* line 132, ../scss/_homepage.scss */
+  /* line 141, ../scss/_homepage.scss */
   .skillset:first-child:after,
   .skillset:nth-child(2):after {
     height: 80%;
@@ -453,7 +465,7 @@ h4 {
   }
 }
 @media screen and (max-width: 690px) {
-  /* line 132, ../scss/_homepage.scss */
+  /* line 141, ../scss/_homepage.scss */
   .skillset:first-child:after,
   .skillset:nth-child(2):after {
     width: 60%;
@@ -463,13 +475,13 @@ h4 {
   }
 }
 
-/* line 152, ../scss/_homepage.scss */
+/* line 161, ../scss/_homepage.scss */
 .fa-code-fork {
   position: relative;
   left: 2px;
 }
 
-/* line 157, ../scss/_homepage.scss */
+/* line 166, ../scss/_homepage.scss */
 .portfolioBanner {
   width: 100%;
   margin-top: 2rem;
@@ -477,7 +489,7 @@ h4 {
   text-align: center;
   padding: 6rem 0;
 }
-/* line 164, ../scss/_homepage.scss */
+/* line 173, ../scss/_homepage.scss */
 .portfolioBanner .portfolioBannerText {
   display: inline-block;
   font-size: 2.5rem;
@@ -493,22 +505,22 @@ h4 {
   cursor: pointer;
 }
 @media screen and (max-width: 600px) {
-  /* line 164, ../scss/_homepage.scss */
+  /* line 173, ../scss/_homepage.scss */
   .portfolioBanner .portfolioBannerText {
     font-size: 2rem;
   }
 }
-/* line 178, ../scss/_homepage.scss */
+/* line 187, ../scss/_homepage.scss */
 .portfolioBanner .portfolioBannerText > em {
   font-weight: 700;
 }
-/* line 182, ../scss/_homepage.scss */
+/* line 191, ../scss/_homepage.scss */
 .portfolioBanner .portfolioBannerText .cta {
   margin-top: 1rem;
   margin-left: 1rem;
 }
 @media screen and (max-width: 600px) {
-  /* line 182, ../scss/_homepage.scss */
+  /* line 191, ../scss/_homepage.scss */
   .portfolioBanner .portfolioBannerText .cta {
     width: 1.5rem;
     height: 1.5rem;

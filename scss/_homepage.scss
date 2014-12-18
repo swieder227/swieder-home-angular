@@ -23,7 +23,7 @@ main {
 	position: relative;
 	margin-bottom:4rem;
 
-	> p {
+	> h1 {
 		font-size: 3rem;
 		font-weight: 100;
 		line-height: 4rem;
@@ -36,12 +36,21 @@ main {
 		@media screen and (max-width: 600px){
 			font-size: 2.2rem;
 		}
+		@media screen and (max-width: 310px){
+			font-size: 1.8rem;
+		}
+
 
 		> em {
 			font-weight: 700;
 			color:#fff;
 		}
 	}
+}
+
+h1,h3,h4{
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 .center{
@@ -103,14 +112,14 @@ h3 {
 }
 
 h4 {
-	font-size: 1.6rem;
+	font-size: 1.4rem;
 	letter-spacing: 0.5px;
 	padding: 0.5rem 1rem;
 	line-height: 2rem;
 	max-width: 85%;
 	margin: 0 auto;
 	min-height: 6rem;
-	font-weight: 100;
+	color: rgb(71, 71, 71);
 }
 
 
