@@ -1,0 +1,36 @@
+{
+  "name": "swieder_www",
+  "version": "1.0.0",
+  "description": "sethwieder.com homepage",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/swieder227/swiederhomepage.git"
+  },
+  "keywords": [
+    "html5",
+    "sass",
+    "angular",
+    "gulp"
+  ],
+  "author": "seth wieder",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/swieder227/swiederhomepage/issues"
+  },
+  "homepage": "https://github.com/swieder227/swiederhomepage",
+  "devDependencies": {
+    "grunt-connect": "^0.2.0",
+    "gulp-autoprefixer": "^2.0.0",
+    "gulp-connect": "^2.2.0",
+    "gulp-livereload": "^3.2.0",
+    "gulp-minify-css": "^0.3.11",
+    "gulp-notify": "^2.1.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "^1.2.4",
+    "gulp-server-livereload": "^1.0.1"
+  }
+}

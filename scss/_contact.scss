@@ -4,12 +4,10 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	@include flexbox((
-		display:flex,
-		flex-direction:column,
-		justify-content:center,
-		align-items:center,
-	));
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
 }
 
 .contactImg{
@@ -33,23 +31,19 @@
 }
 
 .contactImgContain{
-	@include flex(2);
-	@include flexbox((
-		display:flex,
-		flex-direction:column,
-		justify-content:center,
-		align-items:center,
-	));
+	flex: 2;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
 }
 
 .contactCardContain{
-	@include flex(3);
-	@include flexbox((
-		display:flex,
-		flex-direction:column,
-		justify-content:space-around,
-		align-items:stretch,
-	));
+	flex: 3;
+	display:flex;
+	flex-direction:column;
+	justify-content:space-around;
+	align-items:stretch;
 }
 
 .contactCard{
@@ -65,12 +59,10 @@
 	width:100%;
 	box-sizing: border-box;
 
-	@include flexbox((
-		display:flex,
-		flex-direction:row,
-		justify-content:flex-start,
-		align-items:center,
-	));
+	display:flex;
+	flex-direction:row;
+	justify-content:flex-start;
+	align-items:center;
 
 	span {
 		margin-right: 1rem;
@@ -99,7 +91,7 @@
 @media screen and (max-height: 450px){
 
 	.contactPage{
-		@include flex-direction(row);
+		flex-direction: row;
 	}
 
 	.contactCardContain{
