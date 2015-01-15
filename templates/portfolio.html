@@ -1,0 +1,37 @@
+<section>
+	<div ng-repeat="pCard in portfolioCards" class="portfolioCard loading" data-pc-name="{{pCard.name}}" ng-class="{'active' : data.activeIndex == $index}" ng-click="data.activeIndex = $index">
+		<div class="pcHero">
+			<div class="pcHeroImg" imageonloaded="{{pCard.hero}}"></div>
+			<div class="pcHeroLoader">
+				<svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+				   <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+				</svg>
+			</div>
+			<div class="pcHeroCurtain"></div>
+			<!-- <div class="pcShowMore" ng-click="data.activeIndex == $index ? data.activeIndex = -1 : data.activeIndex = $index; $event.stopPropagation();">
+				<div>+</div><div>SHOW MORE</div>
+			</div> -->
+		</div>
+		<div class="pcBlock"></div>
+		<div class="pcTitle">
+			<p>{{pCard.title}}</p>
+		</div>
+		<div class="pcBody">
+			<p>{{pCard.body}}</p>
+		</div>
+		<div class="pcTags">
+			<div ng-repeat="tag in pCard.tags" class="pcTag {{pCard.tags[$index]}}"></div>
+		</div>
+	</div>
+</section>
+<section class="portfolioBanner">
+	<a ui-sref="contact">
+		<span class="portfolioBannerText">
+			Thank you for looking!<br/>
+			<em>Want to get in touch?</em>
+			<span class="cta">
+				<span class="arrow fa fa-angle-right"></span>
+			</span>
+		</span>
+	</a>
+</section>
