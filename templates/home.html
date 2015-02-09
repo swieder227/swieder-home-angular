@@ -1,6 +1,5 @@
 <section class="beauty">
 	<h1>A talented Front-End Developer<br/>with an eye for Design and UX.</h1>
-	<div class="center"><div class="cta"><span class="fa fa-angle-down"></span></div></div>
 </section>
 <section class="skills">
 	<div class="skillset">
@@ -29,6 +28,21 @@
 	</div>
 </section>
 <section class="portfolioBanner">
+	<span class="portfolioBannerText">
+		Always innovating.<br/>
+		<em>Here's the technology I use:</em>
+	</span>
+</section>
+<section class="skillBoxes">
+	<div ng-repeat="sBox in skillBoxes" class="flex-space-around flex-wrap {{sBox.name}}">
+		<div ng-repeat="sBox in skillBoxes[$index].skills" class="col-even">
+			<div class="appBox {{sBox.name}}">
+				<div class="center pos-all">{{sBox.title}}</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="portfolioBanner">
 	<a ui-sref="portfolio">
 		<span class="portfolioBannerText">
 			Want to see what I can do?<br/>
@@ -36,7 +50,6 @@
 			<span class="cta">
 				<span class="arrow fa fa-angle-right"></span>
 			</span>
-
 		</span>
 	</a>
 </section>

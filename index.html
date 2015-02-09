@@ -4,26 +4,29 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no">
 	<title>Seth&apos;s Dev, Design &amp; UX Homepage</title>
 	<link href="img/favico.png" type="image/png" rel="icon">
-	<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,700,900' rel='stylesheet' type='text/css'>
+	<!--link href='http://fonts.googleapis.com/css?family=Open+Sans:800' rel='stylesheet' type='text/css'-->
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400' rel='stylesheet' type='text/css'>
 	<link href="css/font-awesome.css" rel="stylesheet" type="text/css">
 	<link href="css/app.css" rel="stylesheet" type="text/css">
 	<script src="js/data.js" type="text/javascript"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<!--script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script-->
 	<script src="js/angular-ui-router.js"></script>
 	<script src="js/app.js" type="text/javascript"></script>
 </head>
-<body>
-<header ng-controller="navCtrl" ng-class="{'show' : data.navShow }">
-	<div id="logo"></div>
+<body ng-controller="globalNavCtrl" ng-class="{'navShow' : data.navShow }">
+<header>
+	<div id="logo" ui-sref="home"></div>
 	<div class="menuBtn" ng-click="data.navShow = !data.navShow">
-		<div class="fa fa-bars"></div>
+		<div class="menubar menubar1"></div>
+		<div class="menubar menubar2"></div>
+		<div class="menubar menubar3"></div>
 	</div>
 	<nav>
-		<a class="navBtn" ui-sref-active="active" ui-sref="home">HOME</a>
-		<a class="navBtn" ui-sref-active="active" ui-sref="portfolio">PORTFOLIO</a>
-		<a class="navBtn" ui-sref-active="active" ui-sref="contact">CONTACT</a>
+		<a class="navBtn" ui-sref-active="active" ui-sref="home" ng-click="data.navShow = false">HOME</a>
+		<a class="navBtn" ui-sref-active="active" ui-sref="portfolio" ng-click="data.navShow = false">PORTFOLIO</a>
+		<a class="navBtn" ui-sref-active="active" ui-sref="contact" ng-click="data.navShow = false">CONTACT</a>
 	</nav>
 </header>
 <main>

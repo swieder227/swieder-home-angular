@@ -1,3 +1,7 @@
+body.navShow{
+	overflow: hidden;
+}
+
 header {
 	position: fixed;
 	top: 0;
@@ -25,29 +29,7 @@ header {
 	background-repeat: no-repeat;
 	box-sizing:border-box;
 	z-index: 10;
-}
-
-#title {
-	position: absolute;
-	left: 6.5rem;
-	top: 0.9rem;
-	color: #fff;
-	padding-left: 2rem;
-	max-width: 20rem;
-	z-index: 10;
-}
-
-#title > p:first-child{
-	font-size: 2.7rem;
-	font-weight: lighter;
-	padding-bottom: 0.5rem;
-	color: #fff;
-}
-
-#title > p:last-child{
-	font-family: 'Roboto Slab';
-	font-size: 1.4rem;
-	letter-spacing: 1px;
+	pointer-events: auto;
 }
 
 nav {
@@ -56,7 +38,8 @@ nav {
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100%;
+	height: 120%;
+	padding-right: 20%;
 	background-color: rgba(0,0,0,0.8);
 	display: flex;
 	align-items: flex-end;
@@ -65,20 +48,10 @@ nav {
 
 	transform: translateX(150%);
 
-	header.show & {
+	body.navShow & {
 		animation: bounceInRight 0.6s both 0s;
 		// opacity: 1;
 		transform: translateX(0%);
-	}
-
-	&:after{
-		content: '';
-		position: absolute;
-		width: 20%;
-		height: 100%;
-		top:0;
-		right: -20%;
-		background-color: rgba(0,0,0,0.8);
 	}
 
 }
@@ -87,19 +60,19 @@ nav {
 
 .navBtn {
 	color: white;
-	font-weight: bold;
-	font-size: 3.5rem;
-	padding: 1.5rem 3rem;
+	font-family: $font-accent;
+	font-weight: 700;
+	font-size: 4rem;
+	padding: 1rem 3rem;
 	cursor: pointer;
-	font-family: 'Roboto Slab';
 
 	&.active{
-		color: #cd2109;
+		color: #E12907;
 		transition: color 0.6s 0s ease-out;
 	}
 
 	&:first-child{
-		margin-top: 8rem;
+		margin-top: 7rem;
 	}
 
 }
@@ -114,10 +87,6 @@ nav {
 	right: 0rem;
 	height: 7rem;
 	z-index: 10;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: row;
 
 	&,
 	&:after{
@@ -136,12 +105,48 @@ nav {
 		box-sizing: border-box;
 	}
 
-	header.show & {
+	body.navShow & {
 		color: white;
 
 		&:after{
 			border: 3px solid white;
 		}
 	}
+}
 
+.menubar{
+	width: 33%;
+	height: 6%;
+	background-color: black;
+	position: absolute;
+	left: 33%;
+	border-radius: 0.25rem;
+	transform-origin: 93% 36%;
+	transition: all 0.3s cubic-bezier(.5,-0.5,.5,1.5) 0s;
+
+	&.menubar1{
+		top: 37%;
+	}
+	&.menubar2{
+		top: 47%;
+	}
+	&.menubar3{
+		bottom: 37%;
+	}
+
+	body.navShow &{
+
+		background-color: white;
+		left: 30%;
+
+		&.menubar1{
+			transform: rotate(-45deg);
+		}
+		&.menubar2{
+			opacity: 0;
+		}
+		&.menubar3{
+			transform: rotate(45deg);
+		}
+	}
 }

@@ -1,12 +1,15 @@
-
-// @import "compass/reset";
 @import "reset";
+
+$font-main: "Roboto";
+$font-accent: "Roboto Slab";
+
 
 html{
 	font-size: 10px;
-	font-family: 'Roboto', sans-serif;
+	font-family: $font-main, "Helvetica", sans-serif;
 }
 
+@import "helpers";
 @import "header";
 @import "homepage";
 @import "portfolio";

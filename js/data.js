@@ -1,3 +1,59 @@
+var skillsData = {
+	skillBoxes: [
+		{
+			name:"uxSkill",
+			skills : [
+				{
+					name:"sketch",
+					title:"Sketch Illustrator"
+				},
+				{
+					name:"wireframing",
+					title:"Wireframing"
+				},
+				{
+					name:"rapid",
+					title:"Rapid Prototypes"
+				}
+			]
+		},
+		{
+			name:"creativeSkill",
+			skills : [
+				{
+					name:"psd",
+					title:"Photoshop"
+				},
+				{
+					name:"ui",
+					title:"UI Design"
+				},
+				{
+					name:"mp",
+					title:"Media Production"
+				}
+			]
+		},
+		{
+			name:"techSkill",
+			skills : [
+				{
+					name:"code",
+					title:"Code"
+				},
+				{
+					name:"angular",
+					title:"AngularJS"
+				},
+				{
+					name:"wordpress",
+					title:"Wordpress"
+				}
+			]
+		}
+	]
+};
+
 var portfolioData = {
 	portfolioCards: [
 		{

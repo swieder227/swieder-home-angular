@@ -22,15 +22,14 @@ var app = angular.module('SW',['ui.router']);
   UI Router
 ------------------------------------------------------------*/
 app.config(function($stateProvider, $urlRouterProvider) {
-  //
-  // For any unmatched url, redirect to /home
+  // Default URL to /home
   $urlRouterProvider.otherwise("/home");
-  //
   // Now set up the states
   $stateProvider
     .state('home', {
       url: "/home",
-      templateUrl: "templates/home.html"
+      templateUrl: "templates/home.html",
+      controller: "homeCtrl"
     })
     .state('portfolio', {
       url: "/portfolio",
@@ -45,10 +44,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
 /*----------------------------------------------------------
   Controllers
 ------------------------------------------------------------*/
-app.controller('navCtrl', function($scope){
+app.controller('globalNavCtrl', function($scope){
     $scope.data = {navShow : false }
 });
-
+app.controller('homeCtrl', function($scope){
+    $scope.skillBoxes = skillsData.skillBoxes;
+});
 app.controller('portfolioCtrl', function($scope){
     $scope.portfolioCards = portfolioData.portfolioCards;
     $scope.data = {activeIndex : -1};
@@ -64,7 +65,7 @@ app.directive('imageonloaded', function() {
           image.onload = function() {
               //Image loaded- set the background image to it
               element.css("background-image","url("+attrs.imageonloaded+")");
-              $(element).parents(".portfolioCard").removeClass("loading");
+              element.parent().parent().removeClass("loading");
               console.log(attrs.imageonloaded+" loaded");
           };
 

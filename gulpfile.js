@@ -4,13 +4,16 @@ var gulp = require('gulp'),
     minifycss = require('gulp-minify-css'),
     rename = require('gulp-rename'),
     notify = require('gulp-notify'),
-    connect = require('gulp-connect');
+    connect = require('gulp-connect'),
+    sourcemaps = require('gulp-sourcemaps');
 
 // Task to compile sass, autoprefix, create min and reload live
 gulp.task('styles', function() {
   return gulp.src('scss/*.scss')
+    .pipe(sourcemaps.init())
     .pipe(sass({ style: 'expanded' }))
     .pipe(autoprefixer('last 2 version'))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('css'))
     .pipe(rename({suffix: '.min'}))
     .pipe(minifycss())
