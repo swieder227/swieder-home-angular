@@ -70,9 +70,9 @@ h1,h3,h4{
 	}
 }
 
-.skillset:nth-child(1) .fa-circle,.skillset:nth-child(1) h3{ color: #e51c23; }
-.skillset:nth-child(2) .fa-circle,.skillset:nth-child(2) h3{ color: #259b24; }
-.skillset:nth-child(3) .fa-circle,.skillset:nth-child(3) h3{ color: #3f51b5 }
+.skillset.ux .fa-circle,.skillset.ux h3{ color: $red; }
+.skillset.design .fa-circle,.skillset.design h3{ color: $blue; }
+.skillset.dev .fa-circle,.skillset.dev h3{ color: $green; }
 
 h3 {
 	font-size:2rem;
@@ -131,6 +131,10 @@ h4 {
 	left:2px;
 }
 
+/*----------------------------------------------------------
+	portfolioBanner is a full-width gray banner > p+em+span.cta
+------------------------------------------------------------*/
+
 .portfolioBanner{
 	width: 100%;
 	background-color: rgba(0,0,0,0.8);
@@ -168,49 +172,78 @@ h4 {
 	}
 }
 
-.appBox{
-	position: relative;
-	height: 18rem;
-	width: auto;
-	border:3px solid transparent;
-	box-sizing:border-box;
-	background-position: center center;
-	background-size: cover;
-	background-repeat: no-repeat;
-	color: white;
-	font-size: 3rem;
-	font-weight: 700;
+/*----------------------------------------------------------
+	skillCards animate in/out and have overflowing content
+------------------------------------------------------------*/
 
-	& > div {
-		position: relative;
-		z-index: 1;
-	}
-
-	&:after{
-		content:'';
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background-color: rgba(50, 50, 50, 0.78);
-	}
-
-	&:hover{
-
-	}
+.skillCards.ux,.skillCards.design,.skillCards.dev {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	transition: opacity 0.5s ease 0s;
+	opacity: 1;
 }
 
-.uxSkill .appBox{ border-color: red }
-.creativeSkill .appBox{ border-color: green }
-.techSkill .appBox{ border-color: blue }
+.skillCards.ux {
+	.screenFiller,
+	.skillcard{ background-color: $red; }
+}
+.skillCards.design {
+	.screenFiller,
+	.skillcard{ background-color: $blue; }
+}
+.skillCards.dev {
+	.screenFiller,
+	.skillcard{ background-color: $green; }
+}
 
-.appBox.sketch { background-image: url(http://lorempixel.com/400/200/technics/1);}
-.appBox.wireframing { background-image: url(http://lorempixel.com/400/200/technics/2);}
-.appBox.rapid { background-image: url(http://lorempixel.com/400/200/technics/3);}
-.appBox.psd { background-image: url(http://lorempixel.com/400/200/technics/4);}
-.appBox.ui { background-image: url(http://lorempixel.com/400/200/technics/5);}
-.appBox.mp { background-image: url(http://lorempixel.com/400/200/technics/6);}
-.appBox.code { background-image: url(http://lorempixel.com/400/200/technics/7);}
-.appBox.angular { background-image: url(http://lorempixel.com/400/200/technics/8);}
-.appBox.wordpress { background-image: url(http://lorempixel.com/400/200/technics/9);}
+
+/*----------------------------------------------------------
+	.screenFiller is a large circular div that animates IN only
+------------------------------------------------------------*/
+.skillCards.ng-enter .screenFiller,
+.skillCards.ng-leave .screenFiller{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 2000px;
+	height: 2000px;
+	border-radius: 50%;
+	overflow: hidden;
+	transform-origin: center center;
+	transition: transform 1s ease 0;
+	transform: translateX(-50%) translateY(-50%) scale(1);
+}
+
+.skillCards.ng-enter .screenFiller{
+	transform: translateX(-50%) translateY(-50%) scale(0);
+}
+
+.skillCards.ng-enter-active .screenFiller{
+	transform: translateX(-50%) translateY(-50%) scale(1);
+}
+
+.skillCards.ng-leave .screenFiller{
+	display: none;
+}
+
+
+/*----------------------------------------------------------
+	skillcard - pos-all div contains actual content. Animates OUT only
+------------------------------------------------------------*/
+.skillcard{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transition: opacity 0.4s ease 0s;
+}
+.skillCards.ng-enter .skillcard {
+	display: none;
+}
+.skillCards.ng-leave .skillcard{
+	opacity: 0;
+}

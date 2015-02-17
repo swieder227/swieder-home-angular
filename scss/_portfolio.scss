@@ -27,8 +27,11 @@
 	pointer-events:none;
 }
 
-.portfolioCard:first-child{
-	margin-top: 8rem;
+.portfolioCardsContainer:before{
+	content:'';
+	width: 100%;
+	height: 8rem;
+	display: block;
 }
 
 

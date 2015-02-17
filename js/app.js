@@ -1,27 +1,18 @@
-// $( document ).ready(function() {
-
-//   $(".menuBtn").on("mousedown",function(){
-//   	$("nav").toggleClass("expanded");
-//   });
-
-//   $(".gaEvent").on("mousedown",function(){
-//     var that = $(this);
-//     var category = that.attr("data-ga-category");
-//     var action = that.attr("data-ga-action");
-//     var label = that.attr("data-ga-label");
-//     _gaq.push(['_trackEvent',category,action,label]);
-//   });
-
-// });
-
 /*----------------------------------------------------------
   Angular
 ------------------------------------------------------------*/
-var app = angular.module('SW',['ui.router']);
+var app = angular.module('SW',['ui.router', 'ngAnimate']);
+//
+app.run(function($rootScope, $timeout) {
+  $timeout(function() {
+    console.log("$rootScope.pageInit = true");
+    $rootScope.pageInit = true;
+  }, 2000)
+});
 /*----------------------------------------------------------
   UI Router
 ------------------------------------------------------------*/
-app.config(function($stateProvider, $urlRouterProvider) {
+app.config(function($urlRouterProvider, $stateProvider, $uiViewScrollProvider) {
   // Default URL to /home
   $urlRouterProvider.otherwise("/home");
   // Now set up the states
@@ -31,6 +22,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: "templates/home.html",
       controller: "homeCtrl"
     })
+    .state('home.skills', {
+      url: "/skills/:whichskill",
+      templateUrl: "templates/skills.html",
+      controller: "skillsCtrl"
+    })
     .state('portfolio', {
       url: "/portfolio",
       templateUrl: "templates/portfolio.html",
@@ -39,16 +35,32 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state('contact', {
       url: "/contact",
       templateUrl: "templates/contact.html"
-    })
+    });
 });
 /*----------------------------------------------------------
   Controllers
 ------------------------------------------------------------*/
-app.controller('globalNavCtrl', function($scope){
-    $scope.data = {navShow : false }
+app.controller('globalCtrl', function($scope){
+    $scope.data = {preventScroll : false }
+    $scope.data = {showNav : false }
+
+    $scope.toggleNav = function(){
+      $scope.data.showNav = !$scope.data.showNav;
+      $scope.data.preventScroll =  $scope.data.showNav;
+    }
+    $scope.toggleScroll = function(override){
+      if(override){
+        $scope.data.preventScroll = override;
+      } else {
+        $scope.data.preventScroll = !$scope.data.preventScroll;
+      }
+    }
 });
 app.controller('homeCtrl', function($scope){
-    $scope.skillBoxes = skillsData.skillBoxes;
+
+});
+app.controller('skillsCtrl', function($scope, $stateParams){
+    $scope.whichskill = $stateParams.whichskill;
 });
 app.controller('portfolioCtrl', function($scope){
     $scope.portfolioCards = portfolioData.portfolioCards;
@@ -72,3 +84,13 @@ app.directive('imageonloaded', function() {
         }
     };
 });
+
+
+// For debugging, exposes $state
+app.run( ['$rootScope', '$state', '$stateParams',
+    function ($rootScope,   $state,   $stateParams) {
+      $rootScope.$state = $state;
+      $rootScope.$stateParams = $stateParams;
+  }
+]);
+////////////////////

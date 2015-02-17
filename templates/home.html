@@ -2,7 +2,7 @@
 	<h1>A talented Front-End Developer<br/>with an eye for Design and UX.</h1>
 </section>
 <section class="skills">
-	<div class="skillset">
+	<div class="skillset ux" ui-sref="home.skills({ whichskill: 'ux' })" ng-click="toggleScroll(true);">
 		<div class="fa-stack fa-4x">
 			<span class="fa fa-circle fa-stack-2x"></span>
 			<span class="fa fa-code-fork fa-stack-1x"></span>
@@ -10,7 +10,7 @@
 		<h3>UX</h3>
 		<h4>Deliberate decision-making and testing to perfect the app's&nbsp;interaction.</h4>
 	</div>
-	<div class="skillset">
+	<div class="skillset design" ui-sref="home.skills({ whichskill: 'design' })" ng-click="toggleScroll(true);">
 		<div class="fa-stack fa-4x">
 			<span class="fa fa-circle fa-stack-2x"></span>
 			<span class="fa fa-file-image-o fa-stack-1x"></span>
@@ -18,28 +18,13 @@
 		<h3>Design</h3>
 		<h4>Modern and professional design approach from the phone to the&nbsp;desktop.</h4>
 	</div>
-	<div class="skillset">
+	<div class="skillset dev" ui-sref="home.skills({ whichskill: 'dev' })" ng-click="toggleScroll(true);">
 		<div class="fa-stack fa-4x">
 			<span class="fa fa-circle fa-stack-2x"></span>
 			<span class="fa fa-code fa-stack-1x"></span>
 		</div>
 		<h3>Front-End</h3>
 		<h4>Cutting-edge programming filled with animation and&nbsp;interactivity.</h4>
-	</div>
-</section>
-<section class="portfolioBanner">
-	<span class="portfolioBannerText">
-		Always innovating.<br/>
-		<em>Here's the technology I use:</em>
-	</span>
-</section>
-<section class="skillBoxes">
-	<div ng-repeat="sBox in skillBoxes" class="flex-space-around flex-wrap {{sBox.name}}">
-		<div ng-repeat="sBox in skillBoxes[$index].skills" class="col-even">
-			<div class="appBox {{sBox.name}}">
-				<div class="center pos-all">{{sBox.title}}</div>
-			</div>
-		</div>
 	</div>
 </section>
 <section class="portfolioBanner">
@@ -53,3 +38,4 @@
 		</span>
 	</a>
 </section>
+<section class="skillCards {{whichskill}}" ui-view></section>
