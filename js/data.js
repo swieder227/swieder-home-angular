@@ -1,53 +1,71 @@
 var skillsData = {
-	skillBoxes: [
+	skillGroups: [
 		{
-			name:"uxSkill",
+			name:"ux",
 			skills : [
 				{
-					name:"sketch",
-					title:"Sketch Illustrator"
+					title:"Illustrator"
 				},
 				{
-					name:"wireframing",
-					title:"Wireframing"
+					title:"Sketch"
 				},
 				{
-					name:"rapid",
+					title:"Wireframes"
+				},
+				{
 					title:"Rapid Prototypes"
-				}
+				},
+				{
+					title:"Usability Testing"
+				},
 			]
 		},
 		{
-			name:"creativeSkill",
+			name:"design",
 			skills : [
 				{
-					name:"psd",
 					title:"Photoshop"
 				},
 				{
-					name:"ui",
-					title:"UI Design"
+					title:"User Interface Design"
 				},
 				{
-					name:"mp",
-					title:"Media Production"
+					title:"Responsive Web Design"
+				},
+				{
+					title:"ExtendScript"
+				},
+				{
+					title:"Premiere"
+				},
+				{
+					title:"After Effects"
 				}
 			]
 		},
 		{
-			name:"techSkill",
+			name:"dev",
 			skills : [
 				{
-					name:"code",
-					title:"Code"
+					title:"HTML5 & CSS3"
 				},
 				{
-					name:"angular",
+					title:"CSS Preprocessors"
+				},
+				{
+					title:"Javascript"
+				},
+				{
 					title:"AngularJS"
 				},
 				{
-					name:"wordpress",
-					title:"Wordpress"
+					title:"php + Wordpress"
+				},
+				{
+					title:"git"
+				},
+				{
+					title:"gulp"
 				}
 			]
 		}

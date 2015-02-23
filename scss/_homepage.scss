@@ -35,19 +35,6 @@ h1,h3,h4{
 	-moz-osx-font-smoothing: grayscale;
 }
 
- .cta{
-	background: #fff;
-	color: black;
-	display: inline-block;
-	padding: 1rem;
-	position: relative;
-	font-size: 2rem;
-	border-radius: 50%;
-	box-shadow: 0px 0px 1px #222;
-	width: 2rem;
-	height: 2rem;
-	line-height: 1rem;
-}
 
 .skills:after {
   content: "";
@@ -131,6 +118,12 @@ h4 {
 	left:2px;
 }
 
+@media screen and (min-width: 690px) {
+	.skillset .cta-button {
+		margin-top: 1.5rem;
+	}
+}
+
 /*----------------------------------------------------------
 	portfolioBanner is a full-width gray banner > p+em+span.cta
 ------------------------------------------------------------*/
@@ -173,10 +166,10 @@ h4 {
 }
 
 /*----------------------------------------------------------
-	skillCards animate in/out and have overflowing content
+	skillContainer animate in/out and have overflowing content
 ------------------------------------------------------------*/
 
-.skillCards.ux,.skillCards.design,.skillCards.dev {
+.skillContainer.ux,.skillContainer.design,.skillContainer.dev {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -184,66 +177,149 @@ h4 {
 	right: 0;
 	transition: opacity 0.5s ease 0s;
 	opacity: 1;
+	z-index: 100;
 }
 
-.skillCards.ux {
+.skillContainer.ux {
 	.screenFiller,
-	.skillcard{ background-color: $red; }
+	.skillPage{ background-color: $red; }
 }
-.skillCards.design {
+.skillContainer.design {
 	.screenFiller,
-	.skillcard{ background-color: $blue; }
+	.skillPage{ background-color: $blue; }
 }
-.skillCards.dev {
+.skillContainer.dev {
 	.screenFiller,
-	.skillcard{ background-color: $green; }
+	.skillPage{ background-color: $green; }
 }
 
 
 /*----------------------------------------------------------
 	.screenFiller is a large circular div that animates IN only
 ------------------------------------------------------------*/
-.skillCards.ng-enter .screenFiller,
-.skillCards.ng-leave .screenFiller{
+.screenFiller{
+	display: none;
 	position: fixed;
 	top: 50%;
 	left: 50%;
-	width: 2000px;
-	height: 2000px;
+	width: 1000px;
+	height: 1000px;
 	border-radius: 50%;
 	overflow: hidden;
 	transform-origin: center center;
-	transition: transform 1s ease 0;
+	transition: transform 1s ease-in-out 0, opacity 0.2s ease-out 0;
 	transform: translateX(-50%) translateY(-50%) scale(1);
 }
 
-.skillCards.ng-enter .screenFiller{
-	transform: translateX(-50%) translateY(-50%) scale(0);
+.skillContainer.ng-enter .screenFiller{
+	display: block;
 }
 
-.skillCards.ng-enter-active .screenFiller{
+$sizes: 2500 2000 1500 1000 800 600 400;
+
+@each $size in $sizes{
+	@media screen and (max-height: #{$size}px) and (max-width: #{$size}px) {
+		.screenFiller{
+			width: #{$size * 2}+"px";
+			height: #{$size * 2}+"px";
+		}
+	}
+}
+
+.skillContainer.ng-enter .screenFiller{
+	transform: translateX(-50%) translateY(-50%) scale(0.01);
+	opacity: 0;
+}
+
+.skillContainer.ng-enter-active .screenFiller{
 	transform: translateX(-50%) translateY(-50%) scale(1);
+	opacity: 1;
 }
 
-.skillCards.ng-leave .screenFiller{
+.skillContainer.ng-leave .screenFiller{
 	display: none;
 }
 
+.skillContainer.ng-enter ~ .skillContainer.ng-leave .screenFiller{
+	display: block;
+	opacity: 1;
+}
 
 /*----------------------------------------------------------
-	skillcard - pos-all div contains actual content. Animates OUT only
+	skillPage - pos-all div contains actual content. Animates OUT only
 ------------------------------------------------------------*/
-.skillcard{
+.skillPage{
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
+	opacity: 1;
+	overflow-y: auto;
+}
+.skillContainer.ng-enter .skillPage {
+	opacity: 0;
+}
+.skillContainer.ng-leave .skillPage{
+	opacity: 0;
 	transition: opacity 0.4s ease 0s;
 }
-.skillCards.ng-enter .skillcard {
+
+
+/*----------------------------------------------------------
+	skillCard
+------------------------------------------------------------*/
+.skillCard {
+	font-size: 3rem;
+	font-weight: 100;
+	padding: 1.25rem 2rem 1.55rem 1.25rem;
+}
+.skillContainer:not(.ng-enter) .skillCard{
+	animation: bounceInUp 0.7s ease-out 0s both;
+}
+
+
+@for $i from 1 through 10 {
+	.skillCard:nth-child(#{$i}) {
+		animation-delay: 0.15 + $i * 0.15 + s !important;
+	}
+}
+
+
+/*----------------------------------------------------------
+	Navbar on bottom of skillPages
+------------------------------------------------------------*/
+.skillPageNav{
 	display: none;
 }
-.skillCards.ng-leave .skillcard{
-	opacity: 0;
+// .skillPageNav{
+// 	width: 100%;
+// 	display: block;
+// 	position: absolute;
+// 	bottom: 101%;
+// 	left: 0;
+// 	height: 4rem;
+// 	background: white;
+// 	border-top: 1px solid #C5C5C5;
+// 	z-index: 100;
+// 	display: flex;
+// 	align-items: center;
+// 	justify-content: space-around;
+// 	flex-direction: row;
+// }
+// .skillPage.bottomNavMargins:after{
+// 	height: 10.25rem;
+// }
+
+// .skillNav{
+// 	flex: 1 1 33%;
+// 	height: 100%;
+// }
+
+.skillContainer .bottomNavBar {
+	transition: transform 0.4s ease-out 0;
+	transform: translateY(0%);
+}
+.skillContainer.ng-enter .bottomNavBar {
+	transform: translateY(200%);
 }

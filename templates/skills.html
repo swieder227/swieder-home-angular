@@ -1,5 +1,17 @@
 <div class="screenFiller"></div>
-<div class="skillcard" ui-sref="home" ng-click="toggleScroll(false);">
-	<h1>{{whichskill}}</h1>
+<div class="skillPage headerMargins bottomNavMargins">
+	<div class="skillCard whiteCard" ng-repeat="skill in skillCards">
+		<h1>{{skill.title}}</h1>
+	</div>
+	<div class="bottomNavBar center">
+		<!-- <div class="skillPageNav flex">
+			<div class="skillNav center" ui-sref="home.skills({ whichskill: 'ux' })">UX</div>
+			<div class="skillNav center" ui-sref="home.skills({ whichskill: 'design' })">Design</div>
+			<div class="skillNav center" ui-sref="home.skills({ whichskill: 'dev' })">Dev</div>
+		</div> -->
+		<div class="cta center" ui-sref="home" ng-click="toggleScroll(false);">
+			<span class="fa fa-angle-down"></span>
+		</div>
+	</div>
 </div>
 

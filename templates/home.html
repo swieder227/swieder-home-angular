@@ -2,31 +2,41 @@
 	<h1>A talented Front-End Developer<br/>with an eye for Design and UX.</h1>
 </section>
 <section class="skills">
-	<div class="skillset ux" ui-sref="home.skills({ whichskill: 'ux' })" ng-click="toggleScroll(true);">
+	<div class="skillset ux">
 		<div class="fa-stack fa-4x">
 			<span class="fa fa-circle fa-stack-2x"></span>
 			<span class="fa fa-code-fork fa-stack-1x"></span>
 		</div>
 		<h3>UX</h3>
 		<h4>Deliberate decision-making and testing to perfect the app's&nbsp;interaction.</h4>
+		<div class="cta-button" ui-sref="home.skills({ whichskill: 'ux' })" ng-click="toggleScroll(true);">
+			More Detail
+		</div>
 	</div>
-	<div class="skillset design" ui-sref="home.skills({ whichskill: 'design' })" ng-click="toggleScroll(true);">
+	<div class="skillset design">
 		<div class="fa-stack fa-4x">
 			<span class="fa fa-circle fa-stack-2x"></span>
 			<span class="fa fa-file-image-o fa-stack-1x"></span>
 		</div>
 		<h3>Design</h3>
 		<h4>Modern and professional design approach from the phone to the&nbsp;desktop.</h4>
+		<div class="cta-button" ui-sref="home.skills({ whichskill: 'design' })" ng-click="toggleScroll(true);">
+			More Detail
+		</div>
 	</div>
-	<div class="skillset dev" ui-sref="home.skills({ whichskill: 'dev' })" ng-click="toggleScroll(true);">
+	<div class="skillset dev">
 		<div class="fa-stack fa-4x">
 			<span class="fa fa-circle fa-stack-2x"></span>
 			<span class="fa fa-code fa-stack-1x"></span>
 		</div>
 		<h3>Front-End</h3>
 		<h4>Cutting-edge programming filled with animation and&nbsp;interactivity.</h4>
+		<div class="cta-button" ui-sref="home.skills({ whichskill: 'dev' })" ng-click="toggleScroll(true);">
+			More Detail
+		</div>
 	</div>
 </section>
+<div class="skillContainer {{whichskill}}" ui-view></div>
 <section class="portfolioBanner">
 	<a ui-sref="portfolio">
 		<span class="portfolioBannerText">
@@ -38,4 +48,3 @@
 		</span>
 	</a>
 </section>
-<section class="skillCards {{whichskill}}" ui-view></section>

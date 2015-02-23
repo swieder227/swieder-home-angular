@@ -1,5 +1,5 @@
-<section class="portfolioCardsContainer">
-	<div ng-repeat="pCard in portfolioCards" class="portfolioCard loading" data-pc-name="{{pCard.name}}" ng-class="{'active' : data.activeIndex == $index}" ng-click="data.activeIndex = $index">
+<section class="portfolioCardsContainer headerMargins">
+	<div ng-repeat="pCard in portfolioCards" class="portfolioCard whiteCard loading" data-pc-name="{{pCard.name}}" ng-class="{'active' : data.activeIndex == $index}" ng-click="data.activeIndex = $index">
 		<div class="pcHero">
 			<div class="pcHeroImg" imageonloaded="{{pCard.hero}}"></div>
 			<div class="pcHeroLoader">

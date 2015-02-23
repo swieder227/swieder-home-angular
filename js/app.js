@@ -20,7 +20,6 @@ app.config(function($urlRouterProvider, $stateProvider, $uiViewScrollProvider) {
     .state('home', {
       url: "/home",
       templateUrl: "templates/home.html",
-      controller: "homeCtrl"
     })
     .state('home.skills', {
       url: "/skills/:whichskill",
@@ -40,30 +39,34 @@ app.config(function($urlRouterProvider, $stateProvider, $uiViewScrollProvider) {
 /*----------------------------------------------------------
   Controllers
 ------------------------------------------------------------*/
-app.controller('globalCtrl', function($scope){
-    $scope.data = {preventScroll : false }
-    $scope.data = {showNav : false }
+app.controller('globalCtrl', function($scope,$rootScope){
+    $rootScope.preventScroll = false;
+    $rootScope.showNav = false;
 
     $scope.toggleNav = function(){
-      $scope.data.showNav = !$scope.data.showNav;
-      $scope.data.preventScroll =  $scope.data.showNav;
+      $rootScope.showNav = !$rootScope.showNav;
+      $rootScope.preventScroll =  $rootScope.showNav;
     }
     $scope.toggleScroll = function(override){
       if(override){
-        $scope.data.preventScroll = override;
+        $rootScope.preventScroll = override;
       } else {
-        $scope.data.preventScroll = !$scope.data.preventScroll;
+        $rootScope.preventScroll = !$rootScope.preventScroll;
       }
     }
 });
-app.controller('homeCtrl', function($scope){
-
-});
-app.controller('skillsCtrl', function($scope, $stateParams){
+app.controller('skillsCtrl', function($scope, $rootScope, $stateParams){
+    // Force body scrolling
+    $rootScope.preventScroll = true;
+    // Get whichskill from $stateProvider id
     $scope.whichskill = $stateParams.whichskill;
+    // Get JSON object for our skill
+    $scope.skillCards = skillsData.skillGroups.filter(function(s){return s.name===$scope.whichskill})[0].skills
 });
 app.controller('portfolioCtrl', function($scope){
+    // Get JSON object for portfolio cards
     $scope.portfolioCards = portfolioData.portfolioCards;
+    // Internal index for showing pCards
     $scope.data = {activeIndex : -1};
 });
 /*----------------------------------------------------------
@@ -87,10 +90,10 @@ app.directive('imageonloaded', function() {
 
 
 // For debugging, exposes $state
-app.run( ['$rootScope', '$state', '$stateParams',
-    function ($rootScope,   $state,   $stateParams) {
-      $rootScope.$state = $state;
-      $rootScope.$stateParams = $stateParams;
-  }
-]);
+// app.run( ['$rootScope', '$state', '$stateParams',
+//     function ($rootScope,   $state,   $stateParams) {
+//       $rootScope.$state = $state;
+//       $rootScope.$stateParams = $stateParams;
+//   }
+// ]);
 ////////////////////

@@ -11,7 +11,6 @@
 	background-color: rgba(86, 24, 24, 0.16);
 }
 
-
 $font-main: "Roboto";
 $font-accent: "Roboto Slab";
 
@@ -19,30 +18,14 @@ $red: #e51c23;
 $blue: #259b24;
 $green: #3f51b5;
 
-html{
-	font-size: 10px;
-	font-family: $font-main, "Helvetica", sans-serif;
-}
-
-// .mainPage{ transition: opacity 0.4s ease-out 0s; }
-// .mainPage.ng-enter{ opacity: 0; transition-delay: 0.4s}
-// .mainPage.ng-enter-active{ opacity: 1 }
-// .mainPage.ng-leave{ opacity: 1 }
-// .mainPage.ng-leave-active{ opacity: 0 }
-
-@import "helpers";
+@import "general";
 @import "header";
 @import "homepage";
 @import "portfolio";
 @import "contact";
 
+@import "animate/bounceInUp";
 @import "animate/bounceInRight";
 @import "animate/bounceOutRight";
-
-a{
-	text-decoration: none;
-	color: initial;
-}
-
 
 
