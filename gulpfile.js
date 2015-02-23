@@ -1,11 +1,12 @@
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
-    // minifycss = require('gulp-minify-css'),
-    // rename = require('gulp-rename'),
+    minifycss = require('gulp-minify-css'),
+    rename = require('gulp-rename'),
     notify = require('gulp-notify'),
     connect = require('gulp-connect'),
-    sourcemaps = require('gulp-sourcemaps');
+    sourcemaps = require('gulp-sourcemaps'),
+    gzip = require('gulp-gzip');
 
 // Task to compile sass, autoprefix, create min and reload live
 gulp.task('styles', function() {
@@ -14,12 +15,23 @@ gulp.task('styles', function() {
     .pipe(sass({ style: 'expanded' }))
     .pipe(autoprefixer('last 2 version'))
     .pipe(sourcemaps.write())
-    // .pipe(gulp.dest('css'))
-    // .pipe(rename({suffix: '.min'}))
-    // .pipe(minifycss())
+    .pipe(gulp.dest('css'))
+    .pipe(rename({suffix: '.min'}))
+    .pipe(minifycss())
+    .pipe(gzip())
     .pipe(gulp.dest('css'))
     .pipe(connect.reload())
     .pipe(notify({ message: 'Styles task complete' }));
+});
+
+// re-usable fn to compress files
+gulp.task('minifycss', function () {
+  gulp.src('./css/font-awesome.css')
+    .pipe(rename({suffix: '.min'}))
+    .pipe(minifycss())
+    .pipe(gulp.dest('css'))
+    .pipe(gzip())
+    .pipe(gulp.dest('css'))
 });
 
 // Task passes app.css into livereload
