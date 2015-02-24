@@ -61,7 +61,14 @@ app.controller('skillsCtrl', function($scope, $rootScope, $stateParams){
     // Get whichskill from $stateProvider id
     $scope.whichskill = $stateParams.whichskill;
     // Get JSON object for our skill
-    $scope.skillCards = skillsData.skillGroups.filter(function(s){return s.name===$scope.whichskill})[0].skills
+    $scope.skillCards = skillsData.skillGroups.filter(function(s){return s.name===$scope.whichskill})[0].skills;
+
+    $scope.$on('$stateChangeSuccess', function (ev, to, toParams, from, fromParams) {
+      if(fromParams.whichskill != undefined)
+        $scope.skillContainSwitch = true;
+      else
+        $scope.skillContainSwitch = false;
+    });
 });
 app.controller('portfolioCtrl', function($scope){
     // Get JSON object for portfolio cards

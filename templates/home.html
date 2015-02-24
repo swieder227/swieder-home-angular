@@ -36,7 +36,7 @@
 		</div>
 	</div>
 </section>
-<div class="skillContainer {{whichskill}}" ui-view></div>
+<div class="skillContainer {{whichskill}}" ng-class="{ 'skillContainSwitch' : skillContainSwitch}" ui-view></div>
 <section class="portfolioBanner">
 	<a ui-sref="portfolio">
 		<span class="portfolioBannerText">

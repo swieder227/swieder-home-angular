@@ -18,7 +18,7 @@ gulp.task('styles', function() {
     .pipe(gulp.dest('css'))
     .pipe(rename({suffix: '.min'}))
     .pipe(minifycss())
-    .pipe(gzip())
+    // .pipe(gzip())
     .pipe(gulp.dest('css'))
     .pipe(connect.reload())
     .pipe(notify({ message: 'Styles task complete' }));

@@ -175,7 +175,7 @@ h4 {
 	left: 0;
 	bottom: 0;
 	right: 0;
-	transition: opacity 0.5s ease 0s;
+	transition: opacity 1s ease 0s;
 	opacity: 1;
 	z-index: 100;
 }
@@ -195,7 +195,7 @@ h4 {
 
 
 /*----------------------------------------------------------
-	.screenFiller is a large circular div that animates IN only
+	.screenFiller is a circular div with fancy animation
 ------------------------------------------------------------*/
 .screenFiller{
 	display: none;
@@ -215,8 +215,8 @@ h4 {
 	display: block;
 }
 
+// Creates several large circular divs and essential "covers" the screen
 $sizes: 2500 2000 1500 1000 800 600 400;
-
 @each $size in $sizes{
 	@media screen and (max-height: #{$size}px) and (max-width: #{$size}px) {
 		.screenFiller{
@@ -226,25 +226,26 @@ $sizes: 2500 2000 1500 1000 800 600 400;
 	}
 }
 
+// Animate In
 .skillContainer.ng-enter .screenFiller{
 	transform: translateX(-50%) translateY(-50%) scale(0.01);
 }
-
 .skillContainer.ng-enter-active .screenFiller{
 	transform: translateX(-50%) translateY(-50%) scale(1);
 }
 
+// Animate Out = Hide
 .skillContainer.ng-leave .screenFiller{
 	display: none;
 }
-
-.skillContainer.ng-enter ~ .skillContainer.ng-leave .screenFiller{
-	display: block;
-	opacity: 1;
+// Switching from one skillContain to another skillContain = Hide
+.skillContainer.skillContainSwitch .screenFiller{
+	display: none;
 }
 
+
 /*----------------------------------------------------------
-	skillPage - pos-all div contains actual content. Animates OUT only
+	skillPage - full width/height, contains skillCard content.
 ------------------------------------------------------------*/
 .skillPage{
 	position: absolute;
@@ -255,17 +256,29 @@ $sizes: 2500 2000 1500 1000 800 600 400;
 	opacity: 1;
 	overflow-y: auto;
 }
-.skillContainer.ng-enter-active .skillPage{
+
+// Display none, then Animate in
+.skillContainer.ng-enter .skillPage {
 	display: none;
 }
-.skillContainer.ng-enter .skillPage {
+.skillContainer.ng-enter-active .skillPage{
 	opacity: 0;
 }
+// Fade out
 .skillContainer.ng-leave .skillPage{
 	opacity: 0;
 	transition: opacity 0.4s ease 0s;
 }
-
+// If switching between skillContainer, fade in/out
+.skillContainer.skillContainSwitch.ng-enter .skillPage{
+	display: block;
+}
+.skillContainer.skillContainSwitch.ng-enter-active .skillPage{
+	opacity: 1;
+}
+.skillContainer.skillContainSwitch{
+	transition: opacity 0.4s ease 0.8s;
+}
 
 /*----------------------------------------------------------
 	skillCard
@@ -278,7 +291,9 @@ $sizes: 2500 2000 1500 1000 800 600 400;
 .skillContainer:not(.ng-enter) .skillCard{
 	animation: bounceInUp 0.7s ease-out 0s both;
 }
-
+.skillContainer.skillContainSwitch .skillCard{
+	animation: bounceInUp 0.7s ease-out 0.8s both;
+}
 
 @for $i from 1 through 10 {
 	.skillCard:nth-child(#{$i}) {
@@ -290,33 +305,73 @@ $sizes: 2500 2000 1500 1000 800 600 400;
 /*----------------------------------------------------------
 	Navbar on bottom of skillPages
 ------------------------------------------------------------*/
+
+.skillContainer:not(.ng-enter) .bottomNavBar{
+	animation: fadeInUp 0.6s ease-out 0s both;
+}
+
+.skillContainer.skillContainSwitch .bottomNavBar{
+	animation: none;
+}
+
 .skillPageNav{
-	display: none;
+	width: 100%;
+	display: block;
+	position: absolute;
+	bottom: 101%;
+	left: 0;
+	height: 4rem;
+	background: white;
+	border-top: 1px solid #C5C5C5;
+	z-index: 100;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-direction: row;
 }
-// .skillPageNav{
-// 	width: 100%;
-// 	display: block;
-// 	position: absolute;
-// 	bottom: 101%;
-// 	left: 0;
-// 	height: 4rem;
-// 	background: white;
-// 	border-top: 1px solid #C5C5C5;
-// 	z-index: 100;
-// 	display: flex;
-// 	align-items: center;
-// 	justify-content: space-around;
-// 	flex-direction: row;
-// }
-// .skillPage.bottomNavMargins:after{
-// 	height: 10.25rem;
-// }
-
-// .skillNav{
-// 	flex: 1 1 33%;
-// 	height: 100%;
-// }
-
-.skillContainer:not(.ng-enter) .bottomNavBar {
-	animation: fadeInUpBig 0.6s ease-out 0s both;
+.skillPage.bottomNavMargins:after{
+	height: 10.25rem;
 }
+
+.skillNav{
+	flex: 1 1 33%;
+	height: 100%;
+}
+
+.skillNavNotifier{
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	height: 0.3rem;
+	background: rgba(194, 194, 194, 0.33);
+	z-index: 100;
+}
+
+.skillNavActive{
+	width: 33.333%;
+	height: 100%;
+	position: absolute;
+	transition: transform 0.2s ease-out 0s,background 0.2s ease-out 0s;
+
+	.skillContainer.ux &,
+	.skillContainer.ux ~ .skillContainer & {
+		transform: translateX(0%);
+		background: $red;
+	}
+	.skillContainer.design &,
+	.skillContainer.design ~ .skillContainer & {
+		transform: translateX(100%);
+		background: $blue;
+	}
+	.skillContainer.dev &,
+	.skillContainer.dev ~ .skillContainer & {
+		transform: translateX(200%);
+		background: $green;
+	}
+}
+
+
+
+
+
+
