@@ -4,69 +4,87 @@ var skillsData = {
 			name:"ux",
 			skills : [
 				{
-					title:"Illustrator"
-				},
-				{
-					title:"Sketch"
-				},
-				{
 					title:"Wireframes"
 				},
 				{
-					title:"Rapid Prototypes"
+					title:"Rapid Code Prototypes"
 				},
 				{
-					title:"Usability Testing"
+					title:"Usability Tests"
 				},
+				{
+					title:"A/B Tests"
+				}
 			]
 		},
 		{
 			name:"design",
 			skills : [
 				{
-					title:"Photoshop"
+					title:"Responsive Design"
 				},
 				{
-					title:"User Interface Design"
+					title:"Interface Design"
 				},
 				{
 					title:"Responsive Web Design"
 				},
 				{
-					title:"ExtendScript"
+					title:"Motion Graphics"
 				},
 				{
-					title:"Premiere"
+					title:"Animation"
 				},
 				{
-					title:"After Effects"
-				}
+					title:"Video Editing"
+				},
 			]
 		},
 		{
 			name:"dev",
 			skills : [
 				{
-					title:"HTML5 & CSS3"
+					title:"HTML5"
 				},
 				{
-					title:"CSS Preprocessors"
+					title:"CSS3"
 				},
 				{
 					title:"Javascript"
 				},
 				{
-					title:"AngularJS"
+					title:"CSS Preprocessors"
 				},
 				{
-					title:"php + Wordpress"
+					title:"jQuery"
 				},
 				{
-					title:"git"
+					title:"Javasript MVC"
 				},
 				{
-					title:"gulp"
-				}
+					title:"php"
+				},
+				{
+					title:"Wordpress"
+				},
+				{
+					title:"HTML Emails"
+				},
+				{
+					title:"Performance Optimization"
+				},
+				{
+					title:"Version Control"
+				},
+				{
+					title:"Process Tools"
+				},
+				{
+					title:"Linux CLI"
+				},
+				{
+					title:"Agile"
+				},
 			]
 		}
 	]

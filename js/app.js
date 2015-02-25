@@ -42,13 +42,14 @@ app.config(function($urlRouterProvider, $stateProvider, $uiViewScrollProvider) {
 app.controller('globalCtrl', function($scope,$rootScope){
     $rootScope.preventScroll = false;
     $rootScope.showNav = false;
-
+    // Animate toggle for global nav
     $scope.toggleNav = function(){
       $rootScope.showNav = !$rootScope.showNav;
       $rootScope.preventScroll =  $rootScope.showNav;
     }
+    // Add class to body for overflow: hidden
     $scope.toggleScroll = function(override){
-      if(override){
+      if(typeof override){
         $rootScope.preventScroll = override;
       } else {
         $rootScope.preventScroll = !$rootScope.preventScroll;
@@ -62,7 +63,7 @@ app.controller('skillsCtrl', function($scope, $rootScope, $stateParams){
     $scope.whichskill = $stateParams.whichskill;
     // Get JSON object for our skill
     $scope.skillCards = skillsData.skillGroups.filter(function(s){return s.name===$scope.whichskill})[0].skills;
-
+    // Track if we're opening new or switching between skills
     $scope.$on('$stateChangeSuccess', function (ev, to, toParams, from, fromParams) {
       if(fromParams.whichskill != undefined)
         $scope.skillContainSwitch = true;
