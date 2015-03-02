@@ -119,7 +119,7 @@ section:not(:last-child){ margin-bottom: 2rem }
 	position: relative;
 	font-size: 2rem;
 	border-radius: 50%;
-	box-shadow: 0px 0px 1px #222;
+	border: 1px solid rgb(221, 221, 221);
 	width: 2rem;
 	height: 2rem;
 	line-height: 1rem;
@@ -128,11 +128,68 @@ section:not(:last-child){ margin-bottom: 2rem }
 
 .cta-button{
 	background: #fff;
-	color: black;
+	color: #000;
 	display: inline-block;
-	padding: 0.5rem 1rem;
+	padding: 1rem 1.5rem;
 	position: relative;
 	font-size: 1.5rem;
-	box-shadow: 0px 0px 1px #222;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 	cursor: pointer;
+	border: 1px solid rgb(221, 221, 221);
+	border-radius: 0.25rem;
+}
+
+.cta,.cta-button{
+	transition: all 0.3s ease-out 0s;
+
+	&:hover{
+		background: #CDCDCD;
+		box-shadow: 0 0 3rem rgba(0, 0, 0, 0.2);
+	}
+	&:active{
+		box-shadow: 0 0 0rem rgba(0, 0, 0, 0), 0 0 0.5rem rgba(0, 0, 0, 0.3) inset;
+		background-color: rgb(253, 253, 253);
+	}
+}
+
+
+/*----------------------------------------------------------
+	portfolioBanner is a full-width gray banner > p+em+span.cta
+------------------------------------------------------------*/
+
+.portfolioBanner{
+	width: 100%;
+	background-color: rgba(0,0,0,0.8);
+	text-align: center;
+	padding: 6rem 0;
+
+	.portfolioBannerText {
+		display: inline-block;
+		font-size: 2.5rem;
+		font-weight: 300;
+		line-height: 3.5rem;
+		transition: font-size 0.5s 0s ease;
+		color:white !important;
+		text-decoration: none !important;
+		cursor:pointer;
+
+		@media screen and (max-width: 600px){
+			font-size: 2rem;
+		}
+
+		em {
+			font-weight: 700;
+		}
+
+		.cta {
+			margin-top:1rem;
+			margin-left:1rem;
+
+			@media screen and (max-width: 600px){
+				width: 1.5rem;
+				height: 1.5rem;
+				font-size: 1.5rem;
+			}
+		}
+	}
 }

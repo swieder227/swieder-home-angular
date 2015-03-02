@@ -47,20 +47,9 @@
 }
 
 .contactCard{
-	position: relative;
-	cursor: pointer;
 	font-size: 2rem;
-	font-weight: 300;
-	padding: 3rem;
-	border: 1px solid #b5b5b5;
-	box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.1),0 0 0rem rgba(0, 0, 0, 0) inset;
-	background-color: rgb(255, 255, 255);
-	transition: all 0.3s ease-out 0s;
-	border-radius: 0.3rem;
+	padding: 2rem;
 	overflow: hidden;
-	width:100%;
-	box-sizing: border-box;
-
 	display:flex;
 	flex-direction:row;
 	justify-content:flex-start;
@@ -80,13 +69,6 @@
 		font-size: 1.75rem;
 	}
 
-	&:hover{
-		box-shadow: 0 0 3rem rgba(0, 0, 0, 0.2);
-	}
-	&:active{
-		box-shadow: 0 0 0rem rgba(0, 0, 0, 0), 0 0 0.5rem rgba(0, 0, 0, 0.3) inset;
-		background-color: rgb(253, 253, 253);
-	}
 }
 
 .ccContain {

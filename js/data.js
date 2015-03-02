@@ -21,13 +21,10 @@ var skillsData = {
 			name:"design",
 			skills : [
 				{
-					title:"Responsive Design"
+					title:"Responsive Web Design"
 				},
 				{
 					title:"Interface Design"
-				},
-				{
-					title:"Responsive Web Design"
 				},
 				{
 					title:"Motion Graphics"

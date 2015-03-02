@@ -125,47 +125,6 @@ h4 {
 }
 
 /*----------------------------------------------------------
-	portfolioBanner is a full-width gray banner > p+em+span.cta
-------------------------------------------------------------*/
-
-.portfolioBanner{
-	width: 100%;
-	background-color: rgba(0,0,0,0.8);
-	text-align: center;
-	padding: 6rem 0;
-
-	.portfolioBannerText {
-		display: inline-block;
-		font-size: 2.5rem;
-		font-weight: 300;
-		line-height: 3.5rem;
-		transition: font-size 0.5s 0s ease;
-		color:white !important;
-		text-decoration: none !important;
-		cursor:pointer;
-
-		@media screen and (max-width: 600px){
-			font-size: 2rem;
-		}
-
-		> em {
-			font-weight: 700;
-		}
-
-		.cta {
-			margin-top:1rem;
-			margin-left:1rem;
-
-			@media screen and (max-width: 600px){
-				width: 1.5rem;
-				height: 1.5rem;
-				font-size: 1.5rem;
-			}
-		}
-	}
-}
-
-/*----------------------------------------------------------
 	skillContainer animate in/out and have overflowing content
 ------------------------------------------------------------*/
 
@@ -337,6 +296,12 @@ $sizes: 2500 2000 1500 1000 800 600 400;
 .skillNav{
 	flex: 1 1 33%;
 	height: 100%;
+	cursor:pointer;
+}
+
+.skillNav:nth-child(3){
+	border-left: 1px solid rgba(194, 194, 194, 0.33);
+	border-right: 1px solid rgba(194, 194, 194, 0.33);
 }
 
 .skillNavNotifier{
