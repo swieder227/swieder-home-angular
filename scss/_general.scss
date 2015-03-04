@@ -9,14 +9,8 @@ a{
 }
 
 
-// .mainPage{ transition: opacity 0.4s ease-out 0s; }
-// .mainPage.ng-enter{ opacity: 0; transition-delay: 0.4s}
-// .mainPage.ng-enter-active{ opacity: 1 }
-// .mainPage.ng-leave{ opacity: 1 }
-// .mainPage.ng-leave-active{ opacity: 0 }
-
-
 .preventScroll{ overflow: hidden; }
+.white { color: white; }
 
 /*----------------------------------------------------------
 	Spacing
@@ -56,15 +50,16 @@ section:not(:last-child){ margin-bottom: 2rem }
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	flex-direction: row;
 }
 
 .flex-space-around{
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
-	flex-direction: row;
 }
+
+.flex-row{ flex-direction: row; }
+.flex-col{ flex-direction: column; }
 
 .flex-wrap{ flex-wrap: wrap; }
 
@@ -110,7 +105,9 @@ section:not(:last-child){ margin-bottom: 2rem }
 	border-top: 1px solid #C5C5C5;
 }
 
-
+/*----------------------------------------------------------
+	Call to Action, .cta is circular, .cta-button is rectangular
+------------------------------------------------------------*/
  .cta{
 	background: #fff;
 	color: black;

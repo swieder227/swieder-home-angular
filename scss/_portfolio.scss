@@ -44,19 +44,16 @@
 	width: 100%;
 	height: 100%;
 	background-color: black;
-	opacity: 0.3;
+	opacity: 0.5;
 	transition: opacity 0.3s ease 0s;
-}
-.pcHero:hover .pcHeroCurtain{
-	opacity: 0;
-}
-.portfolioCard.loading .pcHeroCurtain {
-	opacity: 0;
+
+	.portfolioCard.loading & {
+		opacity: 0.3;
+	}
 }
 
-// 	.pcBeauty:hover &{
-// 		opacity: 0.3;
-// 	}
+
+
 .pcBlock {
 	height: 25rem;
 	border-bottom:1px solid #b5b5b5;
@@ -94,29 +91,6 @@
 	}
 
 }
-
-// Shrink active hero img
-.portfolioCard.active .pcHero{
-	max-height: 25rem;
-}
-//Hover over non-active pcHero
-.portfolioCard.active .pcHero:hover .pcHeroImg{
-	transform: scale(1.05);
-}
-//Rotate active pcShowMore +
-.portfolioCard.active .pcShowMore > div:first-child{
-	transform: rotate(45deg);
-}
-//Hide active pcShowMore text
-.portfolioCard.active .pcShowMore > div:last-child{
-	opacity: 0;
-}
-//Animate-out active curtain
-.portfolioCard.active .pcHeroCurtain{
-	opacity: 0;
-}
-
-
 
 .pcBody {
 	font-size: 1.5rem;
@@ -180,12 +154,85 @@ $tags: ux,psd,ai,wp,php,html,css,js,webcode;
 
 	padding: 1.25rem 2rem 0rem 1.25rem;
 
-	p{
+	> p{
 		font-size: 3rem;
 		line-height: 3rem;
 		font-family: "Roboto Slab";
+
+		@media screen and (max-width: 500px) {
+			font-size: 2.5rem;
+		}
+	}
+
+	> .white{
+		text-shadow: 0 0 3px black;
 	}
 }
+
+/*----------------------------------------------------------
+	Hero Text
+------------------------------------------------------------*/
+.pcHeroText{
+	opacity: 1;
+	transition: opacity 0.4s ease-out 0s;
+}
+.pcSubtitle{
+
+	display: block;
+	padding: 0.7rem;
+	margin: 1rem 0;
+	background-color: white;
+	transition: all 0.3s ease-out 0.1s;
+	opacity: 0;
+	transform:scale(0.75);
+
+	> p{
+		font-size: 1.5rem;
+		font-weight: 700;
+	}
+}
+
+.pcHeroText .cta{
+	transition: all 0.6s ease-out;
+	transform:translateY(-100%);
+}
+.pcHeroText .cta:hover,
+.pcHeroText .cta-button:hover{
+	background-color: white;
+}
+
+/*----------------------------------------------------------
+	Hover effects
+------------------------------------------------------------*/
+.pcHero:hover .pcHeroCurtain{
+	opacity: 0.3;
+}
+.pcHero:hover .pcSubtitle{
+	opacity: 1;
+	transform:scale(1);
+	transition: opacity 0.4s ease-out 0s, transform 0.4s ease-out 0s;
+}
+.pcHero:hover .pcHeroText .cta{
+	transform:translateY(0%);
+}
+
+/*----------------------------------------------------------
+	Active Effects
+------------------------------------------------------------*/
+.portfolioCard.active{
+
+	// Shrink active hero img
+	.pcHero{
+		max-height: 25rem;
+	}
+	//Animate-out active curtain and text
+	.pcHeroCurtain,
+	.pcHeroText{
+		opacity: 0;
+	}
+
+}
+
 
 
 .thanks{
