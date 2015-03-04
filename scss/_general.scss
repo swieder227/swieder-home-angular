@@ -6,6 +6,10 @@ html{
 a{
 	text-decoration: none;
 	color: initial;
+
+	&:hover{
+		text-decoration: underline;
+	}
 }
 
 
@@ -16,7 +20,6 @@ a{
 	Spacing
 ------------------------------------------------------------*/
 section:not(:last-child){ margin-bottom: 2rem }
-
 
 .headerMargins:before{
 	content:'';
@@ -169,6 +172,7 @@ section:not(:last-child){ margin-bottom: 2rem }
 		color:white !important;
 		text-decoration: none !important;
 		cursor:pointer;
+		padding: 0 2rem;
 
 		@media screen and (max-width: 600px){
 			font-size: 2rem;

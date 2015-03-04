@@ -182,7 +182,7 @@ $tags: ux,psd,ai,wp,php,html,css,js,webcode;
 	padding: 0.7rem;
 	margin: 1rem 0;
 	background-color: white;
-	transition: all 0.3s ease-out 0.1s;
+	transition: all 0.5s ease-out 0s;
 	opacity: 0;
 	transform:scale(0.75);
 
@@ -210,7 +210,7 @@ $tags: ux,psd,ai,wp,php,html,css,js,webcode;
 .pcHero:hover .pcSubtitle{
 	opacity: 1;
 	transform:scale(1);
-	transition: opacity 0.4s ease-out 0s, transform 0.4s ease-out 0s;
+	transition: all 0.3s ease-out 0.2s;
 }
 .pcHero:hover .pcHeroText .cta{
 	transform:translateY(0%);
