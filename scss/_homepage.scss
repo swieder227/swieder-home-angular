@@ -352,6 +352,10 @@ $sizes: 2500 2000 1500 1000 800 600 400;
 	font-size: 1.5rem;
 	line-height: 2.5rem;
 	margin-top: 1.5rem;
+
+	a:hover{
+		text-decoration: underline;
+	}
 }
 
 
